@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mahasiswa;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
@@ -14,7 +15,9 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $data = Mahasiswa::all()->toArray();
+        return view('Mahasiswa.mahasiswaInsert', compact('data'));
+        
     }
 
     /**
@@ -24,7 +27,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Mahasiswa.mahasiswaInsert');
     }
 
     /**
@@ -35,7 +38,17 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $simpan = new Mahasiswa([
+            'nim' => $request->get('nim'),
+            'nama' => $request->get('nama'),
+            'alamat' => $request->get('alamat'),
+            'jenis_kelamin' => $request->get('jenis_kelamin'),
+            'no_tlp' => $request->get('no_tlp'),
+            'ttl' => $request->get('ttl'),
+            'id_jurusan' => $request->get('id_jurusan')
+        ]);
+        $simpan->save();
+        return redirect('Mahasiswa.create');
     }
 
     /**

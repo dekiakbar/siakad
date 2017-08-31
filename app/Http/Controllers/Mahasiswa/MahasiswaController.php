@@ -16,7 +16,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $data = Mahasiswa::all()->toArray();
-        return view('Mahasiswa.mahasiswaInsert', compact('data'));
+        return view('Mahasiswa.mahasiswaIndex', compact('data'));
         
     }
 
@@ -48,7 +48,7 @@ class MahasiswaController extends Controller
             'id_jurusan' => $request->get('id_jurusan')
         ]);
         $simpan->save();
-        return redirect('Mahasiswa.create');
+        return redirect('/Mahasiswa');
     }
 
     /**

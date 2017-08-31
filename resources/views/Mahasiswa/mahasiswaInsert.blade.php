@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label-lg col-form-label">Tepmat Tanggal Lahir :</label>
+				<label class="col-sm-2 col-form-label-lg col-form-label">Tempat Tanggal Lahir :</label>
 				<div class="col-sm-10">
 					<input type="text" name="ttl" placeholder="Masukan Tanggal Lahir" class="form-control">
 				</div>
@@ -58,5 +58,14 @@
 				<button type="submit" class="btn btn-primary btn-sm">Save</button>
 			</div>
 		</form>
+		@if($errors->any())
+			<div class="col-sm-12">
+    			<div class="alert alert-danger">
+        			@foreach($errors->all() as $error)
+            			<p>{{ $error }}</p>
+        			@endforeach
+    			</div>
+    		</div>
+		@endif
 	</div>
 @endsection

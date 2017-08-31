@@ -37,7 +37,16 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $this ->validate($request,[
+            'nim' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_tlp' => 'required',
+            'ttl' => 'required',
+            'id_jurusan' => 'required'
+        ]);
         $simpan = new Mahasiswa([
             'nim' => $request->get('nim'),
             'nama' => $request->get('nama'),

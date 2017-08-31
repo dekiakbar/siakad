@@ -6,6 +6,7 @@
 	<div class="container">
 		<form method="post" action="{{action('Mahasiswa\MahasiswaController@update', $id)}}">
 			<div class="form-group row">
+				<input name="_method" type="hidden" value="PATCH">
 				{{csrf_field()}}
 				<label class="col-sm-2 col-form-label col-form-label-lg">Nim :</label>
 				<div class="col-sm-10">

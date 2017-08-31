@@ -21,13 +21,23 @@
 			<tbody>
 				@foreach($data as $data)
 				<tr>
-					<td>{{$data['nim']}}</td>
-					<td>{{$data['nama']}}</td>
-					<td>{{$data['jenis_kelamin']}}</td>
-					<td>{{$data['ttl']}}</td>
-					<td>{{$data['no_tlp']}}</td>
-					<td>{{$data['id_jurusan']}}</td>
-					<td><a href="{{action('Mahasiswa\MahasiswaController@edit', $data['id'])}}" class="btn btn-primary btn-sm">Edit</a></td>
+					<td>{{$data->nim}}</td>
+					<td>{{$data->nama}}</td>
+					<td>{{$data->jenis_kelamin}}</td>
+					<td>{{$data->ttl}}</td>
+					<td>{{$data->no_tlp}}</td>
+					<td>{{$data->id_jurusan}}</td>
+					<td>
+						<a href="{{action('Mahasiswa\MahasiswaController@edit', $data->id)}}" class="btn btn-primary btn-sm">Edit</a>
+						{!!
+							Form::open([
+							'method' => 'DELETE',
+							'route' => ['Mahasiswa.destroy', $data->id]
+							])
+						!!}
+						{!!Form::submit('Delete',['class' => 'btn btn-primary btn-sm'])!!}
+						{!! Form::close()!!}
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

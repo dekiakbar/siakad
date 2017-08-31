@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $data = Mahasiswa::all()->toArray();
+        $data = Mahasiswa::all();
         return view('Mahasiswa.mahasiswaIndex', compact('data'));
         
     }
@@ -103,6 +103,8 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Mahasiswa::find($id);
+        $hapus->delete();
+        return redirect('/Mahasiswa');
     }
 }

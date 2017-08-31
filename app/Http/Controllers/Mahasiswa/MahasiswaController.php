@@ -57,7 +57,16 @@ class MahasiswaController extends Controller
             'id_jurusan' => $request->get('id_jurusan')
         ]);
         $simpan->save();
-        return redirect('/Mahasiswa');
+
+        if (Mahasiswa::create($request->all())) {
+            $request->session()->flash('status', 'success');
+            $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+        }else{
+            $request->session()->flash('status', 'danger');
+            $request->session()->flash('pesan', 'Data gagal Disimpan!!');
+        }
+
+        return redirect('/Mahasiswa/create');
     }
 
     /**

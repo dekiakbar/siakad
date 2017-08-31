@@ -3,6 +3,9 @@
 @section('title', 'Insert Data')
 
 @section('content')
+	<div class="col-sm-12 text-center">
+		<h3>Insert Data Mhasiswa</h3>
+	</div>
 	<div class="container">
 		<form method="post" action="{{url('Mahasiswa')}}">
 			<div class="form-group row">
@@ -36,13 +39,14 @@
 			<div class="row form-group">
 				<label class="col-form-label col-form-label-lg col-sm-2">No Tlp :</label>
 				<div class="col-sm-10">
-					<input type="text" name="no_tlp" placeholder="eg.085799999999" class="form-control">
+					<input type="text" name="no_tlp" placeholder="08xxxxxxxxxxx" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label-lg col-form-label">Tempat Tanggal Lahir :</label>
 				<div class="col-sm-10">
 					<input type="text" name="ttl" placeholder="Masukan Tanggal Lahir" class="form-control">
+					{{Form::text('date', '', array('id' => 'datepicker'))}}
 				</div>
 			</div>
 			<div class="form-group row">

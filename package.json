@@ -19,6 +19,7 @@
         "vue": "^2.1.10"
     },
     "dependencies": {
-        "bootstrap": "^4.0.0-alpha.4"
+        "bootstrap": "^4.0.0-alpha.4",
+        "vuejs-datepicker": "^0.9.11"
     }
 }

@@ -34,6 +34,12 @@
 				</div>
 			</div>
 			<div class="form-group row">
+				<label class="col-sm-2 col-form-label col-form-label-lg">Email :</label>
+				<div class="col-sm-10">
+					<input type="text" name="email" placeholder="email@contoh.com" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
 				<label class="col-sm-2 col-form-label-lg col-form-label">Tempat Lahir :</label>
 				<div class="col-sm-5">
 					<input type="text" name="tempat" placeholder="Masukan Tempat Lahir" class="form-control">
@@ -64,7 +70,7 @@
 				</div>
 			</div>
 			<div class="col-sm-12 text-center">
-				<button type="submit" class="btn btn-primary btn-sm">Save</button>
+				<button type="submit" class="btn btn-primary ">Save</button>
 			</div>
 		</form>
 		@if($errors->any())

@@ -57,6 +57,7 @@ class MahasiswaController extends Controller
             'no_tlp' => $request->get('no_tlp'),
             'tempat' => $request->get('tempat'),
             'tanggal' => $request->get('tanggal'),
+            'link' => time().'.'.$request->file('foto')->getClientOriginalExtension(),
             'id_jurusan' => $request->get('id_jurusan')
         ]);
 

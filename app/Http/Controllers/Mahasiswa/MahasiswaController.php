@@ -44,7 +44,8 @@ class MahasiswaController extends Controller
             'alamat' => 'required|max:100',
             'jenis_kelamin' => 'required|max:9',
             'no_tlp' => 'required|regex:/[0-9]{12}/',
-            'ttl' => 'required',
+            'tempat' => 'required',
+            'tanggal' => 'required',
             'id_jurusan' => 'required'
         ]);
         $simpan = new Mahasiswa([
@@ -53,7 +54,7 @@ class MahasiswaController extends Controller
             'alamat' => $request->get('alamat'),
             'jenis_kelamin' => $request->get('jenis_kelamin'),
             'no_tlp' => $request->get('no_tlp'),
-            'ttl' => $request->get('ttl'),
+            'ttl' => $request->get('tempat').$request->get('tanggal'),
             'id_jurusan' => $request->get('id_jurusan')
         ]);
         $simpan->save();

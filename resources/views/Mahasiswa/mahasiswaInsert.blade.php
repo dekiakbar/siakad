@@ -43,10 +43,13 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label-lg col-form-label">Tempat Tanggal Lahir :</label>
-				<div class="col-sm-10">
-					<input type="text" name="ttl" placeholder="Masukan Tanggal Lahir" class="form-control">
-					{{Form::text('date', '', array('id' => 'datepicker'))}}
+				<label class="col-sm-2 col-form-label-lg col-form-label">Tempat Lahir :</label>
+				<div class="col-sm-5">
+					<input type="text" name="tempat" placeholder="Masukan Tempat Lahir" class="form-control">
+				</div>
+				<label class="col-sm-2 col-form-label">Tanggal Lahir:</label>
+				<div class="col-sm-3">
+					<input type="text" name="tanggal" class="form-control" id="datepicker" placeholder="Tanggal Lahir">
 				</div>
 			</div>
 			<div class="form-group row">

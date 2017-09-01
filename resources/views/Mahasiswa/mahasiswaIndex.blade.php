@@ -14,6 +14,7 @@
 					<td>Jenis Kelamin</td>
 					<td>Tempat Tanggal Lahir</td>
 					<td>No Handphone</td>
+					<td>Email</td>
 					<td>Jurusan</td>
 					<td>Aksi</td>
 				</tr>
@@ -26,6 +27,7 @@
 					<td>{{$data->jenis_kelamin}}</td>
 					<td>{{$data->tempat.','.$data->tanggal}}</td>
 					<td>{{$data->no_tlp}}</td>
+					<td>{{$data->email}}</td>
 					<td>{{$data->id_jurusan}}</td>
 					<td>
 						<a href="{{action('Mahasiswa\MahasiswaController@edit', $data->id)}}" class="btn btn-primary btn-sm">Edit</a>

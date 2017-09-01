@@ -114,8 +114,11 @@ class MahasiswaController extends Controller
         $update->nama = $request->get('nama');
         $update->alamat = $request->get('alamat');
         $update->jenis_kelamin = $request->get('jenis_kelamin');
-        $update->ttl = $request->get('ttl');
         $update->no_tlp = $request->get('no_tlp');
+        $update->email = $request->get('email');
+        $update->tempat = $request->get('tempat');
+        $update->tanggal = $request->get('tanggal');
+        $update->link = time().'.'.$request->file('foto')->getClientOriginalExtension();
         $update->id_jurusan = $request->get('id_jurusan');
         $update->save();
         return redirect('/Mahasiswa');

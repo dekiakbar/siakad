@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Mahasiswa;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use App\Http\Requests\MahasiswaRequest;
 use App\Mahasiswa;
 
 class MahasiswaController extends Controller
@@ -36,20 +38,8 @@ class MahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {   
-        $this ->validate($request,[
-            'nim' => 'required|min:3|max:8',
-            'nama' => 'required|min:3|max:30',
-            'alamat' => 'required|min:3|max:100',
-            'jenis_kelamin' => 'required|max:9',
-            'no_tlp' => 'required|regex:/[0-9]{12}/',
-            'email' => 'required|email',
-            'tempat' => 'required|min:3|max:20',
-            'tanggal' => 'required',
-            'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            'id_jurusan' => 'required'
-        ]);
+    public function store(MahasiswaRequest $request)
+    {     
         $simpan = new Mahasiswa([
             'nim' => $request->get('nim'),
             'nama' => $request->get('nama'),
@@ -136,7 +126,7 @@ class MahasiswaController extends Controller
         
         $namaFoto =time().'.'.$request->foto->getClientOriginalExtension();
         $request->foto->move(public_path('imageMahasiswa'),$namaFoto);
-        
+
         if ($update->save()) {
             $request->session()->flash('status','success');
             $request->session()->flash('pesan','Data berhasil Diedit');

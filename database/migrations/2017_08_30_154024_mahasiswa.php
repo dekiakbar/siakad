@@ -20,7 +20,8 @@ class Mahasiswa extends Migration
             $table->string('alamat');
             $table->string('jenis_kelamin');
             $table->string('no_tlp');
-            $table->string('ttl');
+            $table->string('tempat');
+            $table->date('tanggal');
             $table->integer('id_jurusan');
             $table->timestamps();
         });

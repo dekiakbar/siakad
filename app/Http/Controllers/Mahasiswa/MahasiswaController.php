@@ -54,10 +54,10 @@ class MahasiswaController extends Controller
             'alamat' => $request->get('alamat'),
             'jenis_kelamin' => $request->get('jenis_kelamin'),
             'no_tlp' => $request->get('no_tlp'),
-            'ttl' => $request->get('tempat').$request->get('tanggal'),
+            'tempat' => $request->get('tempat'),
+            'tanggal' => $request->get('tanggal'),
             'id_jurusan' => $request->get('id_jurusan')
         ]);
-        $simpan->save();
 
         if (Mahasiswa::create($request->all())) {
             $request->session()->flash('status', 'success');

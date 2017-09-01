@@ -71,5 +71,14 @@
 				<button type="submit" class="btn btn-primary">Update</button>
 			</div>
 		</form>
+		@if($errors->any())
+			<div class="col-sm-12">
+				<div class="alert alert-danger">
+					@foreach($errors->all() as $error)
+						<p>{{ $error }}</p>
+					@endforeach
+				</div>
+			</div>
+		@endif
 	</div>
 @endsection

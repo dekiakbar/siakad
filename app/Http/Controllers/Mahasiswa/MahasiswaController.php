@@ -108,7 +108,20 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        $this ->validate($request,[
+            'nim' => 'required|min:3|max:8',
+            'nama' => 'required|min:3|max:30',
+            'alamat' => 'required|min:3|max:100',
+            'jenis_kelamin' => 'required|max:9',
+            'no_tlp' => 'required|regex:/[0-9]{12}/',
+            'email' => 'required|email',
+            'tempat' => 'required|min:3|max:20',
+            'tanggal' => 'required',
+            'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'id_jurusan' => 'required'
+        ]);
+
         $update = Mahasiswa::find($id);
         $update->nim = $request->get('nim');
         $update->nama = $request->get('nama');
@@ -120,7 +133,19 @@ class MahasiswaController extends Controller
         $update->tanggal = $request->get('tanggal');
         $update->link = time().'.'.$request->file('foto')->getClientOriginalExtension();
         $update->id_jurusan = $request->get('id_jurusan');
-        $update->save();
+        
+        $namaFoto =time().'.'.$request->foto->getClientOriginalExtension();
+        $request->foto->move(public_path('imageMahasiswa'),$namaFoto);
+        
+        if ($update->save()) {
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan','Data berhasil Diedit');
+        }else{
+            $request->session()->flash('status','danger');
+            $request->session()->flash('pesan','Data Gagal Diubah!!');
+        }
+
+
         return redirect('/Mahasiswa');
     }
 

@@ -24,7 +24,7 @@
 					<td>{{$data->nim}}</td>
 					<td>{{$data->nama}}</td>
 					<td>{{$data->jenis_kelamin}}</td>
-					<td>{{$data->ttl}}</td>
+					<td>{{$data->tempat.','.$data->tanggal}}</td>
 					<td>{{$data->no_tlp}}</td>
 					<td>{{$data->id_jurusan}}</td>
 					<td>

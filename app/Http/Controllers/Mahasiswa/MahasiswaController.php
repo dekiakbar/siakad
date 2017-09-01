@@ -39,12 +39,12 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {   
         $this ->validate($request,[
-            'nim' => 'required|max:8',
-            'nama' => 'required|max:30',
-            'alamat' => 'required|max:100',
+            'nim' => 'required|min:3|max:8',
+            'nama' => 'required|min:3|max:30',
+            'alamat' => 'required|min:3|max:100',
             'jenis_kelamin' => 'required|max:9',
             'no_tlp' => 'required|regex:/[0-9]{12}/',
-            'tempat' => 'required',
+            'tempat' => 'required|min:3|max:20',
             'tanggal' => 'required',
             'id_jurusan' => 'required'
         ]);

@@ -46,6 +46,7 @@ class MahasiswaController extends Controller
             'no_tlp' => 'required|regex:/[0-9]{12}/',
             'tempat' => 'required|min:3|max:20',
             'tanggal' => 'required',
+            'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'id_jurusan' => 'required'
         ]);
         $simpan = new Mahasiswa([
@@ -59,7 +60,7 @@ class MahasiswaController extends Controller
             'id_jurusan' => $request->get('id_jurusan')
         ]);
 
-        if (Mahasiswa::create($request->all())) {
+        if ($simpan->save()) {
             $request->session()->flash('status', 'success');
             $request->session()->flash('pesan', 'Data Berhasil Disimpan');
         }else{
@@ -67,6 +68,9 @@ class MahasiswaController extends Controller
             $request->session()->flash('pesan', 'Data gagal Disimpan!!');
         }
 
+        $namaFoto =time().'.'.$request->foto->getClientOriginalExtension();
+        $request->foto->move(public_path('imageMahasiswa'),$namaFoto);
+        
         return redirect('/Mahasiswa/create');
     }
 

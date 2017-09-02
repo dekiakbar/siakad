@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Matakuliah;
+
 class MakulController extends Controller
 {
     /**
@@ -25,7 +26,7 @@ class MakulController extends Controller
      */
     public function create()
     {
-        //
+        return view('Makul.makulInsert');
     }
 
     /**

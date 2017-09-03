@@ -17,7 +17,8 @@ class MakulController extends Controller
      */
     public function index()
     {
-        //
+        $data = Matakuliah::all();
+        return view('Makul.makulIndex', compact('data'));
     }
 
     /**
@@ -75,7 +76,8 @@ class MakulController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Matakuliah::find($id);
+        return view('Makul.makulEdit',compact('data','id'));
     }
 
     /**
@@ -85,9 +87,22 @@ class MakulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MakulRequest $request, $id)
     {
-        //
+        $update = Matakuliah::find($id);
+        $update->kode_mk = $request->get('kode_mk');
+        $update->makul = $request->get('makul');
+        $update->sks = $request->get('sks');
+
+        if ($update->save()) {
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan','Mata Kuliah Berhasil Di Perbaharui');
+        }else{
+            $request->session()->flash('status','danger');
+            $request->session()->flash('pesan','Mata Kuliah Gagal Di Perbaharui');
+        }
+
+        return redirect('/Makul');
     }
 
     /**

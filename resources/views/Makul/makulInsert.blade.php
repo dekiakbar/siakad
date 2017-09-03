@@ -6,30 +6,32 @@
 		<h4 class="text-center">Insert Data Mata Kuliah</h4>
 	</div>
 	<div class="container">
-		{{csrf_field()}}
-		{{Form::Open(array('url' => 'Makul' ,'method' => 'post'))}}
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label col-form-label-lg">Kode Mata Kuliah :</label>
-			<div class="col-sm-9">
-				{{ Form::text('kode_mk',null,['class' => 'form-control','placeholder' => 'Masukan Kode Mata Kuliah'])}}
-			</div>
+		<div class="row">
+			{{csrf_field()}}
+			{{Form::Open(array('url' => 'Makul' ,'method' => 'post','class' => 'col s12'))}}
+				<div class="row">
+					<div class="input-field col s12">
+						{{Form::text('kode_mk',null,array('id' => 'kode','data-length' => '8'))}}
+						<label for="kode">Kode Mata Kuliah</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						{{ Form::text('makul',null, array('id' => 'makul','data-length' => '20'))}}
+						<label for="makul">Nama Mata Kuliah</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						{{ Form::text('sks',null, array('id' => 'sks', 'data-length' => '2'))}}
+						<label for="sks">Jumlah SKS</label>
+					</div>
+				</div>
+				<div class="col s12 text-center">
+					<button class=" btn waves waves-effect blue">Simpan</button>
+				</div>
+			{{Form::close()}}
 		</div>
-		<div class="row form-group">
-			<label class="col-sm-3 col-form-label col-form-label-lg">Nama Mata Kuliah :</label>
-			<div class="col-sm-9">
-				{{Form::text('makul',null,['class' => 'form-control', 'placeholder' => 'Masukan Nama Mata Kuliah'])}}
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label col-form-label-lg">Jumlah SKS</label>
-			<div class="col-sm-9">
-				{{Form::text('sks', null,['class' => 'form-control', 'placeholder' => 'Masukan Jumlah SKS'])}}
-			</div>
-		</div>
-		<div class="col-sm-12 text-center">
-			{{Form::submit('Simpan', ['class' => 'btn waves-effect waves-light blue darken-2'])}}
-		</div>
-		{{Form::close()}}
 		@if($errors->any())
 			<div class="col-sm-12">
 				@foreach($errors->all() as $error)

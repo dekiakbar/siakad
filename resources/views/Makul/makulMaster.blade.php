@@ -16,7 +16,7 @@
     <div class="container">
         @yield('content')
     </div>
-
+    
     <script src="{{ asset('js/materialize.js') }}"></script>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 </body>

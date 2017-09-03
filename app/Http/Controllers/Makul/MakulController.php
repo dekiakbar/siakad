@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Matakuliah;
+use App\Http\Requests\MakulRequest;
 
 class MakulController extends Controller
 {
@@ -35,9 +36,24 @@ class MakulController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MakulRequest $request)
     {
-        //
+        
+        $ambil = new Matakuliah([
+            'kode_mk' => $request->get('kode_mk'),
+            'makul' => $request->get('makul'),
+            'sks' => $request->get('sks')
+        ]);
+
+        if ($ambil->save()) {
+            $request->session()->flash('status', 'success');
+            $request->session()->flash('pesan','Data Berhasil Disimpan');
+        }else{
+            $request->session()->flash('status', 'danger');
+            $request->session()->flash('pesan', 'Datag Gagal Disimpan');
+        }
+
+        return redirect('/Makul/create');
     }
 
     /**

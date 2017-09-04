@@ -9,6 +9,7 @@
 		<table class="table table-stripped">
 			<thead>
 				<tr>
+					<td>No</td>
 					<td>Kode Mata Kuliah</td>
 					<td>Nama Mata Kuliah</td>
 					<td>Jumlah SKS</td>
@@ -16,12 +17,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($data as $data)
+				@foreach($data as $no =>$data)
 				<tr>
+					<td>{{ ++$no}}</td>
 					<td>{{$data->kode_mk}}</td>
 					<td>{{$data->makul}}</td>
 					<td>{{$data->sks}}</td>
-					<td> 
+					<td class="text-center"> 
 						{!!Form::open(['method' => 'DELETE','route' => ['Makul.destroy', $data->id]])!!}
 							<a href="{{action('Makul\MakulController@edit',$data->id)}}" class="btn btn-floating waves-light waves-effect blue"><i class="material-icons">mode_edit</i></a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></button>

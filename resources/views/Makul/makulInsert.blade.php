@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="col s12 text-center">
-					<button class=" btn waves waves-effect blue">Simpan</button>
+					<button class="btn waves-light waves-effect blue"><i class="material-icons right">send</i>Simpan</button>
 				</div>
 			{{Form::close()}}
 		</div>

@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="col s12 text-center">
-					<button type="submit" class="btn waves waves-effect blue">Update</button>
+					<button type="submit" class="btn waves-light waves-effect blue"><i class="material-icons left">cloud_upload</i>Update</button>
 				</div>
 			{{Form::close()}}
 		</div>

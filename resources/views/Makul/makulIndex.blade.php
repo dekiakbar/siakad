@@ -23,8 +23,8 @@
 					<td>{{$data->sks}}</td>
 					<td> 
 						{!!Form::open(['method' => 'DELETE','route' => ['Makul.destroy', $data->id]])!!}
-							<a href="{{action('Makul\MakulController@edit',$data->id)}}" class="btn btn-sm waves waves-effect blue">Edit</a>
-							{!!Form::submit('Delete',['class' => 'btn btn-sm waves waves-effect red'])!!}
+							<a href="{{action('Makul\MakulController@edit',$data->id)}}" class="btn btn-floating waves-light waves-effect blue"><i class="material-icons">mode_edit</i></a>
+							<button type="submit" class="btn btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></button>
 						{!! Form::close()!!}
 							
 					</td>

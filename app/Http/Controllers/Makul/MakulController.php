@@ -113,6 +113,10 @@ class MakulController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Matakuliah::findOrFail($id);
+        $hapus->delete();
+
+        return redirect('/Makul');
+
     }
 }

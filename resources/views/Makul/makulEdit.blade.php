@@ -9,7 +9,7 @@
 		<div class="row">
 			{{csrf_field()}}
 			{{Form::open(array('method' => 'post','class' => 'col s12','action' => ['Makul\MakulController@update',$data->id]))}}
-				{{Form::text('_method','PATCH',array('type' => 'hidden'))}}
+				{{Form::hidden('_method','PATCH')}}
 				<div class="row">
 					<div class="input-field col s12">
 						{{Form::text('kode_mk',$data->kode_mk,array('id' => 'kode','data-length' => '8'))}}

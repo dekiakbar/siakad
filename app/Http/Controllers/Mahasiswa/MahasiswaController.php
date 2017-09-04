@@ -147,7 +147,7 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        $hapus = Mahasiswa::find($id);
+        $hapus = Mahasiswa::findOrFail($id);
         $hapus->delete();
         return redirect('/Mahasiswa');
     }

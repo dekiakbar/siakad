@@ -18,4 +18,5 @@ Route::get('/', function () {
 
 Route::Resource('Mahasiswa','Mahasiswa\MahasiswaController');
 Route::Resource('Makul','Makul\MakulController');
-Route::post('/Makul/{id}','Makul\MakulController@destroy');
+Route::Resource('Dosen','Dosen\DosenController');
+// Route::post('/Makul/{id}','Makul\MakulController@destroy');

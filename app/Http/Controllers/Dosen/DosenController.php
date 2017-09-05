@@ -24,7 +24,7 @@ class DosenController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dosen.dosenInsert');
     }
 
     /**

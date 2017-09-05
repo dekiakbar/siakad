@@ -88,7 +88,7 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DosenRequest $request, $id)
     {
         $update = Dosen::find($id);
         $update->nip = $request->get('nip');

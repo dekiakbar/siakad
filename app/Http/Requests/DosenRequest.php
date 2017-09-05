@@ -31,4 +31,20 @@ class DosenRequest extends FormRequest
             'alamat' => 'required|min:5|max:100'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nip.required' => 'Form NIP tidak boleh kosong',
+            'nip.min' => 'Form NIP setidaknya harus berisi 3 karakter',
+            'nip.max' => 'Form NIP maksimal harus berisi 8 karakter',
+            'notlp.required' => 'Form No telpon tidak boleh kosong',
+            'notlp.min' => 'No telpn setidaknya harus terdiri dari 10 angka',
+            'notlp.max' => 'No telpon maksimal berisi 14 angka',
+            'notlp.regex' => 'Form no telpon harus diisi dengan angka',
+            'alamat.required' => 'Form alamat tidak boleh kosong',
+            'alamat.min' => 'Form alamat setidaknya harus berisi 5 karakter',
+            'alamat.max' => 'Form alamat maksimal berisi 100 karakter',
+        ];
+    }
 }

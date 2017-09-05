@@ -90,7 +90,22 @@ class DosenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Dosen::find($id);
+        $update->nip = $request->get('nip');
+        $update->nama = $request->get('nama');
+        $update->notlp = $request->get('notlp');
+        $update->jeniskelamin = $request->get('jeniskelamin');
+        $update->alamat = $request->get('alamat');
+
+        if ($update->save()) {
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan','Data Berhasil Di Update');
+        }else{
+            $request->session()->flash('status','danger');
+            $request->session()->flash('pesan', 'Data Berhasil Di Update');
+        } 
+
+        return redirect('/Dosen');
     }
 
     /**

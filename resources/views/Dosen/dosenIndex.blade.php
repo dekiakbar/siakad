@@ -40,5 +40,12 @@
 				@endforeach
 			</tbody>
 		</table>
+		@if(session()->has('status'))
+			<div class="col s12">
+				<div class="alert alert-{{session('status')}}">
+					{!! session('pesan') !!}
+				</div>
+			</div>
+		@endif
 	</div>
 @endsection

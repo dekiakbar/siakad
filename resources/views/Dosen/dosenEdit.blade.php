@@ -9,6 +9,7 @@
 	<div class="row">
 		{{csrf_field()}}
 		{{Form::open(array('method' => 'post', 'class' => 'col s12','action' => ['Dosen\DosenController@update',$data->id]))}}
+		{{Form::hidden('_method','PATCH')}}
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">format_list_numbered</i>

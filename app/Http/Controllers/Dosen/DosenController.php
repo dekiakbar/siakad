@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Dosen;
+use App\Http\Requests\DosenRequests;
 
 class DosenController extends Controller
 {
@@ -16,7 +17,8 @@ class DosenController extends Controller
      */
     public function index()
     {
-        //
+        $dosen = Dosen::all();
+        return view('Dosen.dosenIndex', compact('dosen'));
     }
 
     /**
@@ -98,6 +100,8 @@ class DosenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Dosen::findOrFail($id);
+        $hapus->delete();
+         return redirect('/Dosen');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Dosen;
-use App\Http\Requests\DosenRequests;
+use App\Http\Requests\DosenRequest;
 
 class DosenController extends Controller
 {
@@ -37,7 +37,7 @@ class DosenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DosenRequest $request)
     {
         $simpan = new Dosen([
             'nip' => $request->get('nip'),
@@ -77,7 +77,8 @@ class DosenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Dosen::Find($id);
+        return view('Dosen.dosenEdit',compact('data','id'));
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('Dosen.masterDosen')
 
-@section('judul', 'Inser Data Dosen')
+@section('judul', 'Edit Data Dosen')
 
 @section('content')
 	<div class="col s12">
@@ -8,23 +8,23 @@
 	</div>
 	<div class="row">
 		{{csrf_field()}}
-		{{Form::open(array('url' => 'Dosen', 'method' => 'post', 'class' => 'col s12'))}}
+		{{Form::open(array('method' => 'post', 'class' => 'col s12','action' => ['Dosen\DosenController@update',$data->id]))}}
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">format_list_numbered</i>
-					{{Form::text('nip',null,['id' => 'nip', 'data-length' => '8'])}}
+					{{Form::text('nip',$data->nip,['id' => 'nip', 'data-length' => '8'])}}
 					<label for="nip">NIP</label>
 				</div>
 				<div class="input-field col s6">
 					<i class="material-icons prefix">account_circle</i>
-					{{Form::text('nama',null,['id' => 'nama' ,'data-length' => '30'])}}
+					{{Form::text('nama',$data->nama,['id' => 'nama' ,'data-length' => '30'])}}
 					<label for="nama">Nama Dosen</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">phone</i>
-					{{Form::text('notlp',null,['id' => 'tlp' ,'data-length' => '14'])}}
+					{{Form::text('notlp',$data->notlp,['id' => 'tlp' ,'data-length' => '14'])}}
 					<label for="tlp"> No Telpon</label>
 				</div>
 				<div class="input-field col s6">
@@ -33,6 +33,7 @@
 							<i class="material-icons prefix">accessibility</i>
 							<label>Jenis Kelamin :</label>
 						</div>
+						@if($data->jeniskelamin == 'Laki-Laki')
 						<div class="col s4">
 							{{Form::radio('jeniskelamin','Laki-Laki',true,['class' => 'with-gap','id' => 'jenkel'])}}
 							<label for="jenkel">Laki-Laki</label>
@@ -41,13 +42,25 @@
 							{{Form::radio('jeniskelamin','Perempuan',false,['class' => 'with-gap', 'id' => 'jenkel1'])}}
 							<label for="jenkel1">Perempuan</label>
 						</div>
+						@endif
+						@if($data->jeniskelamin == 'Perempuan')
+						<div class="col s4">
+							{{Form::radio('jeniskelamin','Laki-Laki',false,['class' => 'with-gap','id' => 'jenkel'])}}
+							<label for="jenkel">Laki-Laki</label>
+						</div>
+						<div class="col s4">
+							{{Form::radio('jeniskelamin','Perempuan',true,['class' => 'with-gap', 'id' => 'jenkel1'])}}
+							<label for="jenkel1">Perempuan</label>
+						</div>
+						@endif
+
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
 					<i class="material-icons prefix">today</i>
-					{{Form::text('alamat',null,['id' => 'alamat','data-length' => '100'])}}
+					{{Form::text('alamat',$data->alamat,['id' => 'alamat','data-length' => '100'])}}
 					<label for="alamat">Alamat Dosen</label>
 				</div>
 			</div>
@@ -57,21 +70,5 @@
 				</div>
 			</div>
 		{{Form::close()}}		
-		@if(session()->has('status'))
-			<div class="col s12">
-				<div class="alert alert-{{session('status')}}">
-					{!! session('pesan') !!}
-				</div>
-			</div>
-		@endif
-		@if($errors->any())
-			<div class="col s12">
-				@foreach($errors->all() as $error)
-					<div class="alert alert-danger">
-						{{ $error }}
-					</div>
-				@endforeach
-			</div>
-		@endif
 	</div>
 @endsection

@@ -13,7 +13,7 @@ class DosenRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class DosenRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nip' => 'required|min:3|max:8',
+            'nama' => 'required|min:3|max:30',
+            'notlp' => 'required|min:10|max:14|regex:/[0-9]/',
+            'jeniskelamin' => 'required|min:9|max:9',
+            'alamat' => 'required|min:5|max:100'
         ];
     }
 }

@@ -5,7 +5,7 @@
 	<div class="col s12">
 		<h4 class="text-center">Daftar Data Dosen</h4>
 	</div>
-	<div class="container">
+	<div class="content">
 		<table class="table table-stripped">
 			<thead>
 				<tr>

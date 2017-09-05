@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dosen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Dosen;
+
 class DosenController extends Controller
 {
     /**
@@ -35,7 +37,23 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $simpan = new Dosen([
+            'nip' => $request->get('nip'),
+            'nama' => $request->get('nama'),
+            'jeniskelamin' => $request->get('jeniskelamin'),
+            'alamat' => $request->get('alamat'),
+            'notlp' => $request->get('notlp')
+        ]);
+
+        if ($simpan->save()) {
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan', 'Data Dosen Berhasil Disimpan');
+        }else{
+            $request->session()->flash('status','danger');
+            $required->session()->flash('pesan','Data Dosen Gagal Disimpan');
+        }
+
+        return redirect('Dosen/create');
     }
 
     /**

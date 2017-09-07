@@ -11,9 +11,80 @@
     {!! MaterializeCSS::include_full() !!}
 </head>
 <body>
-    <div class="container">
+<div id="container">
+    <div id="menu">
+        <ul id="slide-out" class="side-nav fixed">
+            <li>
+                <div class="userView">
+                    <img class="background blue">
+                    <a href="#"><img class="circle white" ></a>
+                    <a href="#"><span class="white-text name">{{Auth::user()->name}}</span></a>
+                    <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
+                </div>
+            </li>
+            <li><a href="#!">Logout <i class="material-icons">log_out</i></a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Data Dosen<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="/Dosen">Daftar Dosen</a></li>
+                    <li><a href="/Dosen/create">Insert Data Dosen</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Mahasiswa<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="/Mahasiswa">Daftar Mahasiswa</a></li>
+                    <li><a href="/Mahasiswa/create">Insert Mahasiswa</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Mata Kuliah<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="/Makul">Data Mata Kuliah</a></li>
+                    <li><a href="/Makul/create">Mata Kuliah<i class="material-icons">plus</i></a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+    </div>
+
+    <div id="content">
+        <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+    </div>
+    <div style="margin-left: 240px;">
         @yield('content')
     </div>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+</div>
+
+    <script type="text/javascript">  
+    $('.button-collapse').sideNav({
+      menuWidth: 240,
+      edge: 'left',
+      closeOnClick: false, 
+      draggable: true 
+        }
+    ); 
+    </script>
 </body>
 </html>

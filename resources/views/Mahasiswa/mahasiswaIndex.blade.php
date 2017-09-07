@@ -3,7 +3,7 @@
 
 @section('content')
 	<div class="col-sm-12">
-		<h3 class="text-center">Daftar mahasiswa</h3>
+		<h4 class="text-center">Daftar mahasiswa</h4>
 	</div>
 	<div class="container">
 		<table class="table table-stripped">

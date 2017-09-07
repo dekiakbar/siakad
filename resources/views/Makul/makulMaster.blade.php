@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>@yield('title')</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/manual.css')}}">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {!! MaterializeCSS::include_full() !!}
@@ -17,7 +18,7 @@
             <li>
                 <div class="userView">
                     <img class="background blue">
-                    <a href="#"><img class="circle white" ></a>
+                    <a href="#"><img class="circle white use_avatar" src="{{url('storage/avatar.png')}}"></a>
                     <a href="#"><span class="white-text name">{{Auth::user()->name}}</span></a>
                     <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
                 </div>
@@ -27,12 +28,10 @@
             <ul class="collapsible collapsible-accordion">
               <li>
                 <a class="collapsible-header waves-effect">Data Dosen<i class="material-icons">arrow_drop_down</i></a>
-                <div class="collapsible-body">
-                  <ul>
-                    <li><a href="/Dosen">Daftar Dosen</a></li>
-                    <li><a href="/Dosen/create">Insert Data Dosen</a></li>
+                  <ul class="collapsible-body">
+                    <li><a href="/Dosen">Dosen<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Dosen/create">Data Dosen<i class="material-icons tiny">add</i></a></li>
                   </ul>
-                </div>
               </li>
             </ul>
           </li>
@@ -40,12 +39,10 @@
             <ul class="collapsible collapsible-accordion">
               <li>
                 <a class="collapsible-header waves-effect">Mahasiswa<i class="material-icons">arrow_drop_down</i></a>
-                <div class="collapsible-body">
-                  <ul>
-                    <li><a href="/Mahasiswa">Daftar Mahasiswa</a></li>
-                    <li><a href="/Mahasiswa/create">Insert Mahasiswa</a></li>
+                  <ul class="collapsible-body">
+                    <li><a href="/Mahasiswa">Mahasiswa<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Mahasiswa/create">Mahasiswa<i class="material-icons tiny">add</i></a></li>
                   </ul>
-                </div>
               </li>
             </ul>
           </li>
@@ -53,12 +50,10 @@
             <ul class="collapsible collapsible-accordion">
               <li>
                 <a class="collapsible-header waves-effect">Mata Kuliah<i class="material-icons">arrow_drop_down</i></a>
-                <div class="collapsible-body">
-                  <ul>
-                    <li><a href="/Makul">Data Mata Kuliah</a></li>
-                    <li><a href="/Makul/create">Mata Kuliah<i class="material-icons">plus</i></a></li>
+                  <ul class="collapsible-body">
+                    <li><a href="/Makul">Mata Kuliah<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Makul/create">Mata Kuliah<i class="material-icons tiny">add</i></a></li>
                   </ul>
-                </div>
               </li>
             </ul>
           </li>
@@ -71,15 +66,14 @@
             <i class="material-icons">menu</i>
         </a>
     </div>
-    <div style="margin-left: 240px;">
-        @yield('content')
-    </div>
+    
+    @yield('content')
 
 </div>
 
     <script type="text/javascript">  
     $('.button-collapse').sideNav({
-      menuWidth: 240,
+      menuWidth: 250,
       edge: 'left',
       closeOnClick: false, 
       draggable: true 

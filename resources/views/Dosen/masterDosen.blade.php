@@ -1,20 +1,84 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale()}}">
+<html lang="{{ app()->getLocale() }}">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>@yield('judul')</title>
+    <title>@yield('title')</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/manual.css')}}">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {!! MaterializeCSS::include_full() !!}
 </head>
 <body>
-	<div class="container">
-		@yield('content')
-	</div>
+<div id="container">
+    <div id="menu">
+        <ul id="slide-out" class="side-nav fixed">
+            <li>
+                <div class="userView">
+                    <img class="background blue">
+                    <a href="#"><img class="circle white use_avatar" src="{{url('storage/avatar.png')}}"></a>
+                    <a href="#"><span class="white-text name">{{Auth::user()->name}}</span></a>
+                    <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
+                </div>
+            </li>
+            <li><a href="#!">Logout <i class="material-icons">log_out</i></a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Data Dosen<i class="material-icons">arrow_drop_down</i></a>
+                  <ul class="collapsible-body">
+                    <li><a href="/Dosen">Dosen<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Dosen/create">Data Dosen<i class="material-icons tiny">add</i></a></li>
+                  </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Mahasiswa<i class="material-icons">arrow_drop_down</i></a>
+                  <ul class="collapsible-body">
+                    <li><a href="/Mahasiswa">Mahasiswa<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Mahasiswa/create">Mahasiswa<i class="material-icons tiny">add</i></a></li>
+                  </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Mata Kuliah<i class="material-icons">arrow_drop_down</i></a>
+                  <ul class="collapsible-body">
+                    <li><a href="/Makul">Mata Kuliah<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Makul/create">Mata Kuliah<i class="material-icons tiny">add</i></a></li>
+                  </ul>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+    </div>
 
-	 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <div id="content">
+        <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+    </div>
+    
+    @yield('content')
+
+</div>
+
+    <script type="text/javascript">  
+    $('.button-collapse').sideNav({
+      menuWidth: 250,
+      edge: 'left',
+      closeOnClick: false, 
+      draggable: true 
+        }
+    ); 
+    </script>
 </body>
 </html>

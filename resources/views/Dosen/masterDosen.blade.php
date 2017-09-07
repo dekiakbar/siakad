@@ -12,6 +12,7 @@
     {!! MaterializeCSS::include_full() !!}
 </head>
 <body>
+
 <div id="container">
     <div id="menu">
         <ul id="slide-out" class="side-nav fixed">

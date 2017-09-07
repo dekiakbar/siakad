@@ -15,10 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware' => 'auth'], function () {
+	Route::Resource('Mahasiswa','Mahasiswa\MahasiswaController');
+	Route::Resource('Makul','Makul\MakulController');
+	Route::Resource('Dosen','Dosen\DosenController');
+});
 
-Route::Resource('Mahasiswa','Mahasiswa\MahasiswaController');
-Route::Resource('Makul','Makul\MakulController');
-Route::Resource('Dosen','Dosen\DosenController');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

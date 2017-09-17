@@ -5,7 +5,7 @@
 	<div class="col s12">
 		<h4 class="text-center">Daftar Data Dosen</h4>
 	</div>
-	<div class="content">
+	<div class="content" style="margin-right: 20px;">
 		<table class="table table-stripped">
 			<thead>
 				<tr>
@@ -35,6 +35,7 @@
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">
 								<i class="material-icons">delete</i>
 							</button>
+						{{ Form::close() }}
 					</td>
 				</tr>
 				@endforeach

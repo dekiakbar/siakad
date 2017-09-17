@@ -2,10 +2,10 @@
 @section('title','Daftar Mahasiswa')
 
 @section('content')
-	<div class="col-sm-12">
+	<div class="col s12">
 		<h4 class="text-center">Daftar mahasiswa</h4>
 	</div>
-	<div class="container">
+	<div class="content" style="margin-right: 20px;">
 		<table class="table table-stripped">
 			<thead>
 				<tr>
@@ -30,15 +30,14 @@
 					<td>{{$data->email}}</td>
 					<td>{{$data->id_jurusan}}</td>
 					<td>
-						<a href="{{action('Mahasiswa\MahasiswaController@edit', $data->id)}}" class="btn btn-primary btn-sm">Edit</a>
-						{!!
-							Form::open([
-							'method' => 'DELETE',
-							'route' => ['Mahasiswa.destroy', $data->id]
-							])
-						!!}
-						{!!Form::submit('Delete',['class' => 'btn btn-primary btn-sm'])!!}
-						{!! Form::close()!!}
+						{{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
+							<a href="{{action('Mahasiswa\MahasiswaController@edit', $data->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+								<i class="material-icons">mode_edit</i>
+							</a>
+							<button type="submit" class="btn btn-floating waves-effect waves-light red">
+								<i class="material-icons">delete</i>
+							</button>
+						{{ Form::close()}}
 					</td>
 				</tr>
 				@endforeach

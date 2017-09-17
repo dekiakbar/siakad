@@ -10,8 +10,8 @@
 Wanna contact me for the issues, please inbox me.
 
 * [StackOverflow](https://stackoverflow.com/users/7978371/deki-akbar)
-* [Facebook](https:web.facebook.com/itsdekiakbar)
-* [LinkedIn](https:linkedin.com/in/dekiakbar)
+* [Facebook](https://web.facebook.com/itsdekiakbar)
+* [LinkedIn](https://linkedin.com/in/dekiakbar)
 * Email : Dekiakbar@linuxmail.org
 
 ## How to Install this

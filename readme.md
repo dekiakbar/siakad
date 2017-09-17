@@ -9,7 +9,7 @@
 
 Wanna contact me for the issues, please inbox me.
 
-* [StackOverflow](https:web.facebook.com/itsdekiakbar)
+* [StackOverflow](https://stackoverflow.com/users/7978371/deki-akbar)
 * [Facebook](https:web.facebook.com/itsdekiakbar)
 * [LinkedIn](https:linkedin.com/dekiakbar)
 * Email : Dekiakbar@linuxmail.org

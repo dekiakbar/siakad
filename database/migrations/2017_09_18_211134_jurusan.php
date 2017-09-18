@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class JurusanTable extends Migration
+class Jurusan extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,6 @@ class JurusanTable extends Migration
     {
         Schema::create('jurusan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kode_jurusan');
-            $table->string('nama_jurusan');
-            $table->string('jenjang');
-            $tabel->integer('jumlah_semester');
             $table->timestamps();
         });
     }

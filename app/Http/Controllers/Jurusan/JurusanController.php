@@ -16,7 +16,8 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        //
+        $jurusan = Jurusan::all();
+        return view('Jurusan.jurusanIndex',compact('jurusan'));
     }
 
     /**
@@ -26,7 +27,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        //
+        return view('Jurusan.jurusanInsert');
     }
 
     /**
@@ -37,7 +38,12 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $simpan = new Jurusan([
+            'kode_jurusan' => $request->get(''),
+            'nama_jurusan' => $request->get(''),
+            'jenjang' => $request->get(''),
+            'jumlah_semester' => $request->get('')
+        ]);
     }
 
     /**

@@ -19,6 +19,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::Resource('Mahasiswa','Mahasiswa\MahasiswaController');
 	Route::Resource('Makul','Makul\MakulController');
 	Route::Resource('Dosen','Dosen\DosenController');
+	Route::Resource('Jurusan','Jurusan\JurusanController');
 });
 
 Auth::routes();

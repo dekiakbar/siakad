@@ -29,7 +29,11 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('Mahasiswa.mahasiswaInsert');
+        $data['data']=[
+            '1' => 'Teknik Informatika',
+            '2' => 'Teknik Sipil',
+            '3' => 'Teknik Elektro'];
+        return view('Mahasiswa.mahasiswaInsert',$data);
     }
 
     /**

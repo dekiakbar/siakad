@@ -7,8 +7,8 @@
 		<h4>Insert Data Mahasiswa</h4>
 	</div>
 	<div class="content">
-		{{csrf_field()}}
 		{{ Form::open(array('url' => 'Mahasiswa', 'method' => 'post','files' => true, 'class' => 'col s12')) }}
+			{{csrf_field()}}
 			<div class="row">
 				<div class="col s6 input-field">
 					<i class="material-icons prefix">format_list_numbered</i>
@@ -74,12 +74,8 @@
 					<label for="alamat">Alamat :</label>
 				</div>
 				<div class="col s6 input-field">
-					<i class="material-icons prefix">settings_applications</i>
-					{{ Form::select('id_jurusan',[
-						'1' => 'Teknik Informatika',
-						'2' => 'Teknik Sipil'],1,['id' => 'jurusan']
-					) }}
-					<label for="jurusan">Jurusan :</label>
+					{{ Form::select('id_jurusan',['' => 'Pilih Jurusan']+$data ,1,['id' => 'jurusan', 'style' => 'display:inline-block','class' => 'blue-text']) }}
+					
 				</div>
 			</div>
 			<div class="row">

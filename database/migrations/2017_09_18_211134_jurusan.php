@@ -15,6 +15,10 @@ class Jurusan extends Migration
     {
         Schema::create('jurusan', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('kode_jurusan');
+            $table->string('nama_jurusan');
+            $table->string('jenjang');
+            $table->integer('jumlah_semester');
             $table->timestamps();
         });
     }

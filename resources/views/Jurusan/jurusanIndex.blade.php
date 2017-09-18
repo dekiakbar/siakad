@@ -1,5 +1,5 @@
 @extends('Jurusan.masterJurusan')
-@section('title','Daftar Jurusan')
+@section('judul','Daftar Jurusan')
 
 @section('content')
 	<div class="col s12">

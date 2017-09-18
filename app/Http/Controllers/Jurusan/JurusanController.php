@@ -44,6 +44,7 @@ class JurusanController extends Controller
             'jenjang' => $request->get(''),
             'jumlah_semester' => $request->get('')
         ]);
+        
     }
 
     /**

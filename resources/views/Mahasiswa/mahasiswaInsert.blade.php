@@ -63,8 +63,15 @@
 					</div>
 				</div>
 				<div class="col s6 input-field">
-					<i class="material-icons prefix">photo_camera</i>
-					{{ Form::file('foto') }}
+					<div class="file-field input-field">
+				    	<div class="btn">
+				    		<span>File</span>
+				    		{{ Form::file('foto') }}
+				    	</div>
+				    	<div class="file-path-wrapper">
+				    		<input class="file-path validate" type="text">
+				    	</div>
+				    </div>
 				</div>
 			</div>
 			<div class="row">

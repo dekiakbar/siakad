@@ -18,6 +18,48 @@
 					<label for="jurusan">Nama Jurusan</label>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col s12 input-field">
+					<div class="row">
+						<div class="col s2">
+							<i class="material-icons prefix">grade</i>
+							<label>Jenjang :</label>	
+						</div>
+						<div class="col s2">
+							{{ Form::radio('jenjang','D1|6',true,['class' => 'with-gap','id' => 'jenjang']) }}
+							<label for="jenjang">Diploma 1</label>	
+						</div>
+						<div class="col s2">
+							{{ Form::radio('jenjang', 'D3',false,['class' => 'with-gap','id' => 'jenjang1']) }}
+							<label for="jenjang1">Diploma 3</label>
+						</div>
+						<div class="col s2">
+							{{ Form::radio('jenjang', 'S1',false,['class' => 'with-gap','id' => 'jenjang2']) }}
+							<label for="jenjang2">Strata 1</label>
+						</div>
+						<div class="col s2">
+							{{ Form::radio('jenjang', 'S2',false,['class' => 'with-gap','id' => 'jenjang3']) }}
+							<label for="jenjang3">Strata 2</label>
+						</div>
+						<div class="col s2">
+							{{ Form::radio('jenjang', 'D3',false,['class' => 'with-gap','id' => 'jenjang4']) }}
+							<label for="jenjang4">Strata 3</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12">
+				<div class="row text-center">
+					<button class="btn waves-light waves-effect blue"><i class="material-icons right">send</i>Simpan</button>
+				</div>
+			</div>
 		{{ Form::close() }}
+		@if(session()->has('status'))
+			<div class="col s12">
+				<div class="alert alert-{{ session('status') }}">
+					{!! session('pesan') !!}
+				</div>
+			</div>
+		@endif
 	</div>
 @endsection

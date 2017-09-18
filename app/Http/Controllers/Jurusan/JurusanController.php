@@ -39,12 +39,17 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $simpan = new Jurusan([
-            'kode_jurusan' => $request->get(''),
-            'nama_jurusan' => $request->get(''),
-            'jenjang' => $request->get(''),
-            'jumlah_semester' => $request->get('')
+            'kode_jurusan' => $request->get('kode_jurusan'),
+            'nama_jurusan' => $request->get('nama_jurusan'),
+            'jenjang' => $request->get('jenjang[0]'),
+            'jumlah_semester' => $request->get('jenjang[1]')
         ]);
-        
+
+        if ($simpan->save()) {
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+        }
+
     }
 
     /**

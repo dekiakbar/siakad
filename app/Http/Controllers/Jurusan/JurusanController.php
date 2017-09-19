@@ -36,20 +36,37 @@ class JurusanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    protected $semester;
     public function store(Request $request)
-    {
+    {   
+        if ($request->get('jenjang') == "D1") {
+            $semester=2;
+        }elseif ($request->get('jenjang')== "D3") {
+            $semester=6;
+        }elseif ($request->get('jenjang')=="S1") {
+            $semester=8;
+        }elseif ($request->get('jenjang')=="S2") {
+            $semester=10;
+        }elseif ($request->get('jenjang')=="S3") {
+            $semester=12;
+        }
+
         $simpan = new Jurusan([
             'kode_jurusan' => $request->get('kode_jurusan'),
             'nama_jurusan' => $request->get('nama_jurusan'),
-            'jenjang' => $request->get('jenjang[0]'),
-            'jumlah_semester' => $request->get('jenjang[1]')
+            'jenjang' => $request->get('jenjang'),
+            'jumlah_semester' => $semester
         ]);
 
         if ($simpan->save()) {
             $request->session()->flash('status','success');
             $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+        }else{
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan','Data Gagal Disimpan!!');
         }
 
+        return redirect('Jurusan/create');
     }
 
     /**

@@ -26,7 +26,7 @@
 							<label>Jenjang :</label>	
 						</div>
 						<div class="col s2">
-							{{ Form::radio('jenjang','D1|6',true,['class' => 'with-gap','id' => 'jenjang']) }}
+							{{ Form::radio('jenjang','D1',true,['class' => 'with-gap','id' => 'jenjang']) }}
 							<label for="jenjang">Diploma 1</label>	
 						</div>
 						<div class="col s2">
@@ -42,7 +42,7 @@
 							<label for="jenjang3">Strata 2</label>
 						</div>
 						<div class="col s2">
-							{{ Form::radio('jenjang', 'D3',false,['class' => 'with-gap','id' => 'jenjang4']) }}
+							{{ Form::radio('jenjang', 'S3',false,['class' => 'with-gap','id' => 'jenjang4']) }}
 							<label for="jenjang4">Strata 3</label>
 						</div>
 					</div>

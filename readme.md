@@ -1,8 +1,8 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## About Multi Authentication
+## Academy Information System
 <p>
-	This project I was made From this <a href="https://www.youtube.com/watch?v=iKRLrJXNN4M">Video</a>,You can clone this repository for your bussiness, it's free for use.
+	This project I was made with Laravel, while I learn how laravel work, feel free to download and contact me if there is issue(s) on this project.
 </p>
 
 ## Contact Me
@@ -22,7 +22,7 @@ git clone https://github.com/dekiakbar/siakad
 ```
 2.Enter the directory :
 ```
-cd /multiauth
+cd /siakad
 ```
 3.then run the following command in your terminal :
 ```
@@ -32,7 +32,7 @@ composer update
 ```
 php artisan key:generate
 ```
-5.change **.env.example** to **.env** locate on /multiauth or use this command on linux terminal :
+5.change **.env.example** to **.env** locate on /siakad or use this command on linux terminal :
 ```
 cp .env.example .env
 ``` 

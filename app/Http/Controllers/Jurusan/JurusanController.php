@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Jurusan;
+use App\Http\Requests\JurusanRequest;
 
 class JurusanController extends Controller
 {
@@ -37,17 +38,17 @@ class JurusanController extends Controller
      * @return \Illuminate\Http\Response
      */
     protected $semester;
-    public function store(Request $request)
+    public function store(JurusanRequest $request)
     {   
         if ($request->get('jenjang') == "D1") {
             $semester=2;
         }elseif ($request->get('jenjang')== "D3") {
             $semester=6;
-        }elseif ($request->get('jenjang')=="S1") {
+        }elseif ($request->get('jenjang')== "S1") {
             $semester=8;
-        }elseif ($request->get('jenjang')=="S2") {
+        }elseif ($request->get('jenjang')== "S2") {
             $semester=10;
-        }elseif ($request->get('jenjang')=="S3") {
+        }elseif ($request->get('jenjang')== "S3") {
             $semester=12;
         }
 

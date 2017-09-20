@@ -10,6 +10,7 @@ use App\Http\Requests\JurusanRequest;
 
 class JurusanController extends Controller
 {
+    protected $semester;
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +38,7 @@ class JurusanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    protected $semester;
+    
     public function store(JurusanRequest $request)
     {   
         if ($request->get('jenjang') == "D1") {

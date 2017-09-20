@@ -63,11 +63,11 @@
 		@endif
 		@if($errors->any())
 			<div class="col s12">
-				<div class="alert alert-danger">
-					@foreach($errors->all() as $error)
+				@foreach($errors->all() as $error)
+					<div class="alert alert-danger">
 						<p>{!! $error !!}</p>
-					@endforeach
-				</div>
+					</div>
+				@endforeach
 			</div>
 		@endif
 	</div>

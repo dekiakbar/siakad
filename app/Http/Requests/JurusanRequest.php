@@ -25,7 +25,7 @@ class JurusanRequest extends FormRequest
     {
         return [
             'kode_jurusan' =>'required|min:1|max:8',
-            'nama_jurusan' => 'required|min:3|max:20|regex:[a-z A-Z]',
+            'nama_jurusan' => 'required|min:3|max:25|regex:/[a-zA-Z]/',
             'jenjang' => 'required|min:1|max:2'
         ];
     }
@@ -33,7 +33,12 @@ class JurusanRequest extends FormRequest
     public function messages()
     {
         return[
-            'kode_jurusan.required' => 'Form kode jurusan harus diisi'
+            'kode_jurusan.required' => 'Form kode jurusan harus diisi',
+            'kode_jurusan.max' => 'Kode jurusan tidak boleh lebih dari 8 karakter',
+            'nama_jurusan.required' => 'Form nama jurusan harus diisi',
+            'nama_jurusan.min' => 'Nama jurusan setidaknya terdiri dari 3 karakter',
+            'nama_jurusan.max' => 'Nama jurusan maksimal terdiri dari 25 karakter',
+            'nama_jurusan.regex' => 'Nama jurusan hanya boleh di isi dengan huruf',
         ];
     }
 }

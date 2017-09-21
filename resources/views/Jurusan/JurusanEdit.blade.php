@@ -52,17 +52,10 @@
 			</div>
 			<div class="col s12">
 				<div class="row text-center">
-					<button class="btn waves-light waves-effect blue"><i class="material-icons right">send</i>Update</button>
+					<button class="btn waves-light waves-effect blue"><i class="material-icons right">cloud_upload</i>Update</button>
 				</div>
 			</div>
 		{{ Form::close() }}
-		@if(session()->has('status'))
-			<div class="col s12">
-				<div class="alert alert-{{ session('status') }}">
-					{!! session('pesan') !!}
-				</div>
-			</div>
-		@endif
 		@if($errors->any())
 			<div class="col s12">
 				@foreach($errors->all() as $error)

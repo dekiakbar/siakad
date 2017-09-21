@@ -5,16 +5,16 @@
 	<div class="col s12">
 		<h4 class="text-center">Daftar Jurusan</h4>
 	</div>
-	<div class="content" style="margin-right: 20px;">
-		<table class="table table-stripped">
+	<div class="content" >
+		<table class="table centered responsive-table bordered">
 			<thead>
 				<tr>
-					<td>No</td>
-					<td>Kode Jurusan</td>
-					<td>Nama Jurusan</td>
-					<td>Jenjang</td>
-					<td>Semester</td>
-					<td>Action</td>
+					<td class="text-center">No</td>
+					<td class="text-center">Kode Jurusan</td>
+					<td class="text-center">Nama Jurusan</td>
+					<td class="text-center">Jenjang</td>
+					<td class="text-center">Semester</td>
+					<td class="text-center">Action</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,7 +41,7 @@
 		</table>
 
 		@if(session()->has('status'))
-			<div class="col-sm-12">
+			<div class="col sm12">
 				<div class="alert alert-{{session('status')}}">
 					{!!session('pesan')!!}
 				</div>

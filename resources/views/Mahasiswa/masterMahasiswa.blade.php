@@ -58,7 +58,17 @@
               </li>
             </ul>
           </li>
-          
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect">Jurusan<i class="material-icons">arrow_drop_down</i></a>
+                  <ul class="collapsible-body">
+                    <li><a href="/Jurusan">Jurusan<i class="material-icons tiny">list</i></a></li>
+                    <li><a href="/Jurusan/create">Jurusan<i class="material-icons tiny">add</i></a></li>
+                  </ul>
+              </li>
+            </ul>
+          </li>
         </ul>
     </div>
 
@@ -67,9 +77,10 @@
             <i class="material-icons">menu</i>
         </a>
     </div>
+    <div class="container-fluid">
+        @yield('content')  
+    </div>
     
-    @yield('content')
-
 </div>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <script>

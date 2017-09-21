@@ -6,17 +6,17 @@
 		<h4 class="text-center">Daftar mahasiswa</h4>
 	</div>
 	<div class="content" style="margin-right: 20px;">
-		<table class="table table-stripped">
+		<table class="table centered responsive-table bordered">
 			<thead>
 				<tr>
-					<td>NIM</td>
-					<td>Nama</td>
-					<td>Jenis Kelamin</td>
-					<td>Tempat Tanggal Lahir</td>
-					<td>No Handphone</td>
-					<td>Email</td>
-					<td>Jurusan</td>
-					<td>Aksi</td>
+					<td class="text-center">NIM</td>
+					<td class="text-center">Nama</td>
+					<td class="text-center">Jenis Kelamin</td>
+					<td class="text-center">Tempat Tanggal Lahir</td>
+					<td class="text-center">No Handphone</td>
+					<td class="text-center">Email</td>
+					<td class="text-center">Jurusan</td>
+					<td class="text-center">Aksi</td>
 				</tr>
 			</thead>
 			<tbody>

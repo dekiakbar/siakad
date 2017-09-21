@@ -6,16 +6,16 @@
 		<h4 class="text-center">Daftar Data Dosen</h4>
 	</div>
 	<div class="content" style="margin-right: 20px;">
-		<table class="table table-stripped">
+		<table class="table centered responsive-table bordered">
 			<thead>
 				<tr>
-					<td>No</td>
-					<td>NIP</td>
-					<td>Nama</td>
-					<td>No Telpon</td>
-					<td>Jenis Kelamin</td>
-					<td>Alamat</td>
-					<td>Aksi</td>
+					<td class="text-center">No</td>
+					<td class="text-center">NIP</td>
+					<td class="text-center">Nama</td>
+					<td class="text-center">No Telpon</td>
+					<td class="text-center">Jenis Kelamin</td>
+					<td class="text-center">Alamat</td>
+					<td class="text-center">Aksi</td>
 				</tr>
 			</thead>
 			<tbody>

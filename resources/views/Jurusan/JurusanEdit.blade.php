@@ -5,16 +5,18 @@
 		<h4 class="text-center">Tambah Jurusan</h4>
 	</div>
 	<div class="content">
-		{{ Form::open(array('method' => 'post','url' => 'Jurusan','class' => 'col s12')) }}
+		{{ csrf_field() }}
+		{{ Form::open(array('method' => 'post','action' => ['Jurusan\JurusanController@update',$edit->id],'class' => 'col s12')) }}
+			{{ Form::hidden('_method','PATCH') }}
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">assignment</i>
-					{{ Form::text('kode_jurusan',null,['id' => 'kode','data-length' => '8']) }}
+					{{ Form::text('kode_jurusan',$edit->kode_jurusan,['id' => 'kode','data-length' => '8']) }}
 					<label for="kode">Kode Jurusan</label>
 				</div>
 				<div class="input-field col s6">
 					<i class="material-icons prefix">account_balance</i>
-					{{ Form::text('nama_jurusan',null,['id' => 'jurusan','data-length' => '30']) }}
+					{{ Form::text('nama_jurusan',$edit->nama_jurusan,['id' => 'jurusan','data-length' => '30']) }}
 					<label for="jurusan">Nama Jurusan</label>
 				</div>
 			</div>
@@ -50,7 +52,7 @@
 			</div>
 			<div class="col s12">
 				<div class="row text-center">
-					<button class="btn waves-light waves-effect blue"><i class="material-icons right">send</i>Simpan</button>
+					<button class="btn waves-light waves-effect blue"><i class="material-icons right">send</i>Update</button>
 				</div>
 			</div>
 		{{ Form::close() }}

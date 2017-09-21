@@ -14,6 +14,7 @@
 					<td>Nama Jurusan</td>
 					<td>Jenjang</td>
 					<td>Semester</td>
+					<td>Action</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,8 +26,8 @@
 					<td>{{$jurusan->jenjang}}</td>
 					<td>{{$jurusan->jumlah_semester}}</td>
 					<td>
-						{{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$jurusan->id]])}}
-							<a href="{{action('Mahasiswa\MahasiswaController@edit', $jurusan->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+						{{Form::Open(['method' => 'DELETE','route' => ['Jurusan.destroy',$jurusan->id]])}}
+							<a href="{{action('Jurusan\JurusanController@edit', $jurusan->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
 								<i class="material-icons">mode_edit</i>
 							</a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">
@@ -38,6 +39,7 @@
 				@endforeach
 			</tbody>
 		</table>
+
 		@if(session()->has('status'))
 			<div class="col-sm-12">
 				<div class="alert alert-{{session('status')}}">

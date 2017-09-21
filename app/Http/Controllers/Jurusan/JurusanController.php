@@ -90,7 +90,8 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = Jurusan::find($id);
+        return view('Jurusan.JurusanEdit', compact('edit','id'));
     }
 
     /**
@@ -100,9 +101,35 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JurusanRequest $request, $id)
     {
-        //
+        if ($request->get('jenjang') == "D1") {
+            $semester=2;
+        }elseif ($request->get('jenjang')== "D3") {
+            $semester=6;
+        }elseif ($request->get('jenjang')== "S1") {
+            $semester=8;
+        }elseif ($request->get('jenjang')== "S2") {
+            $semester=10;
+        }elseif ($request->get('jenjang')== "S3") {
+            $semester=12;
+        }
+
+        $update = Jurusan::find($id);
+        $update->nama_jurusan = $request->get('nama_jurusan');
+        $update->kode_jurusan = $request->get('kode_jurusan');
+        $update->jenjang = $request->get('jenjang');
+        $update->jumlah_semester = $semester;
+
+        if ($update->save()) {
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+        }else{
+            $request->session()->flash('status','success');
+            $request->session()->flash('pesan','Data Gagal Disimpan!!');
+        }
+
+        return redirect('Jurusan');
     }
 
     /**
@@ -113,6 +140,17 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Jurusan::find($id);
+        
+        if ($hapus->delete()) {
+            session()->flash('status','success');
+            session()->flash('pesan', 'Data Berhasil Diahpus');
+        }else{
+            session()->flash('status','success');
+            session()->flash('pesan','Data Gagal Dihapus!!');
+        }
+
+        return redirect('Jurusan');
+        
     }
 }

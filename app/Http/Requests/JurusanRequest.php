@@ -25,7 +25,7 @@ class JurusanRequest extends FormRequest
     {
         return [
             'kode_jurusan' =>'required|min:1|max:8',
-            'nama_jurusan' => 'required|min:3|max:25|regex:/[a-zA-Z]/',
+            'nama_jurusan' => 'required|min:3|max:30|regex:/[a-zA-Z]/',
             'jenjang' => 'required|min:1|max:2'
         ];
     }

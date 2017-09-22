@@ -1,6 +1,6 @@
 @extends('Mahasiswa.masterMahasiswa')
 
-@section('title', 'Insert Data')
+@section('judul', 'Insert Data')
 
 @section('content')
 	<div class="col-sm-12 text-center">

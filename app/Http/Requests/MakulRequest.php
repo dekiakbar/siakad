@@ -25,7 +25,7 @@ class MakulRequest extends FormRequest
     {
         return [
             'kode_mk' => 'required|min:3|max:8',
-            'makul' =>  'required|min:3|max:20',
+            'makul' =>  'required|min:3|max:35',
             'sks' => 'required|min:1|max:2|regex:/[0-9]/'
         ];
     }

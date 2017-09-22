@@ -1,5 +1,5 @@
 @extends('Mahasiswa.masterMahasiswa')
-@section('title','Daftar Mahasiswa')
+@section('judul','Daftar Mahasiswa')
 
 @section('content')
 	<div class="col s12">

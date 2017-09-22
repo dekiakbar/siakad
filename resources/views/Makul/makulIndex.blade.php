@@ -1,5 +1,5 @@
 @extends('Makul.makulMaster')
-@section('title','Daftar Mata Kuliah')
+@section('judul','Daftar Mata Kuliah')
 
 @section('content')
 	<div class="col s12">

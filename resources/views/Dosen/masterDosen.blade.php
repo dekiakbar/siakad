@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>@yield('title')</title>
+    <title>@yield('judul')</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/manual.css')}}">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -24,11 +24,11 @@
                     <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
                 </div>
             </li>
-            <li><a href="#!">Logout <i class="material-icons">log_out</i></a></li>
+            <li><a href="#!">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li>
-                <a class="collapsible-header waves-effect">Data Dosen<i class="material-icons">arrow_drop_down</i></a>
+                <a class="collapsible-header waves-effect waves-cyan">Data Dosen<i class="material-icons">arrow_drop_down</i></a>
                   <ul class="collapsible-body">
                     <li><a href="/Dosen">Dosen<i class="material-icons tiny">list</i></a></li>
                     <li><a href="/Dosen/create">Data Dosen<i class="material-icons tiny">add</i></a></li>
@@ -39,7 +39,7 @@
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li>
-                <a class="collapsible-header waves-effect">Mahasiswa<i class="material-icons">arrow_drop_down</i></a>
+                <a class="collapsible-header waves-effect waves-cyan">Mahasiswa<i class="material-icons">arrow_drop_down</i></a>
                   <ul class="collapsible-body">
                     <li><a href="/Mahasiswa">Mahasiswa<i class="material-icons tiny">list</i></a></li>
                     <li><a href="/Mahasiswa/create">Mahasiswa<i class="material-icons tiny">add</i></a></li>
@@ -50,7 +50,7 @@
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li>
-                <a class="collapsible-header waves-effect">Mata Kuliah<i class="material-icons">arrow_drop_down</i></a>
+                <a class="collapsible-header waves-effect waves-cyan">Mata Kuliah<i class="material-icons">arrow_drop_down</i></a>
                   <ul class="collapsible-body">
                     <li><a href="/Makul">Mata Kuliah<i class="material-icons tiny">list</i></a></li>
                     <li><a href="/Makul/create">Mata Kuliah<i class="material-icons tiny">add</i></a></li>
@@ -61,7 +61,7 @@
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li>
-                <a class="collapsible-header waves-effect">Jurusan<i class="material-icons">arrow_drop_down</i></a>
+                <a class="collapsible-header waves-effect waves-cyan">Jurusan<i class="material-icons">arrow_drop_down</i></a>
                   <ul class="collapsible-body">
                     <li><a href="/Jurusan">Jurusan<i class="material-icons tiny">list</i></a></li>
                     <li><a href="/Jurusan/create">Jurusan<i class="material-icons tiny">add</i></a></li>

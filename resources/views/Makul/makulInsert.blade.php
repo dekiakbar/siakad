@@ -1,5 +1,5 @@
 @extends('Makul.makulMaster')
-@section('title','Tambah Mata Kuliah')
+@section('judul','Tambah Mata Kuliah')
 
 @section('content')
 	<div class="col-sm-12">
@@ -17,7 +17,7 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						{{ Form::text('makul',null, array('id' => 'makul','data-length' => '20'))}}
+						{{ Form::text('makul',null, array('id' => 'makul','data-length' => '35'))}}
 						<label for="makul">Nama Mata Kuliah</label>
 					</div>
 				</div>

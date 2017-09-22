@@ -117,7 +117,13 @@ class DosenController extends Controller
     public function destroy($id)
     {
         $hapus = Dosen::findOrFail($id);
-        $hapus->delete();
-         return redirect('/Dosen');
+        if ($hapus->delete()) {
+            session()->flash('status','success');
+            session()->flash('pesan','Data dosen berhasil dihapus');
+        }else{
+            session()->flash('status','danger');
+            session()->flash('pesan','Data dosen gagal dihapus');
+        }
+        return redirect('/Dosen');
     }
 }

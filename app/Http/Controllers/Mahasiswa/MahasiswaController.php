@@ -101,21 +101,8 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MahasiswaRequest $request, $id)
     {   
-        $this ->validate($request,[
-            'nim' => 'required|min:3|max:8',
-            'nama' => 'required|min:3|max:30',
-            'alamat' => 'required|min:3|max:100',
-            'jenis_kelamin' => 'required|max:9',
-            'no_tlp' => 'required|regex:/[0-9]{12}/',
-            'email' => 'required|email',
-            'tempat' => 'required|min:3|max:20',
-            'tanggal' => 'required',
-            'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            'id_jurusan' => 'required'
-        ]);
-
         $update = Mahasiswa::find($id);
         $update->nim = $request->get('nim');
         $update->nama = $request->get('nama');
@@ -152,7 +139,13 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $hapus = Mahasiswa::findOrFail($id);
-        $hapus->delete();
+        if ($hapus->delete()) {
+            session()->flash('status', 'success');
+            session()->flash('pesan','Data mahasiswa berhasil dihapus');
+        }else{
+            session()->flash('status', 'danger');
+            session()->flash('pesan', 'Data mahasiswa gagal dihapus!!');
+        }
         return redirect('/Mahasiswa');
     }
 }

@@ -3,7 +3,7 @@
 
 @section('content')
 	<div class="col s12">
-		<h4 class="text-center">Daftar Jurusan</h4>
+		<h4 class="text-center cyan-text">Daftar Jurusan</h4>
 	</div>
 	<div class="content" >
 		<table class="table centered responsive-table bordered">

@@ -24,11 +24,14 @@ class Mahasiswa extends Migration
             $table->string('tempat');
             $table->date('tanggal');
             $table->string('link');
-            $table->integer('id_jurusan');
+            $table->Integer('id_jurusan')->unsigned();
             $table->timestamps();
         });
-    }
 
+        Schema::enableForeignKeyConstraints('mahasiswa', function(Blueprint $table){
+            $table->foreign('id_jurusan')->references('id')->on('jurusan')->onDelete('CASCADE');
+        });
+    }
     /**
      * Reverse the migrations.
      *

@@ -81,7 +81,13 @@
 					<label for="alamat">Alamat :</label>
 				</div>
 				<div class="col s6 input-field">
-					{{ Form::select('id_jurusan',['' => 'Pilih Jurusan']+$data ,1,['id' => 'jurusan', 'style' => 'display:inline-block','class' => 'blue-text']) }}
+					{{-- {{ Form::select('id_jurusan',['' => 'Pilih Jurusan',]+ ,1,['id' => 'jurusan', 'style' => 'display:inline-block','class' => 'blue-text']) }} --}}
+					<select name="id_jurusan" class="blue-text" style="display: inline-block;">
+						<option value="" selected="true">Pilih Jurusan</option>
+						@foreach($data as $data)
+						<option value="{!! $data->id !!}">{!! $data->nama_jurusan !!}</option>
+						@endforeach
+					</select>
 					
 				</div>
 			</div>

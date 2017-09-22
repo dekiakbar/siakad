@@ -29,11 +29,8 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        $data['data']=[
-            '1' => 'Teknik Informatika',
-            '2' => 'Teknik Sipil',
-            '3' => 'Teknik Elektro'];
-        return view('Mahasiswa.mahasiswaInsert',$data);
+        $data = \App\Jurusan::with('mahasiswa')->select('id','nama_jurusan')->get();
+        return view('Mahasiswa.mahasiswaInsert',compact('data'));
     }
 
     /**

@@ -8,4 +8,9 @@ class Jurusan extends Model
 {
     protected $fillable =['kode_jurusan','nama_jurusan','jenjang','jumlah_semester'];
     protected $table ='jurusan';
+
+    public function mahasiswa()
+    {
+    	return $this->belongsTo('App\Mahasiswa');
+    }
 }

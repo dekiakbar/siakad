@@ -24,7 +24,8 @@
                     <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
                 </div>
             </li>
-            <li><a href="#!">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li>
+            <li><a href="#!" class="waves-effect waves-dark">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li>
+            <li><a href="#!" class="waves-effect waves-dark">Preview <i class="material-icons cyan-text">home</i></a></li>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li>
@@ -83,18 +84,9 @@
     
 </div>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
   <script>
-    $('.button-collapse').sideNav({
-      menuWidth: 250,
-      edge: 'left',
-      closeOnClick: false, 
-      draggable: true 
-      }
-    );
-
-    $(function() {
-      $( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
-    });
+   
   </script>
 </body>
 </html>

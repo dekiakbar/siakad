@@ -13,9 +13,6 @@
 					<td class="text-center">Nama</td>
 					<td class="text-center">Jenis Kelamin</td>
 					<td class="text-center">Tempat Tanggal Lahir</td>
-					<td class="text-center">No Handphone</td>
-					<td class="text-center">Email</td>
-					<td class="text-center">Jurusan</td>
 					<td class="text-center">Aksi</td>
 				</tr>
 			</thead>
@@ -23,12 +20,9 @@
 				@foreach($data as $data)
 				<tr>
 					<td>{{$data->nim}}</td>
-					<td>{{$data->nama}}</td>
+					<td><a href="{{ action('Mahasiswa\MahasiswaController@show',$data->id) }}">{{$data->nama}}</a></td>
 					<td>{{$data->jenis_kelamin}}</td>
 					<td>{{$data->tempat.','.$data->tanggal}}</td>
-					<td>{{$data->no_tlp}}</td>
-					<td>{{$data->email}}</td>
-					<td>{{$data->id_jurusan}}</td>
 					<td>
 						{{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
 							<a href="{{action('Mahasiswa\MahasiswaController@edit', $data->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">

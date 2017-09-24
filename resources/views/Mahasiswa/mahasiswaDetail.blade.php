@@ -25,12 +25,23 @@
 				    	<i class="material-icons">menu</i>
 				    </a>
 				    <ul>
-				    	<li><a class="btn-floating red" title="Hapus Data"><i class="material-icons">delete_forever</i></a></li>
+				    	<li>
+				    		<a class="btn-floating red" title="Hapus Data" onclick="">
+				    			<i class="material-icons">delete_forever</i>
+
+				    		</a>
+				    	</li>
 				    	<li><a class="btn-floating cyan" title="Edit Data"><i class="material-icons">edit</i></a></li>
 				    	<li><a class="btn-floating green" onclick="goBack()" title="Kembali"><i class="material-icons">keyboard_backspace</i></a></li>
 				    </ul>
 			  	</div>
     		</div>
       	</div>
+      	<script type="text/javascript">
+      		const Icon = '<i class="material-icons print">done_all</i>';
+			const Message = ' Your print job was sent';
+			const $Content = Icon + Message ;
+			Materialize.toast( $Content, 4000,'rounded cyan' );
+      	</script>
 	</div>
 @endsection

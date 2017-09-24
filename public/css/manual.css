@@ -10,8 +10,30 @@
 	text-decoration: none;
 }
 
+/*style sidebar admin*/
 .waves-effect.waves-cyan .waves-ripple {
 	background-color: rgba(0, 188, 212, 0.85);
+}
+
+/*style action button mahasiswa detail*/
+.card .fixed-action-btn{
+	position: relative;
+	bottom: auto;
+	margin-bottom: auto;
+	padding: none;
+	right: auto;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
 }
 
 @media only screen and (max-width : 992px) {

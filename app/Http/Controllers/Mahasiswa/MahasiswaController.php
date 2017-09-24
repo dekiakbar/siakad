@@ -76,8 +76,9 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        $data = Mahasiswa::all();
-        return view('Mahasiswa.mahasiswaDetail',compact('data'));
+        $data = Mahasiswa::find($id);
+        $jurusan = \App\Jurusan::find($data->id_jurusan);
+        return view('Mahasiswa.mahasiswaDetail',compact('data','jurusan'));
     }
 
     /**

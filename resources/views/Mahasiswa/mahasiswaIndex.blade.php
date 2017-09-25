@@ -38,11 +38,12 @@
 			</tbody>
 		</table>
 		@if(session()->has('status'))
-			<div class="col-sm-12">
-				<div class="alert alert-{{session('status')}}">
-					{!!session('pesan')!!}
-				</div>
-			</div>
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
 		@endif
 	</div>
 @endsection

@@ -55,10 +55,10 @@ class MahasiswaController extends Controller
         ]);
 
         if ($simpan->save()) {
-            $request->session()->flash('status', 'success');
+            session()->flash('status', 'done_all');
             $request->session()->flash('pesan', 'Data Berhasil Disimpan');
         }else{
-            $request->session()->flash('status', 'danger');
+            session()->flash('status', 'clear');
             $request->session()->flash('pesan', 'Data gagal Disimpan!!');
         }
 
@@ -119,10 +119,10 @@ class MahasiswaController extends Controller
         $request->foto->move(public_path('imageMahasiswa'),$namaFoto);
 
         if ($update->save()) {
-            $request->session()->flash('status','success');
+            session()->flash('status', 'done_all');
             $request->session()->flash('pesan','Data berhasil Diedit');
         }else{
-            $request->session()->flash('status','danger');
+            session()->flash('status', 'clear');
             $request->session()->flash('pesan','Data Gagal Diubah!!');
         }
 
@@ -140,10 +140,10 @@ class MahasiswaController extends Controller
     {
         $hapus = Mahasiswa::findOrFail($id);
         if ($hapus->delete()) {
-            session()->flash('status', 'success');
+            session()->flash('status', 'done_all');
             session()->flash('pesan','Data mahasiswa berhasil dihapus');
         }else{
-            session()->flash('status', 'danger');
+            session()->flash('status', 'clear');
             session()->flash('pesan', 'Data mahasiswa gagal dihapus!!');
         }
         return redirect('/Mahasiswa');

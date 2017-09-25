@@ -92,10 +92,4 @@
 			  	</div>
     		</div>
       	</div>
-      	<script type="text/javascript">
-      		const Icon = '<i class="material-icons print">done_all</i>';
-			const Message = ' Your print job was sent';
-			const $Content = Icon + Message ;
-			Materialize.toast( $Content, 4000,'rounded cyan' );
-      	</script>
 @endsection

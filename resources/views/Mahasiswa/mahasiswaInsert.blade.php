@@ -81,11 +81,10 @@
 					<label for="alamat">Alamat :</label>
 				</div>
 				<div class="col s6 input-field">
-					{{-- {{ Form::select('id_jurusan',['' => 'Pilih Jurusan',]+ ,1,['id' => 'jurusan', 'style' => 'display:inline-block','class' => 'blue-text']) }} --}}
 					<select name="id_jurusan" class="blue-text" style="display: inline-block;">
 						<option value="" selected="true">Pilih Jurusan</option>
 						@foreach($data as $data)
-						<option value="{!! $data->id !!}">{!! $data->nama_jurusan !!}</option>
+							<option value="{!! $data->id !!}">{!! $data->nama_jurusan !!}</option>
 						@endforeach
 					</select>
 					
@@ -98,20 +97,22 @@
 			</div>
 		{{ Form::close() }}
 		@if($errors->any())
-			<div class="col-sm-12">
-    			<div class="alert alert-danger">
-        			@foreach($errors->all() as $error)
-            			<p>{{ $error }}</p>
-        			@endforeach
-    			</div>
-    		</div>
+			@foreach($errors->all() as $error)
+				<script type="text/javascript">
+			      		const Icon = '<i class="material-icons print">clear</i>';
+						const Message = '{!! $error !!}';
+						const $Content = Icon + Message ;
+					Materialize.toast( $Content, 4000,'rounded red' );
+	      		</script>
+      		@endforeach
 		@endif
 		@if(session()->has('status'))
-			<div class="col-sm-12">
-				<div class="alert alert-{{session('status')}}">
-					{!!session('pesan')!!}
-				</div>
-			</div>
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
 		@endif
 	</div>
 @endsection

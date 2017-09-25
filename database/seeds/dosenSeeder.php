@@ -12,11 +12,20 @@ class dosenSeeder extends Seeder
     public function run()
     {
         DB::table('dosen')->insert([
-        	'nip' => "12543",
-            'nama' => "Sutejo",
-            'jeniskelamin' => "Laki-Laki",
-            'alamat' => "Sukabumi",
-            'notlp' => "08999999999",
+            [
+            	'nip' => "12543",
+                'nama' => "Sutejo",
+                'jeniskelamin' => "Laki-Laki",
+                'alamat' => "Sukabumi",
+                'notlp' => "08999999999",
+            ],
+            [
+                'nip' => "123",
+                'nama' => "Samijan",
+                'jeniskelamin' => "Laki-Laki",
+                'alamat' => "Sukabumi",
+                'notlp' => "08999889999",
+            ]
         ]);
     }
 }

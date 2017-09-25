@@ -20,7 +20,7 @@ class mahasiswaSeeder extends Seeder
             'email' => "deki".'@gmail.com',
             'tempat' => 'sukabumi',
             'tanggal' => date('2017-01-12'),
-            'link' => "/public",
+            'link' => "1505590327.jpg",
             'id_jurusan' => 1,
         ]);
     }

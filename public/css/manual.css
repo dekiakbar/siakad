@@ -36,6 +36,10 @@
     border-top: 0;
 }
 
+.panel-body table tr td a {
+	text-decoration: none;
+}
+
 @media only screen and (max-width : 992px) {
   #container {
     padding-left: 0px;

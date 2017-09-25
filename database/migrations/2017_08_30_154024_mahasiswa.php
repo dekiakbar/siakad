@@ -15,7 +15,7 @@ class Mahasiswa extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nim');
+            $table->string('nim')->unique()->index('nim');
             $table->string('nama');
             $table->string('alamat');
             $table->string('jenis_kelamin');
@@ -28,7 +28,7 @@ class Mahasiswa extends Migration
             $table->timestamps();
         });
 
-        Schema::enableForeignKeyConstraints('mahasiswa', function(Blueprint $table){
+        Schema::table('mahasiswa', function(Blueprint $table){
             $table->foreign('id_jurusan')->references('id')->on('jurusan')->onDelete('CASCADE');
         });
     }

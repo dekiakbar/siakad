@@ -40,10 +40,6 @@
                                         <td>{{ $data->jenis_kelamin }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Alamat</td>
-                                        <td>{{ $data->alamat }}</td>
-                                    </tr>
-                                    <tr>
                                         <td>Email</td>
                                         <td><a href="mailto:{{ $data->email }}">{{ $data->email }}</a></td>
                                     </tr>
@@ -53,7 +49,15 @@
                                     </tr>
                                     <tr>
                                         <td>Jurusan</td>
-                                        <td>{{ $jurusan->nama_jurusan }}</td>
+                                        <td>{{ $jurusan->nama_jurusan.'('.$jurusan->kode_jurusan.')' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenjang</td>
+                                        <td>{{ $jurusan->jenjang }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>{{ $data->alamat }}</td>
                                     </tr>  
                                 </tbody>
                             </table>
@@ -68,13 +72,22 @@
 				    </a>
 				    <ul>
 				    	<li>
-				    		<a class="btn-floating red" title="Hapus Data" onclick="">
-				    			<i class="material-icons">delete_forever</i>
-
-				    		</a>
+                            {{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
+                                <button type="submit" class="btn btn-floating red">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            {{ Form::close()}}
 				    	</li>
-				    	<li><a class="btn-floating cyan" title="Edit Data"><i class="material-icons">edit</i></a></li>
-				    	<li><a class="btn-floating green" onclick="goBack()" title="Kembali"><i class="material-icons">keyboard_backspace</i></a></li>
+				    	<li>
+                            <a href="{{ action('Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </li>
+				    	<li>
+                            <a class="btn-floating green" onclick="goBack()" title="Kembali">
+                                <i class="material-icons">keyboard_backspace</i>
+                            </a>
+                        </li>
 				    </ul>
 			  	</div>
     		</div>

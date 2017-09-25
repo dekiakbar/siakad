@@ -56,10 +56,10 @@ class MahasiswaController extends Controller
 
         if ($simpan->save()) {
             session()->flash('status', 'done_all');
-            $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+            $request->session()->flash('pesan', ' Data Berhasil Disimpan');
         }else{
             session()->flash('status', 'clear');
-            $request->session()->flash('pesan', 'Data gagal Disimpan!!');
+            $request->session()->flash('pesan', ' Data gagal Disimpan!!');
         }
 
         $namaFoto =time().'.'.$request->foto->getClientOriginalExtension();
@@ -120,10 +120,10 @@ class MahasiswaController extends Controller
 
         if ($update->save()) {
             session()->flash('status', 'done_all');
-            $request->session()->flash('pesan','Data berhasil Diedit');
+            $request->session()->flash('pesan',' Data berhasil Diedit');
         }else{
             session()->flash('status', 'clear');
-            $request->session()->flash('pesan','Data Gagal Diubah!!');
+            $request->session()->flash('pesan',' Data Gagal Diubah!!');
         }
 
 
@@ -141,10 +141,10 @@ class MahasiswaController extends Controller
         $hapus = Mahasiswa::findOrFail($id);
         if ($hapus->delete()) {
             session()->flash('status', 'done_all');
-            session()->flash('pesan','Data mahasiswa berhasil dihapus');
+            session()->flash('pesan',' Data mahasiswa berhasil dihapus');
         }else{
             session()->flash('status', 'clear');
-            session()->flash('pesan', 'Data mahasiswa gagal dihapus!!');
+            session()->flash('pesan', ' Data mahasiswa gagal dihapus!!');
         }
         return redirect('/Mahasiswa');
     }

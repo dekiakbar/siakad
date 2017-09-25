@@ -12,5 +12,9 @@ class Mahasiswa extends Model
     public function jurusan(){
     	return $this->hasOne('App\Jurusan');
     }
+
+    public function krs(){
+    	return $this->hasMany('App\Krs');
+    }
 }
 

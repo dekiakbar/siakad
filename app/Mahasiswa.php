@@ -14,7 +14,7 @@ class Mahasiswa extends Model
     }
 
     public function krs(){
-    	return $this->hasMany('App\Krs');
+    	return $this->belongsTo('App\Krs');
     }
 }
 

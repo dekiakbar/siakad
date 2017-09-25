@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Dosen extends Migration
+class Jurusan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Dosen extends Migration
      */
     public function up()
     {
-        Schema::create('dosen', function (Blueprint $table) {
+        Schema::create('jurusan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nip')->unique();
-            $table->string('nama');
-            $table->string('jeniskelamin');
-            $table->string('alamat');
-            $table->string('notlp');
+            $table->string('kode_jurusan')->unique();
+            $table->string('nama_jurusan');
+            $table->string('jenjang');
+            $table->integer('jumlah_semester');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class Dosen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosen');
+        Schema::dropIfExists('jurusan');
     }
 }

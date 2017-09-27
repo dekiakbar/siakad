@@ -10,11 +10,15 @@ class Krs extends Model
     protected $table = 'krs';
 
     public function mahasiswa(){
-    	return $this->hasMany('App\Mahasiswa');
+    	return $this->hasMany('App\Mahasiswa','id','nama');
     }
 
     public function dosen(){
-    	return $this->hasMany('App\Dosen');
+    	return $this->hasMany('App\Dosen','id','nip','nama');
+    }
+
+    public function makul(){
+    	return $this->hasMany('App\Matakuliah','id','kode_mk','makul');
     }
 
 

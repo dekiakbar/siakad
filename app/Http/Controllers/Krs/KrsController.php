@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Krs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Krs;
+
 class KrsController extends Controller
 {
     /**
@@ -14,7 +16,12 @@ class KrsController extends Controller
      */
     public function index()
     {
-        return view('Krs.masterKrs');
+        $krs = Krs::with('mahasiswa')->get();
+        // $dosen = \App\Dosen::with('krs')->get();
+        // $mhs   = \App\Mahasiswa::with('krs')->get();
+        // $makul = \App\Matakuliah::with('krs')->get();
+
+        return view('Krs.krsIndex',compact('krs'));
     }
 
     /**
@@ -27,6 +34,7 @@ class KrsController extends Controller
         $mhs = \App\Mahasiswa::with('krs')->select('nim','nama')->get();
         $dosen = \App\Dosen::with('krs')->select('nip','nama')->get();
         $makul = \App\Matakuliah::with('krs')->select('kode_mk','makul')->get();
+        
         return view('Krs.krsInsert',compact('mhs','dosen','makul'));
     }
 
@@ -38,7 +46,24 @@ class KrsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $krs = new Krs([
+            'nim' => $request->get('nim'),
+            'nip' => $request->get('nip'),
+            'kode_mk' => $request->get('kode_mk'),
+            'absen' => $request->get('absen'),
+            'uts' => $request->get('uts'),
+            'uas' => $request->get('uas')
+        ]);
+
+        if ($krs->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
+        }
+
+        return redirect('Krs/create');
     }
 
     /**
@@ -60,7 +85,12 @@ class KrsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $krs = Krs::find($id);
+        $mhs = \App\Mahasiswa::with('krs')->select('nim','nama')->where('')->get();
+        $dosen = \App\Dosen::with('krs')->select('nip','nama')->where()->get();
+        $makul = \App\Matakuliah::with('krs')->select('kode_mk','makul')->get();
+        
+        return view('Krs.krsEdit',compact('id','mhs','dosen','makul'));
     }
 
     /**

@@ -26,7 +26,7 @@
 						<label class="input-label">Nama Dosen :</label>
 					</div>
 					<div class="col s9">
-						<select name="kode_mk" style="display: inline-block;">
+						<select name="nip" style="display: inline-block;">
 							@foreach($dosen as $dosen)
 								<option value="{{ $dosen->nip }}">{{ $dosen->nama }} ({{ $dosen->nip }})</option>
 							@endforeach
@@ -40,7 +40,7 @@
 						<label class="input-label">Mata Kuliah :</label>
 					</div>
 					<div class="col s9">
-						<select name="makul" style="display: inline-block;">
+						<select name="kode_mk" style="display: inline-block;">
 							@foreach($makul as $makul)
 								<option value="{{ $makul->kode_mk }}">{{ $makul->makul }} ({{ $makul->kode_mk }})</option>
 							@endforeach
@@ -72,5 +72,13 @@
 				<button class="btn waves-effect waves-light blue"><i class="material-icons right">send</i>Simpan</button>
 			</div>
 		{{ Form::close() }}
+		@if(session()->has('status'))
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
+		@endif
 	</div>
 @endsection

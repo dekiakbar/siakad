@@ -16,12 +16,12 @@ class KrsController extends Controller
      */
     public function index()
     {
-        $krs = Krs::with('mahasiswa')->get();
+        $mahasiswa = Krs::with('mahasiswa')->get();
         // $dosen = \App\Dosen::with('krs')->get();
         // $mhs   = \App\Mahasiswa::with('krs')->get();
         // $makul = \App\Matakuliah::with('krs')->get();
 
-        return view('Krs.krsIndex',compact('krs'));
+        return view('Krs.krsIndex',compact('mahasiswa'));
     }
 
     /**

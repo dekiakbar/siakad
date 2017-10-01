@@ -20,21 +20,8 @@
 				<tr>
 					<td>{{ $krs->nama}}</td>
 					<td>{{ $krs->nama_dosen}}</td>
-					<td>{{ $krs->makul }}</td>
-				  {{-- @foreach($krs->mahasiswas as $mhs)
-					<td>{{ $mhs->nama }}</td>
-				  @endforeach
-				  @foreach($krs->dosens as $dns)
-					<td>{{ $dns->nama }}</td>
-				  @endforeach
-				  @foreach($krs->makuls as $mtkul)
-					<td>{{ $mtkul->makul }}</td>
-				  @endforeach --}}				
-
-					{{-- @foreach($data->mahasiswa as $mhs)
-					<td>{{ $mhs->nama }}</td>
-					@endforeach --}}
-					{{-- <td><a href="{{ action('Krs\KrsController@show',$data->id) }}">{{$data->nip}}</a></td>
+					<td>{{ $krs->makul }}</td>			
+					<td><a href="{{ action('Krs\KrsController@show',$data->id) }}">{{$data->nip}}</a></td>
 					<td>{{$data->kode_mk}}</td>
 					<td>
 						{{Form::Open(['method' => 'DELETE','route' => ['Krs.destroy',$data->id]])}}
@@ -45,7 +32,7 @@
 								<i class="material-icons">delete</i>
 							</button>
 						{{ Form::close()}}
-					</td> --}}
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

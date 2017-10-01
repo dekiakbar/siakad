@@ -41,7 +41,7 @@ class DosenController extends Controller
     {
         $simpan = new Dosen([
             'nip' => $request->get('nip'),
-            'nama' => $request->get('nama'),
+            'nama_dosen' => $request->get('nama'),
             'jeniskelamin' => $request->get('jeniskelamin'),
             'alamat' => $request->get('alamat'),
             'notlp' => $request->get('notlp')
@@ -92,7 +92,7 @@ class DosenController extends Controller
     {
         $update = Dosen::find($id);
         $update->nip = $request->get('nip');
-        $update->nama = $request->get('nama');
+        $update->nama_dosen = $request->get('nama');
         $update->notlp = $request->get('notlp');
         $update->jeniskelamin = $request->get('jeniskelamin');
         $update->alamat = $request->get('alamat');

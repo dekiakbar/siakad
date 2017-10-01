@@ -10,6 +10,6 @@ class Matakuliah extends Model
     protected $table = 'mata_kuliah';
 
     public function krs(){
-    	return $this->belongsTo('App\Krs');
+    	return $this->belongsToMany('App\Krs','id');
     }
 }

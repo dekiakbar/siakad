@@ -16,19 +16,20 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($data as $data)
+				@foreach($data as $krs)
 				<tr>
-					@foreach($data->mahasiswa as $mahasiswa)
-					<td>{{ $mahasiswa->nama }}</td>
-						@foreach($data->dosen as $dosen)
-						<td>{{ $dosen->nama }}</td>
-							@foreach($data->makul as $makul)
-								
-								
-								<td>{{ $makul->makul }}</td>
-							@endforeach
-						@endforeach	
-					@endforeach				
+					<td>{{ $krs->nama}}</td>
+					<td>{{ $krs->nama_dosen}}</td>
+					<td>{{ $krs->makul }}</td>
+				  {{-- @foreach($krs->mahasiswas as $mhs)
+					<td>{{ $mhs->nama }}</td>
+				  @endforeach
+				  @foreach($krs->dosens as $dns)
+					<td>{{ $dns->nama }}</td>
+				  @endforeach
+				  @foreach($krs->makuls as $mtkul)
+					<td>{{ $mtkul->makul }}</td>
+				  @endforeach --}}				
 
 					{{-- @foreach($data->mahasiswa as $mhs)
 					<td>{{ $mhs->nama }}</td>

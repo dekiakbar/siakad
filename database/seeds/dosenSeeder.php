@@ -14,14 +14,14 @@ class dosenSeeder extends Seeder
         DB::table('dosen')->insert([
             [
             	'nip' => "12543",
-                'nama' => "Sutejo",
+                'nama_dosen' => "Sutejo",
                 'jeniskelamin' => "Laki-Laki",
                 'alamat' => "Sukabumi",
                 'notlp' => "08999999999",
             ],
             [
                 'nip' => "123",
-                'nama' => "Samijan",
+                'nama_dosen' => "Samijan",
                 'jeniskelamin' => "Laki-Laki",
                 'alamat' => "Sukabumi",
                 'notlp' => "08999889999",

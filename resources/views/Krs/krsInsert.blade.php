@@ -28,7 +28,7 @@
 					<div class="col s9">
 						<select name="nip" style="display: inline-block;">
 							@foreach($dosen as $dosen)
-								<option value="{{ $dosen->nip }}">{{ $dosen->nama }} ({{ $dosen->nip }})</option>
+								<option value="{{ $dosen->nip }}">{{ $dosen->nama_dosen }} ({{ $dosen->nip }})</option>
 							@endforeach
 						</select>						
 					</div>

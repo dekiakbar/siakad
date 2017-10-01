@@ -85,8 +85,5 @@
 </div>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
-  <script>
-   
-  </script>
 </body>
 </html>

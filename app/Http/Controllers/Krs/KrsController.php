@@ -16,8 +16,10 @@ class KrsController extends Controller
      */
     public function index()
     {
-        $data = Krs::all();
-
+        $data = Krs::join('dosen','krs.nip','=','dosen.nip')
+                ->join('mahasiswa','krs.nim','=','mahasiswa.nim')
+                ->join('mata_kuliah','krs.kode_mk','=','mata_kuliah.kode_mk')
+                ->get();
         return view('Krs.krsIndex',compact('data'));
     }
 
@@ -28,9 +30,9 @@ class KrsController extends Controller
      */
     public function create()
     {
-        $mhs = \App\Mahasiswa::with('krs')->select('nim','nama')->get();
-        $dosen = \App\Dosen::with('krs')->select('nip','nama')->get();
-        $makul = \App\Matakuliah::with('krs')->select('kode_mk','makul')->get();
+        $mhs = \App\Mahasiswa::select('nim','nama')->get();
+        $dosen = \App\Dosen::select('nip','nama_dosen')->get();
+        $makul = \App\Matakuliah::select('kode_mk','makul')->get();
         
         return view('Krs.krsInsert',compact('mhs','dosen','makul'));
     }

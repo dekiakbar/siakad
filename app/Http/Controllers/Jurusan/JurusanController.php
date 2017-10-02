@@ -61,11 +61,11 @@ class JurusanController extends Controller
         ]);
 
         if ($simpan->save()) {
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan','Data Gagal Disimpan!!');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
 
         return redirect('Jurusan/create');
@@ -90,7 +90,8 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $edit = Jurusan::find($id);
+        $dec = decrypt($id);
+        $edit = Jurusan::find($dec);
         return view('Jurusan.JurusanEdit', compact('edit','id'));
     }
 
@@ -115,18 +116,19 @@ class JurusanController extends Controller
             $semester=12;
         }
 
-        $update = Jurusan::find($id);
+        $dec = decrypt($id);
+        $update = Jurusan::find($dec);
         $update->nama_jurusan = $request->get('nama_jurusan');
         $update->kode_jurusan = $request->get('kode_jurusan');
         $update->jenjang = $request->get('jenjang');
         $update->jumlah_semester = $semester;
 
         if ($update->save()) {
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan', 'Data Berhasil Disimpan');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan','Data Gagal Disimpan!!');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
 
         return redirect('Jurusan');
@@ -140,14 +142,15 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        $hapus = Jurusan::find($id);
+        $dec = decrypt($id);
+        $hapus = Jurusan::find($dec);
         
         if ($hapus->delete()) {
-            session()->flash('status','success');
-            session()->flash('pesan', 'Data Berhasil Diahpus');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            session()->flash('status','success');
-            session()->flash('pesan','Data Gagal Dihapus!!');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
 
         return redirect('Jurusan');

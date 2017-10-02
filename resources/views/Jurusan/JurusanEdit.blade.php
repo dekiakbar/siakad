@@ -2,11 +2,11 @@
 @section('judul','Tambah Jurusan')
 @section('content')
 	<div class="col s12">
-		<h4 class="text-center">Tambah Jurusan</h4>
+		<h4 class="text-center">Edit Jurusan</h4>
 	</div>
 	<div class="content">
 		{{ csrf_field() }}
-		{{ Form::open(array('method' => 'post','action' => ['Jurusan\JurusanController@update',$edit->id],'class' => 'col s12')) }}
+		{{ Form::open(array('method' => 'post','action' => ['Jurusan\JurusanController@update',encrypt($edit->id)],'class' => 'col s12')) }}
 			{{ Form::hidden('_method','PATCH') }}
 			<div class="row">
 				<div class="input-field col s6">
@@ -57,13 +57,14 @@
 			</div>
 		{{ Form::close() }}
 		@if($errors->any())
-			<div class="col s12">
-				@foreach($errors->all() as $error)
-					<div class="alert alert-danger">
-						<p>{!! $error !!}</p>
-					</div>
-				@endforeach
-			</div>
-		@endif
+			@foreach($errors->all() as $error)
+				<script type="text/javascript">
+			      		const Icon = '<i class="material-icons print">clear</i>';
+						const Message = '{!! $error !!}';
+						const $Content = Icon + Message ;
+					Materialize.toast( $Content, 4000,'rounded red' );
+	      		</script>
+      		@endforeach
+		@endif	
 	</div>
 @endsection

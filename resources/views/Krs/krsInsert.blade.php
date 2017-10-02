@@ -80,5 +80,15 @@
 				Materialize.toast( $Content, 4000,'rounded cyan' );
       		</script>
 		@endif
+		@if($errors->any())
+			@foreach($errors->all() as $error)
+				<script type="text/javascript">
+			      		const Icon = '<i class="material-icons print">clear</i>';
+						const Message = '{!! $error !!}';
+						const $Content = Icon + Message ;
+					Materialize.toast( $Content, 4000,'rounded red' );
+	      		</script>
+      		@endforeach
+		@endif	
 	</div>
 @endsection

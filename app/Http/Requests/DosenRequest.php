@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Validation\Rule;
+
 class DosenRequest extends FormRequest
 {
     /**
@@ -24,7 +26,8 @@ class DosenRequest extends FormRequest
     public function rules()
     {
         return [
-            'nip' => 'required|min:3|max:8|unique:dosen',
+            'nip' => 'required|min:3|max:8'.
+                Rule::unique('dosen')->ignore($this->id),
             'nama' => 'required|min:3|max:30',
             'notlp' => 'required|min:10|max:14|regex:/[0-9]/',
             'jeniskelamin' => 'required|min:9|max:9',

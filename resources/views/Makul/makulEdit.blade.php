@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row">
 			{{csrf_field()}}
-			{{Form::open(array('method' => 'post','class' => 'col s12','action' => ['Makul\MakulController@update',$data->id]))}}
+			{{Form::open(array('method' => 'post','class' => 'col s12','action' => ['Makul\MakulController@update',encrypt($data->id)]))}}
 				{{Form::hidden('_method','PATCH')}}
 				<div class="row">
 					<div class="input-field col s12">
@@ -32,6 +32,16 @@
 					<button type="submit" class="btn waves-light waves-effect blue"><i class="material-icons left">cloud_upload</i>Update</button>
 				</div>
 			{{Form::close()}}
+			@if($errors->any())
+				@foreach($errors->all() as $error)
+					<script type="text/javascript">
+				      		const Icon = '<i class="material-icons print">clear</i>';
+							const Message = '{!! $error !!}';
+							const $Content = Icon + Message ;
+						Materialize.toast( $Content, 4000,'rounded red' );
+		      		</script>
+	      		@endforeach
+			@endif	
 		</div>
 	</div>
 @endsection

@@ -22,8 +22,8 @@
 					<td>{{ $krs->nama_dosen}}</td>
 					<td>{{ $krs->makul }}</td>			
 					<td>
-						{{Form::Open(['method' => 'DELETE','route' => ['Krs.destroy',$krs->id_krs]])}}
-							<a href="{{action('Krs\KrsController@edit', $krs->id_krs)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+						{{Form::Open(['method' => 'DELETE','route' => ['Krs.destroy',encrypt($krs->id_krs)]])}}
+							<a href="{{action('Krs\KrsController@edit', encrypt($krs->id_krs))}}" class="btn-floating btn-sm waves-light waves-effect blue">
 								<i class="material-icons">mode_edit</i>
 							</a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">

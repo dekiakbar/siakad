@@ -7,7 +7,7 @@
 		<h4 class="text-center">Edit Data Mahasiswa</h4>
 	</div>
 	<div class="container-fluid">
-		{{ Form::open(array('method' => 'post' ,'action' => ['Mahasiswa\MahasiswaController@update',$data->id],'files' => true, 'class' => 'col s12')) }}
+		{{ Form::open(array('method' => 'post' ,'action' => ['Mahasiswa\MahasiswaController@update',encrypt($data->id)],'files' => true, 'class' => 'col s12')) }}
 			{{csrf_field()}}
 			{{ Form::hidden('_method','PATCH') }}
 			<div class="row">
@@ -109,13 +109,14 @@
 			</div>
 		{{ Form::close() }}
 		@if($errors->any())
-			<div class="col-sm-12">
-				<div class="alert alert-danger">
-					@foreach($errors->all() as $error)
-						<p>{{ $error }}</p>
-					@endforeach
-				</div>
-			</div>
-		@endif
+			@foreach($errors->all() as $error)
+				<script type="text/javascript">
+			      		const Icon = '<i class="material-icons print">clear</i>';
+						const Message = '{!! $error !!}';
+						const $Content = Icon + Message ;
+					Materialize.toast( $Content, 4000,'rounded red' );
+	      		</script>
+      		@endforeach
+		@endif	
 	</div>
 @endsection

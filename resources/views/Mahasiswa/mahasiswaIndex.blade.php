@@ -20,12 +20,12 @@
 				@foreach($data as $data)
 				<tr>
 					<td>{{$data->nim}}</td>
-					<td><a href="{{ action('Mahasiswa\MahasiswaController@show',$data->id) }}">{{$data->nama}}</a></td>
+					<td><a href="{{ action('Mahasiswa\MahasiswaController@show',encrypt($data->id)) }}">{{$data->nama}}</a></td>
 					<td>{{$data->jenis_kelamin}}</td>
 					<td>{{$data->tempat.','.$data->tanggal}}</td>
 					<td>
-						{{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
-							<a href="{{action('Mahasiswa\MahasiswaController@edit', $data->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+						{{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',encrypt($data->id)]])}}
+							<a href="{{action('Mahasiswa\MahasiswaController@edit', encrypt($data->id))}}" class="btn-floating btn-sm waves-light waves-effect blue">
 								<i class="material-icons">mode_edit</i>
 							</a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">

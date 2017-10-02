@@ -47,11 +47,11 @@ class MakulController extends Controller
         ]);
 
         if ($ambil->save()) {
-            $request->session()->flash('status', 'success');
-            $request->session()->flash('pesan','Data Berhasil Disimpan');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            $request->session()->flash('status', 'danger');
-            $request->session()->flash('pesan', 'Datag Gagal Disimpan');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
 
         return redirect('/Makul/create');
@@ -76,7 +76,8 @@ class MakulController extends Controller
      */
     public function edit($id)
     {
-        $data = Matakuliah::find($id);
+        $dec = decrypt($id);
+        $data = Matakuliah::find($dec);
         return view('Makul.makulEdit',compact('data','id'));
     }
 
@@ -89,17 +90,18 @@ class MakulController extends Controller
      */
     public function update(MakulRequest $request, $id)
     {
-        $update = Matakuliah::find($id);
+        $dec = decrypt($id);
+        $update = Matakuliah::find($dec);
         $update->kode_mk = $request->get('kode_mk');
         $update->makul = $request->get('makul');
         $update->sks = $request->get('sks');
 
         if ($update->save()) {
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan','Mata Kuliah Berhasil Di Perbaharui');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            $request->session()->flash('status','danger');
-            $request->session()->flash('pesan','Mata Kuliah Gagal Di Perbaharui');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
 
         return redirect('/Makul');
@@ -113,9 +115,16 @@ class MakulController extends Controller
      */
     public function destroy($id)
     {
-        $hapus = Matakuliah::findOrFail($id);
-        $hapus->delete();
+        $dec = decrypt($id);
+        $hapus = Matakuliah::findOrFail($dec);
 
+        if ($hapus->delete()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
+        }
         return redirect('/Makul');
 
     }

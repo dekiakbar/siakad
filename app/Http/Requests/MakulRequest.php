@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Validation\Rule;
+
 class MakulRequest extends FormRequest
 {
     /**
@@ -24,7 +26,8 @@ class MakulRequest extends FormRequest
     public function rules()
     {
         return [
-            'kode_mk' => 'required|min:3|max:8|unique:mata_kuliah',
+            'kode_mk' => 'required|min:3|max:8'.
+                Rule::unique('mata_kuliah')->ignore($this->id),
             'makul' =>  'required|min:3|max:35',
             'sks' => 'required|min:1|max:2|regex:/[0-9]/'
         ];

@@ -26,8 +26,8 @@
 					<td>{{$jurusan->jenjang}}</td>
 					<td>{{$jurusan->jumlah_semester}}</td>
 					<td>
-						{{Form::Open(['method' => 'DELETE','route' => ['Jurusan.destroy',$jurusan->id]])}}
-							<a href="{{action('Jurusan\JurusanController@edit', $jurusan->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+						{{Form::Open(['method' => 'DELETE','route' => ['Jurusan.destroy',encrypt($jurusan->id)]])}}
+							<a href="{{action('Jurusan\JurusanController@edit', encrypt($jurusan->id))}}" class="btn-floating btn-sm waves-light waves-effect blue">
 								<i class="material-icons">mode_edit</i>
 							</a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">
@@ -39,13 +39,13 @@
 				@endforeach
 			</tbody>
 		</table>
-
 		@if(session()->has('status'))
-			<div class="col sm12">
-				<div class="alert alert-{{session('status')}}">
-					{!!session('pesan')!!}
-				</div>
-			</div>
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
 		@endif
 	</div>
 @endsection

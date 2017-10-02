@@ -75,8 +75,9 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $data = Mahasiswa::find($id);
+    {   
+        $dec = decrypt($id);
+        $data = Mahasiswa::find($dec);
         $jurusan = \App\Jurusan::find($data->id_jurusan);
         return view('Mahasiswa.mahasiswaDetail',compact('data','jurusan'));
     }
@@ -88,8 +89,9 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $data = Mahasiswa::find($id);
+    {   
+        $dec = decrypt($id);
+        $data = Mahasiswa::find($dec);
         $jurusan = \App\Jurusan::with('mahasiswa')->select('id','nama_jurusan')->get();
         return view('Mahasiswa.mahasiswaEdit', compact('data','id','jurusan'));
     }
@@ -103,7 +105,8 @@ class MahasiswaController extends Controller
      */
     public function update(MahasiswaRequest $request, $id)
     {   
-        $update = Mahasiswa::find($id);
+        $dec = decrypt($id);
+        $update = Mahasiswa::find($dec);
         $update->nim = $request->get('nim');
         $update->nama = $request->get('nama');
         $update->alamat = $request->get('alamat');
@@ -126,7 +129,6 @@ class MahasiswaController extends Controller
             $request->session()->flash('pesan',' Data Gagal Diubah!!');
         }
 
-
         return redirect('/Mahasiswa');
     }
 
@@ -137,8 +139,9 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $hapus = Mahasiswa::findOrFail($id);
+    {   
+        $dec = decrypt($id);
+        $hapus = Mahasiswa::findOrFail($dec);
         if ($hapus->delete()) {
             session()->flash('status', 'done_all');
             session()->flash('pesan',' Data mahasiswa berhasil dihapus');

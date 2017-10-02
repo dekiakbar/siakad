@@ -23,13 +23,13 @@
 				<tr>
 					<td>{{++$no}}</td>
 					<td>{{$data->nip}}</td>
-					<td>{{$data->nama}}</td>
+					<td>{{$data->nama_dosen}}</td>
 					<td>{{$data->notlp}}</td>
 					<td>{{$data->jeniskelamin}}</td>
 					<td>{{$data->alamat}}</td>
 					<td>
-						{{Form::Open(['method' => 'DELETE','route' => ['Dosen.destroy',$data->id]])}}
-							<a href="{{action('Dosen\DosenController@edit',$data->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+						{{Form::Open(['method' => 'DELETE','route' => ['Dosen.destroy',encrypt($data->id)]])}}
+							<a href="{{action('Dosen\DosenController@edit',encrypt($data->id))}}" class="btn-floating btn-sm waves-light waves-effect blue">
 								<i class="material-icons">mode_edit</i>
 							</a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">
@@ -42,11 +42,12 @@
 			</tbody>
 		</table>
 		@if(session()->has('status'))
-			<div class="col s12">
-				<div class="alert alert-{{session('status')}}">
-					{!! session('pesan') !!}
-				</div>
-			</div>
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
 		@endif
 	</div>
 @endsection

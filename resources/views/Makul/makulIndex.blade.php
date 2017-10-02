@@ -24,8 +24,8 @@
 					<td>{{$data->makul}}</td>
 					<td>{{$data->sks}}</td>
 					<td class="text-center"> 
-						{!!Form::open(['method' => 'DELETE','route' => ['Makul.destroy', $data->id]])!!}
-							<a href="{{action('Makul\MakulController@edit',$data->id)}}" class="btn btn-floating waves-light waves-effect blue"><i class="material-icons">mode_edit</i></a>
+						{!!Form::open(['method' => 'DELETE','route' => ['Makul.destroy', encrypt($data->id)]])!!}
+							<a href="{{action('Makul\MakulController@edit',encrypt($data->id))}}" class="btn btn-floating waves-light waves-effect blue"><i class="material-icons">mode_edit</i></a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></button>
 						{!! Form::close()!!}		
 					</td>
@@ -34,11 +34,12 @@
 			</tbody>
 		</table>
 		@if(session()->has('status'))
-		<div class="col s12">
-			<div class="alert alert-{{session('status')}}">
-				{!!session('pesan')!!}
-			</div>
-		</div>
-		@endif
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
+		@endif	
 	</div>
 @endsection

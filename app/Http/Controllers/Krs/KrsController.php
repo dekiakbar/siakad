@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Krs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 use App\Krs;
 
 class KrsController extends Controller
@@ -84,7 +85,8 @@ class KrsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $id = decrypt($id);
         $krs = Krs::find($id);
         $mhs = \App\Mahasiswa::select('nim','nama')->get();
         $dosen = \App\Dosen::select('nip','nama_dosen')->get();
@@ -101,8 +103,9 @@ class KrsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $update = Krs::find($id);
+    {   
+        $dec =decrypt($id);
+        $update = Krs::find($dec);
         $update->nim = $request->get('nim');
         $update->nip =  $request->get('nip');
         $update->kode_mk = $request->get('kode_mk');
@@ -129,7 +132,8 @@ class KrsController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Krs::findOrFail($id);
+        $dec = decrypt($id);
+        $delete = Krs::findOrFail($dec);
 
         if ($delete->delete()) {
             session()->flash('status','done_all');

@@ -32,19 +32,23 @@
 				</div>
 			{{Form::close()}}
 		</div>
-		@if($errors->any())
-			<div class="col-sm-12">
-				@foreach($errors->all() as $error)
-					<div class="alert alert-danger">{{$error}}</div>
-				@endforeach
-			</div>
-		@endif
 		@if(session()->has('status'))
-			<div class="col-sm-12">
-				<div class="alert alert-{{session('status')}}">
-					{!!session('pesan')!!}
-				</div>
-			</div>
+			<script type="text/javascript">
+	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+				const Message = '{{ session('pesan') }}';
+				const $Content = Icon + Message ;
+				Materialize.toast( $Content, 4000,'rounded cyan' );
+      		</script>
 		@endif
+		@if($errors->any())
+			@foreach($errors->all() as $error)
+				<script type="text/javascript">
+			      		const Icon = '<i class="material-icons print">clear</i>';
+						const Message = '{!! $error !!}';
+						const $Content = Icon + Message ;
+					Materialize.toast( $Content, 4000,'rounded red' );
+	      		</script>
+      		@endforeach
+		@endif	
 	</div>
 @endsection

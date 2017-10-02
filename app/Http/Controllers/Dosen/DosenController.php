@@ -48,11 +48,11 @@ class DosenController extends Controller
         ]);
 
         if ($simpan->save()) {
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan', 'Data Dosen Berhasil Disimpan');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            $request->session()->flash('status','danger');
-            $required->session()->flash('pesan','Data Dosen Gagal Disimpan');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
 
         return redirect('Dosen/create');
@@ -76,9 +76,10 @@ class DosenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $data = Dosen::Find($id);
-        return view('Dosen.dosenEdit',compact('data','id'));
+    {   
+        $dec = decrypt($id);
+        $data = Dosen::Find($dec);
+        return view('Dosen.dosenEdit',compact('data','dec'));
     }
 
     /**
@@ -89,8 +90,9 @@ class DosenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(DosenRequest $request, $id)
-    {
-        $update = Dosen::find($id);
+    {   
+        $dec = decrypt($id);
+        $update = Dosen::find($dec);
         $update->nip = $request->get('nip');
         $update->nama_dosen = $request->get('nama');
         $update->notlp = $request->get('notlp');
@@ -98,11 +100,11 @@ class DosenController extends Controller
         $update->alamat = $request->get('alamat');
 
         if ($update->save()) {
-            $request->session()->flash('status','success');
-            $request->session()->flash('pesan','Data Berhasil Di Update');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            $request->session()->flash('status','danger');
-            $request->session()->flash('pesan', 'Data Berhasil Di Update');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         } 
 
         return redirect('/Dosen');
@@ -115,14 +117,15 @@ class DosenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $hapus = Dosen::findOrFail($id);
+    {   
+        $dec = decrypt($id);
+        $hapus = Dosen::findOrFail($dec);
         if ($hapus->delete()) {
-            session()->flash('status','success');
-            session()->flash('pesan','Data dosen berhasil dihapus');
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
         }else{
-            session()->flash('status','danger');
-            session()->flash('pesan','Data dosen gagal dihapus');
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
         }
         return redirect('/Dosen');
     }

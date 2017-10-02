@@ -7,7 +7,7 @@
 		<h4 class="text-center">Edit KRS</h4>
 	</div>
 	<div class="content">
-		{{ Form::open(array('action' => ['Krs\KrsController@update',$krs->id],'class' => 'col s12', 'method' => 'post')) }}
+		{{ Form::open(array('action' => ['Krs\KrsController@update',encrypt($krs->id)],'class' => 'col s12', 'method' => 'post')) }}
 			{{ Form::hidden('_method','PATCH') }}
 			<div class="row">
 				<div class="input-field col s6">
@@ -85,13 +85,15 @@
 				<button class="btn waves-effect waves-light blue"><i class="material-icons right">send</i>Simpan</button>
 			</div>
 		{{ Form::close() }}
-		@if(session()->has('status'))
-			<script type="text/javascript">
-	      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
-				const Message = '{{ session('pesan') }}';
-				const $Content = Icon + Message ;
-				Materialize.toast( $Content, 4000,'rounded cyan' );
-      		</script>
-		@endif
+		@if($errors->any())
+			@foreach($errors->all() as $error)
+				<script type="text/javascript">
+			      		const Icon = '<i class="material-icons print">clear</i>';
+						const Message = '{!! $error !!}';
+						const $Content = Icon + Message ;
+					Materialize.toast( $Content, 4000,'rounded red' );
+	      		</script>
+      		@endforeach
+		@endif	
 	</div>
 @endsection

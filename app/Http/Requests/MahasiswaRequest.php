@@ -24,7 +24,7 @@ class MahasiswaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nim' => 'required|min:3|max:8',
+            'nim' => 'required|min:3|max:8|unique:mahasiswa',
             'nama' => 'required|min:3|max:30',
             'alamat' => 'required|min:3|max:100',
             'jenis_kelamin' => 'required|max:9',
@@ -40,6 +40,7 @@ class MahasiswaRequest extends FormRequest
     public function messages()
     {
         return [
+        'nim.unique' => 'Nim Sudah ada',
         'nim.required' =>'Form Nim harus diisi',
         'nama.required' => 'Form Nama tidak boleh kosong',
         'alamat.required' =>'Form Alamat tidak boleh kosong',

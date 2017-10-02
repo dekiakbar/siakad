@@ -18,14 +18,12 @@
 			<tbody>
 				@foreach($data as $krs)
 				<tr>
-					<td>{{ $krs->nama}}</td>
+					<td>{{ $krs->nama }}</td>
 					<td>{{ $krs->nama_dosen}}</td>
 					<td>{{ $krs->makul }}</td>			
-					<td><a href="{{ action('Krs\KrsController@show',$data->id) }}">{{$data->nip}}</a></td>
-					<td>{{$data->kode_mk}}</td>
 					<td>
-						{{Form::Open(['method' => 'DELETE','route' => ['Krs.destroy',$data->id]])}}
-							<a href="{{action('Krs\KrsController@edit', $data->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
+						{{Form::Open(['method' => 'DELETE','route' => ['Krs.destroy',$krs->id]])}}
+							<a href="{{action('Krs\KrsController@edit', $krs->id)}}" class="btn-floating btn-sm waves-light waves-effect blue">
 								<i class="material-icons">mode_edit</i>
 							</a>
 							<button type="submit" class="btn btn-floating waves-effect waves-light red">

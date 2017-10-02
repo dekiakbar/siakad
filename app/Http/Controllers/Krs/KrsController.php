@@ -85,11 +85,11 @@ class KrsController extends Controller
     public function edit($id)
     {
         $krs = Krs::find($id);
-        $mhs = \App\Mahasiswa::with('krs')->select('nim','nama')->where('')->get();
-        $dosen = \App\Dosen::with('krs')->select('nip','nama')->where()->get();
-        $makul = \App\Matakuliah::with('krs')->select('kode_mk','makul')->get();
+        $mhs = \App\Mahasiswa::select('nim','nama')->get();
+        $dosen = \App\Dosen::select('nip','nama_dosen')->get();
+        $makul = \App\Matakuliah::select('kode_mk','makul')->get();
         
-        return view('Krs.krsEdit',compact('id','mhs','dosen','makul'));
+        return view('Krs.krsEdit',compact('krs','mhs','dosen','makul'));
     }
 
     /**
@@ -101,7 +101,7 @@ class KrsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

@@ -24,7 +24,7 @@ class MakulRequest extends FormRequest
     public function rules()
     {
         return [
-            'kode_mk' => 'required|min:3|max:8',
+            'kode_mk' => 'required|min:3|max:8|unique:mata_kuliah',
             'makul' =>  'required|min:3|max:35',
             'sks' => 'required|min:1|max:2|regex:/[0-9]/'
         ];
@@ -33,6 +33,7 @@ class MakulRequest extends FormRequest
     public function messages()
     {
         return[
+            'kode_mk.unique' => 'Maaf kode matakuliah sudah ada',
             'kode_mk.required' => 'Form kode mata kuliah tidak boleh kosong',
             'kode_mk.min' => 'Form kode mata kuliah harus berisi minimal 3 karakter',
             'kode_mk.max' => 'Form kode mata kuliah maksimal berisi 8 karakter',

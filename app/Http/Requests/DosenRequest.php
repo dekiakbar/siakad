@@ -24,7 +24,7 @@ class DosenRequest extends FormRequest
     public function rules()
     {
         return [
-            'nip' => 'required|min:3|max:8',
+            'nip' => 'required|min:3|max:8|unique:dosen',
             'nama' => 'required|min:3|max:30',
             'notlp' => 'required|min:10|max:14|regex:/[0-9]/',
             'jeniskelamin' => 'required|min:9|max:9',
@@ -35,6 +35,7 @@ class DosenRequest extends FormRequest
     public function messages()
     {
         return [
+            'nip.unique' => 'Maaf kode dosen sudah ada',
             'nip.required' => 'Form NIP tidak boleh kosong',
             'nip.min' => 'Form NIP setidaknya harus berisi 3 karakter',
             'nip.max' => 'Form NIP maksimal harus berisi 8 karakter',

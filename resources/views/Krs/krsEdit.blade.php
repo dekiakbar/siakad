@@ -49,7 +49,7 @@
 				</div>
 				<div class="col s6">
 					<div class="col s12 input-field">
-						{{ Form::text('uts',null, array('id' => 'uts', 'data-length' => '3')) }}
+						{{ Form::text('uts',$krs->uts, array('id' => 'uts', 'data-length' => '3')) }}
 						<label for="uts">Masuka Nilai UTS</label>
 					</div>
 				</div>				
@@ -57,14 +57,14 @@
 			<div class="row">
 				<div class="col s6">
 					<div class="col s12 input-field">
-						{{ Form::text('uas',null, array('id' => 'uas', 'data-length' => '3')) }}
+						{{ Form::text('uas',$krs->uas, array('id' => 'uas', 'data-length' => '3')) }}
 						<label for="uas">Masuka Nilai UAS</label>
 					</div>
 				</div>
 				<div class="col s6">
 					<div class="col s12 input-field">
-						{{ Form::text('absen',null, array('id' => 'absen', 'data-length' => '3')) }}
-						<label for="absen">Masuka Nilai UTS</label>
+						{{ Form::text('absen',$krs->absen, array('id' => 'absen', 'data-length' => '3')) }}
+						<label for="absen">Masuka Nilai Absen</label>
 					</div>
 				</div>
 			</div>

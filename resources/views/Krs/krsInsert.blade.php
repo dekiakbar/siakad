@@ -64,7 +64,7 @@
 				<div class="col s6">
 					<div class="col s12 input-field">
 						{{ Form::text('absen',null, array('id' => 'absen', 'data-length' => '3')) }}
-						<label for="absen">Masuka Nilai UTS</label>
+						<label for="absen">Masuka Nilai Absen</label>
 					</div>
 				</div>
 			</div>

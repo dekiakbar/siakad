@@ -19,6 +19,7 @@ class KrsController extends Controller
         $data = Krs::join('dosen','krs.nip','=','dosen.nip')
                 ->join('mahasiswa','krs.nim','=','mahasiswa.nim')
                 ->join('mata_kuliah','krs.kode_mk','=','mata_kuliah.kode_mk')
+                ->select('*','krs.id as id_krs')
                 ->get();
         return view('Krs.krsIndex',compact('data'));
     }

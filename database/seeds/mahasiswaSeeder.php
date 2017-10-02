@@ -12,16 +12,30 @@ class mahasiswaSeeder extends Seeder
     public function run()
     {
         DB::table('mahasiswa')->insert([
-            'nim' => "1234",
-            'nama' => "Deki Akbar",
-            'alamat' => "jln.pemuda",
-            'jenis_kelamin' => "Laki-Laki",
-            'no_tlp' => "0899999999",
-            'email' => "deki".'@gmail.com',
-            'tempat' => 'sukabumi',
-            'tanggal' => date('2017-01-12'),
-            'link' => "1505590327.jpg",
-            'id_jurusan' => 1,
+            [
+                'nim' => "1234",
+                'nama' => "Deki Akbar",
+                'alamat' => "jln.pemuda",
+                'jenis_kelamin' => "Laki-Laki",
+                'no_tlp' => "0899999999",
+                'email' => "deki".'@gmail.com',
+                'tempat' => 'sukabumi',
+                'tanggal' => date('2017-01-12'),
+                'link' => "1505590327.jpg",
+                'id_jurusan' => 1,
+            ],
+            [
+                'nim' => "123",
+                'nama' => "Diki",
+                'alamat' => "jln.pemuda",
+                'jenis_kelamin' => "Laki-Laki",
+                'no_tlp' => "0899988889",
+                'email' => "diki".'@gmail.com',
+                'tempat' => 'sukabumi',
+                'tanggal' => date('2017-01-12'),
+                'link' => "1505590327.jpg",
+                'id_jurusan' => 2,
+            ],
         ]);
     }
 }

@@ -16,7 +16,11 @@
 					<div class="col s9">
 						<select name="nim" style="display: inline-block;">
 							@foreach($mhs as $mhs)
-								<option value="{{ $mhs->nim }}">{{ $mhs->nama }} ({{ $mhs->nim }})</option>
+								@if($krs->nim == $mhs->nim)
+									<option value="{{ $mhs->nim }}" selected>{{ $mhs->nama }} ({{ $mhs->nim }})</option>
+								@else
+									<option value="{{ $mhs->nim }}">{{ $mhs->nama }} ({{ $mhs->nim }})</option>
+								@endif
 							@endforeach
 						</select>						
 					</div>
@@ -28,7 +32,11 @@
 					<div class="col s9">
 						<select name="nip" style="display: inline-block;">
 							@foreach($dosen as $dosen)
-								<option value="{{ $dosen->nip }}">{{ $dosen->nama }} ({{ $dosen->nip }})</option>
+								@if($krs->nip == $dosen->nip)
+									<option value="{{ $dosen->nip }}" selected>{{ $dosen->nama_dosen }} ({{ $dosen->nip }})</option>
+								@else
+									<option value="{{ $dosen->nip }}">{{ $dosen->nama_dosen }} ({{ $dosen->nip }})</option>
+								@endif
 							@endforeach
 						</select>						
 					</div>
@@ -42,7 +50,11 @@
 					<div class="col s9">
 						<select name="kode_mk" style="display: inline-block;">
 							@foreach($makul as $makul)
-								<option value="{{ $makul->kode_mk }}">{{ $makul->makul }} ({{ $makul->kode_mk }})</option>
+								@if($krs->kode_mk == $makul->kode_mk)
+									<option value="{{ $makul->kode_mk }}" selected>{{ $makul->makul }} ({{ $makul->kode_mk }})</option>
+								@else
+									<option value="{{ $makul->kode_mk }}">{{ $makul->makul }} ({{ $makul->kode_mk }})</option>
+								@endif
 							@endforeach
 						</select>						
 					</div>

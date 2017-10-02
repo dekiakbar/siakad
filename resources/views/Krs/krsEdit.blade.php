@@ -7,7 +7,8 @@
 		<h4 class="text-center">Edit KRS</h4>
 	</div>
 	<div class="content">
-		{{ Form::open(array('url' => 'Krs','class' => 'col s12', 'method' => 'post')) }}
+		{{ Form::open(array('action' => ['Krs\KrsController@update',$krs->id],'class' => 'col s12', 'method' => 'post')) }}
+			{{ Form::hidden('_method','PATCH') }}
 			<div class="row">
 				<div class="input-field col s6">
 					<div class="col s3">

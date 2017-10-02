@@ -102,7 +102,23 @@ class KrsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $update = Krs::find($id);
+        $update->nim = $request->get('nim');
+        $update->nip =  $request->get('nip');
+        $update->kode_mk = $request->get('kode_mk');
+        $update->uts = $request->get('uts');
+        $update->uas = $request->get('uas');
+        $update->absen = $request->get('absen');
+
+        if ($update->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data KRS berhasil di update');
+        } else {
+            session()->flash('status', 'clear');
+            session()->flash('pesan', 'Data KRS gagal di hapus');
+        }
+
+        return redirect('/Krs');
     }
 
     /**
@@ -113,6 +129,15 @@ class KrsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Krs::findOrFail($id);
+
+        if ($delete->delete()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data KRS berhasil di hapus');
+        } else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data KRS gagal dihapus');
+        }
+        return redirect('/Krs');
     }
 }

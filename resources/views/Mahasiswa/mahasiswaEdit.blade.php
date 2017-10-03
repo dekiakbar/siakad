@@ -1,4 +1,4 @@
-@extends('Mahasiswa.masterMahasiswa')
+@extends('masterAkademik')
 
 @section('judul', 'Edit Data Mahasiswa')
 

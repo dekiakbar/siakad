@@ -13,4 +13,9 @@ class Jurusan extends Model
     {
     	return $this->belongsTo('App\Mahasiswa');
     }
+
+    public function fakultas()
+    {
+    	return $this->hasMany('App\Fakultas');
+    }
 }

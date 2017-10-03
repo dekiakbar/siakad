@@ -1,4 +1,4 @@
-@extends('Makul.makulMaster')
+@extends('masterAkademik')
 @section('judul', 'Edit Data Mata Kuliah')
 
 @section('content')

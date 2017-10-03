@@ -1,4 +1,4 @@
-@extends('Jurusan.masterJurusan')
+@extends('masterAkademik')
 @section('judul','Daftar Jurusan')
 
 @section('content')

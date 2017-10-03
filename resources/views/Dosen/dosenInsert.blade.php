@@ -1,4 +1,4 @@
-@extends('Dosen.masterDosen')
+@extends('masterAkademik')
 
 @section('judul', 'Inser Data Dosen')
 

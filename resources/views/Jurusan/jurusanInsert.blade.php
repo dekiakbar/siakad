@@ -1,4 +1,4 @@
-@extends('Jurusan.masterJurusan')
+@extends('masterAkademik')
 @section('judul','Tambah Jurusan')
 @section('content')
 	<div class="col s12">

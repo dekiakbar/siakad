@@ -1,4 +1,4 @@
-@extends('Krs.masterKrs')
+@extends('masterAkademik')
 @section('judul','Daftar Krs')
 
 @section('content')

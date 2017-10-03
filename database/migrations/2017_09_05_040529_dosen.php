@@ -15,11 +15,11 @@ class Dosen extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nip')->unique();
-            $table->string('nama_dosen');
-            $table->string('jeniskelamin');
-            $table->string('alamat');
-            $table->string('notlp');
+            $table->string('nip',8)->unique();
+            $table->string('nama_dosen',30);
+            $table->string('jeniskelamin',9);
+            $table->string('alamat',100);
+            $table->string('notlp',14);
             $table->timestamps();
         });
     }

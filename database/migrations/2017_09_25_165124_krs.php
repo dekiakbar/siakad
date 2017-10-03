@@ -15,12 +15,12 @@ class Krs extends Migration
     {
         Schema::create('krs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nim');
-            $table->string('nip');
-            $table->string('kode_mk');
-            $table->integer('absen');
-            $table->integer('uts');
-            $table->integer('uas');
+            $table->string('nim')->length(8);
+            $table->string('nip')->length(8);
+            $table->string('kode_mk')->length(8);
+            $table->integer('absen')->length(3);
+            $table->integer('uts')->length(3);
+            $table->integer('uas')->length(3);
             $table->timestamps();
         });
 

@@ -31,7 +31,7 @@ class MahasiswaRequest extends FormRequest
             'nama' => 'required|min:3|max:30',
             'alamat' => 'required|min:3|max:100',
             'jenis_kelamin' => 'required|max:9',
-            'no_tlp' => 'required|regex:/[0-9]{12}/',
+            'no_tlp' => 'required|min:10|max:12|regex:/[0-9]{12}/',
             'email' => 'required|email',
             'tempat' => 'required|min:3|max:20',
             'tanggal' => 'required',

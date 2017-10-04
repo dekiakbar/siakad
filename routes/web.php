@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::Resource('Mahasiswa','Mahasiswa\MahasiswaController');
-	Route::Resource('Makul','Makul\MakulController');
-	Route::Resource('Dosen','Dosen\DosenController');
-	Route::Resource('Jurusan','Jurusan\JurusanController');
-	Route::Resource('Krs','Krs\KrsController');
+	Route::Resource('Akademik/Mahasiswa','Akademik\Mahasiswa\MahasiswaController');
+	Route::Resource('Akademik/Makul','Akademik\Makul\MakulController');
+	Route::Resource('Akademik/Dosen','Akademik\Dosen\DosenController');
+	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');
+	Route::Resource('Akademik/Krs','Akademik\Krs\KrsController');
 });
 
 Auth::routes();

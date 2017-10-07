@@ -24,7 +24,7 @@ class Jurusan extends Migration
         });
 
         Schema::table('jurusan', function(Blueprint $table){
-            $table->foreign('id_fakultas')->references('id_fak')->on('fakultas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_fakultas')->references('id')->on('fakultas')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

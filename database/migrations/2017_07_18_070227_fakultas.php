@@ -14,8 +14,8 @@ class Fakultas extends Migration
     public function up()
     {
         Schema::create('fakultas', function (Blueprint $table) {
-            $table->increments('id_fak');
-            $table->string('kode_fak',8);
+            $table->increments('id');
+            $table->string('kode_fak',8)->unique();
             $table->string('nama_fak',30);
             $table->timestamps();
         });

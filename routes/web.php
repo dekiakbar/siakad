@@ -21,6 +21,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::Resource('Akademik/Dosen','Akademik\Dosen\DosenController');
 	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');
 	Route::Resource('Akademik/Krs','Akademik\Krs\KrsController');
+	Route::Resource('Akademik/Fakultas','Akademik\Fakultas\FakultasController');
 });
 
 Auth::routes();

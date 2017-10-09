@@ -21,6 +21,7 @@ class Krs extends Migration
             $table->integer('absen')->length(3);
             $table->integer('uts')->length(3);
             $table->integer('uas')->length(3);
+            $table->unique(array('nim','nip','kode_mk'));
             $table->timestamps();
         });
 

@@ -26,7 +26,7 @@ class KrsRequest extends FormRequest
     public function rules()
     {
         return [
-            'nim' => 'required|min:3|max:8'.
+            'nim' => 'required|min:3|max:8|unique_with:krs,nip,kode_mk'.
                 Rule::unique('krs')->ignore($this->id),
             'nip' => 'required|min:3|max:8',
             'kode_mk' => 'required|min:3|max:8',
@@ -39,6 +39,7 @@ class KrsRequest extends FormRequest
     public function messages()
     {
         return [
+            'nim.unique_with' => 'Krs dengan data tersebut sudah ada',
             'nim.required' => 'Form NIM harus diisi',
             'nip.required' => 'Form NIP harus diisi',
             'kode_mk.required' => 'Form Mata kuliah harus diisi',

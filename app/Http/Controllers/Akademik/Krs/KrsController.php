@@ -47,6 +47,7 @@ class KrsController extends Controller
      */
     public function store(KrsRequest $request)
     {
+        
         $krs = new Krs([
             'nim' => $request->get('nim'),
             'nip' => $request->get('nip'),

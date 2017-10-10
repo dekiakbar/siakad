@@ -79,7 +79,7 @@
                             {{ Form::close()}}
 				    	</li>
 				    	<li>
-                            <a href="{{ action('Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
+                            <a href="{{ action('Akademik\Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
                                 <i class="material-icons">edit</i>
                             </a>
                         </li>

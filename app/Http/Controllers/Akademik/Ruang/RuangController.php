@@ -27,7 +27,7 @@ class RuangController extends Controller
      */
     public function create()
     {
-        //
+        return view('Akademik.Ruang.ruangInsert');
     }
 
     /**
@@ -38,7 +38,19 @@ class RuangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insert = new Ruang([
+            'nama_ruang' => $request->get('ruang')
+        ]);
+
+        if($insert->save()){
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data ruang berhasil disimpan');
+        } else {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data ruang gagal disimpan');
+        }
+
+        return redirect('/Akademik/Ruang/create');
     }
 
     /**
@@ -60,7 +72,10 @@ class RuangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dec = decrypt($id);
+        $edit = Ruang::find($dec);
+
+        return view('Akademik.Ruang.ruangEdit',compact('edit'));
     }
 
     /**
@@ -72,7 +87,19 @@ class RuangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dec = decrypt($id);
+        $update = Ruang::find($dec);
+        $update->nama_ruang = $request->get('ruang');
+        
+        if($update->save()){
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data Ruang berhasil di perbaharui');
+        } else {
+            session()->flash('status','clear');
+            session()->flash('pesan','Data Ruang gagal diperbaharui');
+        }
+
+        return redirect('Akademik\Ruang');
     }
 
     /**

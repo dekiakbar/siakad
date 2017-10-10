@@ -20,7 +20,7 @@
 				@foreach($data as $data)
 				<tr>
 					<td>{{$data->nim}}</td>
-					<td><a href="{{ action('Akademik\Mahasiswa\MahasiswaController@show',encrypt($data->id)) }}">{{$data->nama}}</a></td>
+					<td><a href="{{ action('Akademik\Mahasiswa\MahasiswaController@show', encrypt($data->id)) }}">{{$data->nama}}</a></td>
 					<td>{{$data->jenis_kelamin}}</td>
 					<td>{{$data->tempat.','.$data->tanggal}}</td>
 					<td>

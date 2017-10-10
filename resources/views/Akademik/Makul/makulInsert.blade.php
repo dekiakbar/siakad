@@ -7,7 +7,6 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			{{csrf_field()}}
 			{{Form::Open(array('url' => 'Akademik/Makul' ,'method' => 'post','class' => 'col s12'))}}
 				<div class="row">
 					<div class="input-field col s12">

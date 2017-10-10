@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Ruang;
+use App\Http\Requests\RuangRequest;
 
 class RuangController extends Controller
 {
@@ -36,7 +37,7 @@ class RuangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RuangRequest $request)
     {
         $insert = new Ruang([
             'nama_ruang' => $request->get('ruang')
@@ -85,7 +86,7 @@ class RuangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RuangRequest $request, $id)
     {
         $dec = decrypt($id);
         $update = Ruang::find($dec);
@@ -96,7 +97,7 @@ class RuangController extends Controller
             session()->flash('pesan','Data Ruang berhasil di perbaharui');
         } else {
             session()->flash('status','clear');
-            session()->flash('pesan','Data Ruang gagal diperbaharui');
+            session()->flash('pesan','Data Ruang gagal di perbaharui');
         }
 
         return redirect('Akademik\Ruang');
@@ -110,6 +111,17 @@ class RuangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dec = decrypt($id);
+        $hapus = Ruang::find($dec);
+
+        if ($hapus->delete()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data Ruang berhasil di hapus');
+        } else {
+            session()->flash('status','clear');
+            session()->flash('pesan','Data Ruang gagal di hapus');
+        }
+
+        return redirect('Akademik\Ruang');
     }
 }

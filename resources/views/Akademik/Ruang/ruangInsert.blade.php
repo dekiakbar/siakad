@@ -11,7 +11,7 @@
 			{{ Form::open(array('url' => 'Akademik/Ruang','method' => 'post','class' => 'col s12')) }}
 				<div class="row">
 					<div class="col s12 input-field">
-						{{ Form::text('ruang',null,['id' => 'ruang','data-length' => '10']) }}
+						{{ Form::text('ruang',null,['id' => 'ruang','data-length' => '20']) }}
 						<label for="ruang">Nama Ruangan</label>
 					</div>
 				</div>

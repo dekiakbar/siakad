@@ -10,6 +10,13 @@
 	text-decoration: none;
 }
 
+/*pagination*/
+.col .s12 ul li a{
+	text-decoration: none;
+	border: none;
+}
+/*end pagination*/
+
 /*navbar hover*/
 nav .nav-wrapper ul li:hover a {
 	color: rgba(0, 188, 212, 0.85);

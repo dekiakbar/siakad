@@ -15,11 +15,19 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $data = Mahasiswa::all();
-        return view('Akademik.Mahasiswa.mahasiswaIndex', compact('data'));
+    public function index(Request $request)
+    {   
+        if ($request->get('cari') == null) {
+           
+            $datas = Mahasiswa::paginate(10);
+            return view('Akademik.Mahasiswa.mahasiswaIndex', compact('datas'))->with('no',($request->input('page',1)- 1)*10);
         
+        } else {
+            $cari = $request->get('cari');
+            $datas = Mahasiswa::where('nama','LIKE','%'.$cari.'%')->paginate(10);
+            return view('Akademik.Mahasiswa.mahasiswaIndex', compact('datas'))->with('no',($request->input('page',1)- 1)*10);
+        
+        }
     }
 
     /**
@@ -151,4 +159,5 @@ class MahasiswaController extends Controller
         }
         return redirect('/Akademik/Mahasiswa');
     }
+
 }

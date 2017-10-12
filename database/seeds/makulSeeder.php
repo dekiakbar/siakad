@@ -11,17 +11,16 @@ class makulSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mata_kuliah')->insert([
-            [
-            	'kode_mk' => "12345",
-                'makul' => "Pemrograman Web",
-                'sks' => 2,
-            ],
-            [
-                'kode_mk' => "128",
-                'makul' => "Pemrograman Mobile",
-                'sks' => 2,
-            ]
-        ]);
+        $faker = Faker\Factory::create('id_ID');
+        $limit = 10;
+
+        for ($i=0; $i < $limit ; $i++) { 
+        
+            DB::table('mata_kuliah')->insert([
+            	'kode_mk' => $faker->unique()->numberBetween($min=100, $max=20000),
+                'makul' => $faker->word,
+                'sks' => $faker->numberBetween($min=2,$max=4),
+            ]);
+        }
     }
 }

@@ -17,7 +17,7 @@
 				</div>
 				<div class="input-field col s6">
 					<i class="material-icons prefix">account_circle</i>
-					{{Form::text('nama',null,['id' => 'nama' ,'data-length' => '30'])}}
+					{{Form::text('nama',null,['id' => 'nama' ,'data-length' => '50'])}}
 					<label for="nama">Nama Dosen</label>
 				</div>
 			</div>

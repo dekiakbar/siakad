@@ -17,7 +17,7 @@
 				</div>
 				<div class="input-field col s6">
 					<i class="material-icons prefix">account_circle</i>
-					{{ Form::text('nama',null,['id' => 'nama','data-length' => '30']) }}
+					{{ Form::text('nama',null,['id' => 'nama','data-length' => '40']) }}
 					<label for="nama">Nama Mahasiswa</label>
 				</div>
 			</div>
@@ -29,14 +29,14 @@
 				</div>
 				<div class="col s6 input-field">
 					<i class="material-icons prefix">email</i>
-					{{ Form::text('email',null,['id' => 'email','data-length' => '30']) }}
+					{{ Form::text('email',null,['id' => 'email','data-length' => '40']) }}
 					<label for="email">E-mail</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col s6 input-field">
 					<i class="material-icons prefix">assignment_ind</i>
-					{{ Form::text('tempat',null,['id' => 'tempat', 'data-length' => '20']) }}
+					{{ Form::text('tempat',null,['id' => 'tempat', 'data-length' => '40']) }}
 					<label for="tempat">Tempat Lahir</label>
 				</div>
 				<div class="col s6 input-field">

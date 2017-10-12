@@ -11,21 +11,16 @@ class dosenSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('dosen')->insert([
-            [
-            	'nip' => "12543",
-                'nama_dosen' => "Sutejo",
-                'jeniskelamin' => "Laki-Laki",
-                'alamat' => "Sukabumi",
-                'notlp' => "08999999999",
-            ],
-            [
-                'nip' => "123",
-                'nama_dosen' => "Samijan",
-                'jeniskelamin' => "Laki-Laki",
-                'alamat' => "Sukabumi",
-                'notlp' => "08999889999",
-            ]
-        ]);
+        $faker = Faker\Factory::create('id_ID');
+        $limit = 10;
+        for ($i=0; $i < $limit ; $i++) { 
+            DB::table('dosen')->insert([
+                	'nip' => $faker->unique()->numberBetween($min=1,$max=1000),
+                    'nama_dosen' => $faker->name,
+                    'jeniskelamin' => "Laki-Laki",
+                    'alamat' => $faker->address,
+                    'notlp' => $faker->e164PhoneNumber,
+            ]);
+        }
     }
 }

@@ -16,7 +16,7 @@ class Dosen extends Migration
         Schema::create('dosen', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nip',8)->unique();
-            $table->string('nama_dosen',30);
+            $table->string('nama_dosen',50);
             $table->string('jeniskelamin',9);
             $table->string('alamat',100);
             $table->string('notlp',14);

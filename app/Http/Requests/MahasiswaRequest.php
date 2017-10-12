@@ -28,12 +28,12 @@ class MahasiswaRequest extends FormRequest
         return [
             'nim' => 'required|min:3|max:8'.
                 Rule::unique('mahasiswa')->ignore($this->id),
-            'nama' => 'required|min:3|max:30',
+            'nama' => 'required|min:3|max:40',
             'alamat' => 'required|min:3|max:100',
             'jenis_kelamin' => 'required|max:9',
             'no_tlp' => 'required|min:10|max:12|regex:/[0-9]{12}/',
             'email' => 'required|email',
-            'tempat' => 'required|min:3|max:20',
+            'tempat' => 'required|min:3|max:40',
             'tanggal' => 'required',
             'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'id_jurusan' => 'required'

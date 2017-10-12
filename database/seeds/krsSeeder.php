@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Mahasiswa;
+use App\Dosen;
+use App\Matakuliah;
+
 class krsSeeder extends Seeder
 {
     /**
@@ -11,39 +15,27 @@ class krsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('krs')->insert([
-        	[
-        		'nim' => "1234",
-        		'nip' => "12543",
-        		'kode_mk' => "12345",
-        		'uts' => 90,
-        		'uas' => 80,
-        		'absen' => 70,
-        	],
-        	[
-        		'nim' => "123",
-        		'nip' => "123",
-        		'kode_mk' => "12345",
-        		'uts' => 80,
-        		'uas' => 80,
-        		'absen' => 90,
-        	],        	
-        	[
-        		'nim' => "123",
-        		'nip' => "123",
-        		'kode_mk' => "128",
-        		'uts' => 90,
-        		'uas' => 80,
-        		'absen' => 80,
-        	],
-        	[
-        		'nim' => "1234",
-        		'nip' => "12543",
-        		'kode_mk' => "128",
-        		'uts' => 90,
-        		'uas' => 80,
-        		'absen' => 80,
-        	]       	
-        ]);
+        $faker = Faker\Factory::create('id_ID');
+        $mhs = Mahasiswa::all()->pluck('nim');
+        $dsn = Dosen::all()->pluck('nip');
+        $makul = Matakuliah::all()->pluck('kode_mk');
+        $limit = 1;
+
+        for ($i=0; $i < $limit; $i++) { 
+            foreach ($mhs as $mahasiswa) {
+                foreach ($dsn as $dosen) {
+                    foreach ($makul as $matakuliah) {
+                        DB::table('krs')->insert([
+                            'nim' => $faker->randomElement(array($mahasiswa)),
+                            'nip' => $faker->randomElement(array($dosen)),
+                            'kode_mk' => $faker->randomElement(array($matakuliah)),
+                            'uts' => $faker->numberBetween($min=20,$max=100),
+                            'uas' => $faker->numberBetween($min=20,$max=100),
+                            'absen' => $faker->numberBetween($min=20,$max=100),         
+                        ]);
+                    }
+                }
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ class DosenRequest extends FormRequest
         return [
             'nip' => 'required|min:3|max:8'.
                 Rule::unique('dosen')->ignore($this->id),
-            'nama' => 'required|min:3|max:30',
+            'nama' => 'required|min:3|max:50',
             'notlp' => 'required|min:10|max:14|regex:/[0-9]/',
             'jeniskelamin' => 'required|min:9|max:9',
             'alamat' => 'required|min:5|max:100'

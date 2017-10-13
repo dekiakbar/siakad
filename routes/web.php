@@ -18,6 +18,9 @@ Route::get('/', function () {
 // Route untuk hak akses SuperAdmin
 Route::group(['middleware' => 'auth'], function () {
 	Route::Resource('Akademik/Mahasiswa','Akademik\Mahasiswa\MahasiswaController');
+	Route::post('Akademik/Mahasiswa/mahasiswaInsert',['uses'=>'Akademik\Mahasiswa\MahasiswaController@store','as' =>'Mahasiswa.store']);
+	Route::post('Akademik/Mahasiswa',['uses'=>'Akademik\Mahasiswa\MahasiswaController@search','as' =>'Mahasiswa.search']);
+
 	Route::Resource('Akademik/Makul','Akademik\Makul\MakulController');
 	Route::Resource('Akademik/Dosen','Akademik\Dosen\DosenController');
 	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');

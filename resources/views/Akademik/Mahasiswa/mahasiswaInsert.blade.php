@@ -7,7 +7,7 @@
 		<h4>Insert Data Mahasiswa</h4>
 	</div>
 	<div class="content">
-		{{ Form::open(array('url' => 'Akademik/Mahasiswa', 'method' => 'post','files' => true, 'class' => 'col s12')) }}
+		{{ Form::open(['route' => 'Mahasiswa.store', 'method' => 'post','files' => true, 'class' => 'col s12']) }}
 			{{csrf_field()}}
 			<div class="row">
 				<div class="col s6 input-field">

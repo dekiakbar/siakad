@@ -9,7 +9,7 @@
 					<span class="card-title text-center">Daftar mahasiswa</span>
 					<div class="content" style="margin-right: 20px;">
 						<div class="col s4 m6 right">
-							{{ Form::open(array('method' => 'get')) }}
+							{{ Form::open(['route' => 'Mahasiswa.search','method' => 'post']) }}
 								<div class="row">
 									<div class="input-field col s12">
 										{{ Form::text('cari',null,['id' => 'cari','class' => 'col s12']) }}

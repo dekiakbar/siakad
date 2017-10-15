@@ -7,7 +7,7 @@
 		<div class="col s12 m6 l4">
 			<div class="card z-depth-2">
 				<div class="card-content">
-					<span class="card-title text-center"><strong class="cyan-text">Daftar mahasiswa</strong></span>
+					<span class="card-title text-center"><strong class="cyan-text">Tambah Data Dosen</strong></span>
 					<br>
 					<div class="container-fluid">
 						{{Form::open(array('url' => 'Akademik/Dosen', 'method' => 'post', 'class' => 'col s12'))}}

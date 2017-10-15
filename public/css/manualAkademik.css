@@ -85,6 +85,12 @@ table thead tr th a:hover {
 }
 /*end font title mahasiswa*/
 
+/*select icon */
+.caret {
+	border-top: none;
+}
+/**/
+
 /*responsive*/
 @media only screen and (max-width : 992px) {
   #container {

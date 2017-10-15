@@ -61,6 +61,23 @@ nav .nav-wrapper ul li a {
 	text-decoration: none;
 }
 
+/*daftar mahasiswa (mahasiswa index)*/
+
+.card-content .row .col .input-field {
+	margin-top: 0;
+}
+
+/*link table header style*/
+table thead tr th a {
+	color: white;
+}
+
+table thead tr th a:hover {
+	color: white;
+	text-decoration: none;
+	
+}
+
 /*responsive*/
 @media only screen and (max-width : 992px) {
   #container {

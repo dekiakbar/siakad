@@ -9,7 +9,7 @@
         "doctrine/dbal": "^2.5",
         "felixkiss/uniquewith-validator": "^3.1",
         "fideloper/proxy": "~3.3",
-        "illuminate/html": "^5.0",
+        "kyslik/column-sortable": "^5.5",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",

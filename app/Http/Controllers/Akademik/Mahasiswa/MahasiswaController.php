@@ -17,7 +17,7 @@ class MahasiswaController extends Controller
      */
     public function index(Request $request)
     {   
-        $datas = Mahasiswa::paginate(10);
+        $datas = Mahasiswa::sortable()->paginate(10);
         return view('Akademik.Mahasiswa.mahasiswaIndex', compact('datas'))->with('no',($request->input('page',1)- 1)*10);
     }
 

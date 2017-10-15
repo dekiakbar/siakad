@@ -18,7 +18,7 @@
   {{-- navbar --}}
   <nav class="cyan z-depth-2">
     <div class="nav-wrapper">
-      <a style="margin-left: 15px;" href="#!" class="brand-logo"><i class="material-icons">cloud</i></a>
+      <a style="margin-left: 15px;" href="/Akademik" class="brand-logo"><i class="material-icons">school</i> Akademik</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Akademik</a></li>
         <li><a href="#">Forum</a></li>

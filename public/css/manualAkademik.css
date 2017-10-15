@@ -77,6 +77,13 @@ table thead tr th a:hover {
 	text-decoration: none;
 	
 }
+/*end table mahasiswa index*/
+
+/*style font title Akademik*/
+#container .nav-wrapper a:hover {
+	text-decoration: none;
+}
+/*end font title mahasiswa*/
 
 /*responsive*/
 @media only screen and (max-width : 992px) {

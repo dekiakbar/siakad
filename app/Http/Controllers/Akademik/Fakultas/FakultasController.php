@@ -15,10 +15,10 @@ class FakultasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datas = Fakultas::all();
-        return view('Akademik.Fakultas.fakultasIndex',compact('datas'));
+        $datas = Fakultas::sortable()->paginate(10);
+        return view('Akademik.Fakultas.fakultasIndex',compact('datas'))->with('no',($request->input('cari',1)-1)*10);
     }
 
     /**
@@ -124,5 +124,13 @@ class FakultasController extends Controller
         }
 
         return redirect('/Akademik/Fakultas');
+    }
+
+    public function search(Request $request)
+    {
+        $cari = $request->input('cari');
+        $datas = Fakultas::where('nama_fak','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+
+        return view('Akademik.Fakultas.fakultasIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 }

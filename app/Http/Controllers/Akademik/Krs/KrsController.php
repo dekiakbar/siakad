@@ -15,14 +15,14 @@ class KrsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Krs::join('dosen','krs.nip','=','dosen.nip')
+        $datas = Krs::join('dosen','krs.nip','=','dosen.nip')
                 ->join('mahasiswa','krs.nim','=','mahasiswa.nim')
                 ->join('mata_kuliah','krs.kode_mk','=','mata_kuliah.kode_mk')
                 ->select('*','krs.id as id_krs')
-                ->get();
-        return view('Akademik.Krs.krsIndex',compact('data'));
+                ->paginate(10);
+        return view('Akademik.Krs.krsIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 
     /**
@@ -144,5 +144,16 @@ class KrsController extends Controller
             session()->flash('pesan','Data KRS gagal dihapus');
         }
         return redirect('/Akademik/Krs');
+    }
+
+    public function search (Requests $request)
+    {
+        $cari = $request->input('cari');
+        $datas = Krs::join('dosen','krs.nip','=','dosen.nip')
+                ->join('mahasiswa','krs.nim','=','mahasiswa.nim')
+                ->join('mata_kuliah','krs.kode_mk','=','mata_kuliah.kode_mk')
+                ->select('*','krs.id as id_krs')
+                ->paginate(10);
+        return view('Akademik.Krs.krsIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 }

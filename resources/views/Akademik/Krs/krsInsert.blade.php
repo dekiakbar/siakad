@@ -10,7 +10,7 @@
 					<span class="card-title text-center"><strong class="cyan-text">Tambah Data KRS</strong></span>
 					<br>
 					<div class="container-fluid">
-						{{ Form::open(array('url' => 'Akademik/Krs','class' => 'col s12', 'method' => 'post')) }}
+						{{ Form::open(array('route' => 'Krs.store','class' => 'col s12', 'method' => 'post')) }}
 							<div class="row">
 								<div class="input-field col s12 m6">
 									<select name="nim">

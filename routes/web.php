@@ -27,7 +27,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('Akademik/Dosen/dosenInsert',['uses' => 'Akademik\Dosen\DosenController@store','as' => 'Dosen.store']);
 	Route::post('Akademik/Dosen',['uses' => 'Akademik\Dosen\DosenController@search','as' => 'Dosen.search']);
 
+	// Routing Mata Kuliah
 	Route::Resource('Akademik/Makul','Akademik\Makul\MakulController');
+	Route::post('Akademik/Makul/makulInsert',['uses' => 'Akademik\Makul\MakulController@store','as' => 'Makul.store']);
+	Route::post('Akademik/Makul',['uses' => 'Akademik\Makul\MakulController@search','as' => 'Makul.search']);
+
 	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');
 	Route::Resource('Akademik/Krs','Akademik\Krs\KrsController');
 	Route::Resource('Akademik/Fakultas','Akademik\Fakultas\FakultasController');

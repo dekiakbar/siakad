@@ -15,10 +15,10 @@ class MakulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Matakuliah::all();
-        return view('Akademik/Makul.makulIndex', compact('data'));
+        $datas = Matakuliah::sortable()->paginate(10);
+        return view('Akademik.Makul.makulIndex', compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 
     /**
@@ -127,5 +127,13 @@ class MakulController extends Controller
         }
         return redirect('/Akademik/Makul');
 
+    }
+
+    public function search(Request $request)
+    {
+        $cari = $request->get('cari');
+        $datas = Matakuliah::where('makul','LIKE','%'.$cari.'%')->paginate(10);
+
+        return view('Akademik.Makul.makulIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 }

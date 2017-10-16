@@ -10,7 +10,7 @@
 					<br>
 					<div class="container">
 						<div class="row">
-							{{Form::Open(array('url' => 'Akademik/Makul' ,'method' => 'post','class' => 'col s12'))}}
+							{{Form::Open(array('route' => 'Makul.store' ,'method' => 'post','class' => 'col s12'))}}
 								<div class="row">
 									<div class="input-field col s12 m12">
 										{{Form::text('kode_mk',null,array('id' => 'kode','data-length' => '8'))}}

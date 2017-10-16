@@ -21,10 +21,10 @@
 						<thead>
 							<tr class="blue white-text">
 								<th class="text-center">No</th>
-								<th class="text-center white-text">@sortablelink('nim','NIM')</th>
-								<th class="text-center white-text">@sortablelink('nama','Nama')</th>
-								<th class="text-center white-text">@sortablelink('jenis_kelamin','Jenis Kelamin')</th>
-								<th class="text-center white-text">@sortablelink('tanggal','Tempat Tanggal Lahir')</th>
+								<th class="text-center">@sortablelink('nim','NIM')</th>
+								<th class="text-center">@sortablelink('nama','Nama')</th>
+								<th class="text-center">@sortablelink('jenis_kelamin','Jenis Kelamin')</th>
+								<th class="text-center">@sortablelink('tanggal','Tempat Tanggal Lahir')</th>
 								<th class="text-center">Aksi</th>
 							</tr>
 						</thead>

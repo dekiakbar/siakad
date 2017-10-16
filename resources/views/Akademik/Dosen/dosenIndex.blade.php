@@ -8,20 +8,20 @@
 				<div class="card-content">
 					<span class="card-title text-center"><strong class="cyan-text">Daftar Dosen</strong></span>
 					<br>
-					<div class="content" style="margin-right: 20px;">
+					<div class="content">
 						<table class="table centered responsive-table bordered highlight striped">
 							<thead>
-								<tr>
-									<td class="text-center">No</td>
-									<td class="text-center">NIP</td>
-									<td class="text-center">Nama</td>
-									<td class="text-center">No Telpon</td>
-									<td class="text-center">Jenis Kelamin</td>
-									<td class="text-center">Aksi</td>
+								<tr class="blue white-text">
+									<th class="text-center">No</th>
+									<th class="text-center">@sortablelink('nip','NIP')</th>
+									<th class="text-center">@sortablelink('nama','Nama')</th>
+									<th class="text-center">@sortablelink('notlp','No Telpon')</th>
+									<th class="text-center">@sortablelink('jeniskelamin','Jenis Kelamin')</th>
+									<th class="text-center">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($dosen as $no => $data)
+								@foreach($dosen as $data)
 								<tr>
 									<td>{{++$no}}</td>
 									<td>{{$data->nip}}</td>
@@ -42,6 +42,10 @@
 								@endforeach
 							</tbody>
 						</table>
+
+						<div class="col s12 text-center">
+							{!! $dosen->appends(\Request::except('page'))->render('vendor.pagination.customPagination') !!}
+						</div>
 						@if(session()->has('status'))
 							<script type="text/javascript">
 					      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';

@@ -15,10 +15,10 @@ class DosenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dosen = Dosen::all();
-        return view('Akademik.Dosen.dosenIndex', compact('dosen'));
+        $dosen = Dosen::sortable()->paginate(10);
+        return view('Akademik.Dosen.dosenIndex', compact('dosen'))->with('no',($request->input('page',1)-1)*10);
     }
 
     /**

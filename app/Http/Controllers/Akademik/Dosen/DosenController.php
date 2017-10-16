@@ -129,4 +129,12 @@ class DosenController extends Controller
         }
         return redirect('/Akademik/Dosen');
     }
+
+    public function search(Request $request)
+    {
+        $cari = $request->get('s');
+        $dosen = Dosen::where('nama_dosen','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+        return view('Akademik.Dosen.dosenIndex', compact('dosen'))->with('no',($request->input('page',1)-1)*10);
+
+    }
 }

@@ -17,12 +17,17 @@ Route::get('/', function () {
 
 // Route untuk hak akses SuperAdmin
 Route::group(['middleware' => 'auth'], function () {
+	// Route Mahasiswa
 	Route::Resource('Akademik/Mahasiswa','Akademik\Mahasiswa\MahasiswaController');
 	Route::post('Akademik/Mahasiswa/mahasiswaInsert',['uses'=>'Akademik\Mahasiswa\MahasiswaController@store','as' =>'Mahasiswa.store']);
 	Route::post('Akademik/Mahasiswa',['uses'=>'Akademik\Mahasiswa\MahasiswaController@search','as' =>'Mahasiswa.search']);
+	
+	// Routing Dosen
+	Route::Resource('Akademik/Dosen','Akademik\Dosen\DosenController');
+	Route::post('Akademik/Dosen/dosenInsert',['uses' => 'Akademik\Dosen\DosenController@store','as' => 'Dosen.store']);
+	Route::post('Akademik/Dosen',['uses' => 'Akademik\Dosen\DosenController@search','as' => 'Dosen.search']);
 
 	Route::Resource('Akademik/Makul','Akademik\Makul\MakulController');
-	Route::Resource('Akademik/Dosen','Akademik\Dosen\DosenController');
 	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');
 	Route::Resource('Akademik/Krs','Akademik\Krs\KrsController');
 	Route::Resource('Akademik/Fakultas','Akademik\Fakultas\FakultasController');

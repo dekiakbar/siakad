@@ -10,7 +10,7 @@
 					<span class="card-title text-center"><strong class="cyan-text">Tambah Data Dosen</strong></span>
 					<br>
 					<div class="container-fluid">
-						{{Form::open(array('url' => 'Akademik/Dosen', 'method' => 'post', 'class' => 'col s12'))}}
+						{{Form::open(['route' => 'Dosen.store', 'method' => 'post', 'class' => 'col s12'])}}
 							<div class="row">
 								<div class="input-field col s12 m6">
 									<i class="material-icons prefix">format_list_numbered</i>

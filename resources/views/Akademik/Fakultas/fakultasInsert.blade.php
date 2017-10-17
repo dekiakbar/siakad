@@ -11,7 +11,7 @@
 					<br>
 					<div class="container">
 						<div class="row">
-							{{ Form::open(array('url' => 'Akademik/Fakultas','method' => 'post', 'class' => 'col s12')) }}
+							{{ Form::open(array('url' => 'Fakultas.store','method' => 'post', 'class' => 'col s12')) }}
 								<div class="row">
 									<div class="input-field col s12">
 										{{ Form::text('kode_fak',null,array('id' => 'kode_fak','data-length' => '8')) }}

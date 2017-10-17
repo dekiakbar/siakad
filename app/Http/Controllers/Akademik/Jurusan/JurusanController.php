@@ -17,10 +17,10 @@ class JurusanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $jurusan = Jurusan::all();
-        return view('Akademik.Jurusan.jurusanIndex',compact('jurusan'));
+        $jurusans = Jurusan::sortable()->paginate(10);
+        return view('Akademik.Jurusan.jurusanIndex',compact('jurusans'))->with('no',($request->input('page',1)-1)*10);
     }
 
     /**
@@ -157,7 +157,14 @@ class JurusanController extends Controller
             session()->flash('pesan','Data gagal disimpan');
         }
 
-        return redirect('Akademik/Jurusan');
-        
+        return redirect('Akademik/Jurusan');   
+    }
+
+    public function search(Request $request)
+    {
+        $cari = $request->input('cari');
+        $jurusans = Jurusan::where('nama_jurusan','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+
+        return view('Akademik.Jurusan.jurusanIndex',compact('jurusans'))->with('no',($request->input('page',1)-1)*10);
     }
 }

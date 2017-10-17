@@ -19,11 +19,12 @@
 						</div>
 					</div>
 					<div class="content">
-						<table class="table centered responsive-table bordered">
+						<table class="table centered responsive-table bordered striped highlight">
 							<thead>
-								<tr>
-									<th class="text-center">Kode Fakultas</th>
-									<th class="text-center">Nama Fakultas</th>
+								<tr class="blue white-text">
+									<th class="text-center">@sortablelink('kode_fak','Kode Fakultas')</th>
+									<th class="text-center">@sortablelink('nama_fak','Nama Fakultas')</th>
+									<th class="text-center">Action</th>
 								</tr>
 							</thead>
 							<tbody>

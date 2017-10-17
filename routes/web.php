@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 // Route untuk hak akses SuperAdmin
 Route::group(['middleware' => 'auth'], function () {
-	
+
 	// Route Mahasiswa
 	Route::Resource('Akademik/Mahasiswa','Akademik\Mahasiswa\MahasiswaController');
 	Route::post('Akademik/Mahasiswa/mahasiswaInsert',['uses'=>'Akademik\Mahasiswa\MahasiswaController@store','as' =>'Mahasiswa.store']);
@@ -38,14 +38,23 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('Akademik/Krs/krsInsert',['uses' => 'Akademik\Krs\KrsController@store','as' => 'Krs.store']);
 	Route::post('Akademik/Krs',['uses' => 'Akademik\Krs\KrsController@search','as' => 'Krs.search']);
 
-	// Routing Jurusan
+	// Routing Fakultas
 	Route::Resource('Akademik/Fakultas','Akademik\Fakultas\FakultasController');
 	Route::post('Akademik/Fakultas/fakultasInsert',['uses' => 'Akademik\Fakultas\FakultasController@store','as' => 'Fakultas.store']);
 	Route::post('Akademik/Fakultas',['uses' => 'Akademik\Fakultas\FakultasController@search','as' => 'Fakultas.search']);
 
+	// Routing Jurusan
 	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');
+	Route::post('Akademik/Jurusan/jurusanIndex',['uses' => 'Akademik\Jurusan\JurusanController@store','as' => 'Jurusan.store']);
+	Route::post('Akademik/Jurusan',['uses' => 'Akademik\Jurusan\JurusanController@search','as' => 'Jurusan.search']);
+
+	// Routing Ruang
 	Route::Resource('Akademik/Ruang','Akademik\Ruang\RuangController');
-	Route::Resource('Akademik','Akademik\AkademikController');
+	Route::post('Akademik/Ruang/ruangInsert',['uses' => 'Akademik\Ruang\RuangController@create','as' => 'Ruang.store']);
+	Route::post('Akademik/Ruang',['uses' => 'Akademik\Ruang\RuangController@search','as' => 'Ruang.search']);
+
+	// Routing Akademik
+	Route::get('Akademik','Akademik\AkademikController@index');
 });
 
 Auth::routes();

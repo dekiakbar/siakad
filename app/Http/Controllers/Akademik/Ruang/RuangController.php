@@ -15,10 +15,10 @@ class RuangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datas = Ruang::all();
-        return view('Akademik.Ruang.ruangIndex',compact('datas'));
+        $datas = Ruang::sortable()->paginate(10);
+        return view('Akademik.Ruang.ruangIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 
     /**
@@ -123,5 +123,13 @@ class RuangController extends Controller
         }
 
         return redirect('Akademik\Ruang');
+    }
+
+    public function search(Request $request)
+    {
+        $cari = $request->input('cari');
+        $datas = Ruang::where('nama_ruang','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+
+        return view('Akademik.Ruang.ruangIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 }

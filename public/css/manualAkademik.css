@@ -97,3 +97,10 @@ table thead tr th a:hover {
     padding-left: 0px;
   }
 }
+
+/*Label Logo*/
+@media only screen and (min-width: 992px){
+	nav .nav-wrapper .brand-logo{
+  		margin-left: 20px;
+	}
+}

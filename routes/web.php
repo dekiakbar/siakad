@@ -50,8 +50,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Routing Ruang
 	Route::Resource('Akademik/Ruang','Akademik\Ruang\RuangController');
-	Route::post('Akademik/Ruang/ruangInsert',['uses' => 'Akademik\Ruang\RuangController@create','as' => 'Ruang.store']);
+	Route::post('Akademik/Ruang/ruangInsert',['uses' => 'Akademik\Ruang\RuangController@store','as' => 'Ruang.store']);
 	Route::post('Akademik/Ruang',['uses' => 'Akademik\Ruang\RuangController@search','as' => 'Ruang.search']);
+
+	// Routing kelas
+	Route::Resource('Akademik/Kelas','Akademik\Kelas\KelasController');
+	Route::post('Akademik/Kelas/kelasInsert',['uses' => 'Akademik\Kelas\KelasController@store','as' => 'Kelas.store']);
+	Route::post('Akademik/Kelas',['uses' => 'Akademik\Kelas\KelasController@search','as' => 'Kelas.search']);
 
 	// Routing Akademik
 	Route::get('Akademik','Akademik\AkademikController@index');

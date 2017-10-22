@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Validation\Rule;
+
+
 class KelasRequest extends FormRequest
 {
     /**
@@ -24,7 +27,8 @@ class KelasRequest extends FormRequest
     public function rules()
     {
         return [
-            'kode_kelas' => 'required|min:3|max:8',
+            'kode_kelas' => 'required|min:3|max:8'.
+                Rule::unique('kelas')->ignore($this->id),
             'kode_jurusan' => 'required',
             'nama_kelas' => 'required|min:2|max:50',
             'tahun' => 'required|min:10|max:10|regex:/[0-9]/'

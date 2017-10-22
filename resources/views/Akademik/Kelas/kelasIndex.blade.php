@@ -39,7 +39,7 @@
 										<td>{{ $data->tahun }}</td>
 										<td class="text-center"> 
 											{!!Form::open(['method' => 'DELETE','route' => ['Kelas.destroy', encrypt($data->id)]])!!}
-												<a href="{{action('Akademik\Ruang\KelasController@edit',encrypt($data->id))}}" class="btn btn-floating waves-light waves-effect blue"><i class="material-icons">mode_edit</i></a>
+												<a href="{{action('Akademik\Kelas\KelasController@edit',encrypt($data->id))}}" class="btn btn-floating waves-light waves-effect blue"><i class="material-icons">mode_edit</i></a>
 												<button type="submit" class="btn btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></button>
 											{!! Form::close()!!}		
 										</td>

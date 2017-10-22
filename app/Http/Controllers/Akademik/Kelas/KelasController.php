@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Kelas;
+use App\Jurusan;
 use App\Http\Requests\KelasRequest;
 
 class KelasController extends Controller
@@ -77,7 +78,11 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dec = decrypt($id);
+        $edit = Kelas::find($dec);
+        $datas = Jurusan::select('id','nama_jurusan','kode_jurusan')->get();
+
+        return view('Akademik.Kelas.kelasEdit',compact('datas','edit','id'));
     }
 
     /**
@@ -87,9 +92,24 @@ class KelasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KelasRequest $request, $id)
     {
-        //
+        $dec = decrypt($id);
+        $update = Kelas::find($dec);
+        $update->kode_kelas = $request->input('kode_kelas');
+        $update->nama_kelas = $request->input('nama_kelas');
+        $update->kode_jurusan = $request->input('kode_jurusan');
+        $update->tahun = $request->input('tahun');
+
+        if ($update->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil diperbaharui');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal diperbaharui');
+        }
+
+        return redirect('Akademik/Kelas');
     }
 
     /**
@@ -100,7 +120,18 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dec = decrypt($id);
+        $data = Kelas::find($dec);
+
+        if ($data->delete()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil dihapus');
+        }else{
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data gagal dihapus');
+        }
+
+        return redirect('Akademik/Kelas');
     }
 
     public function search()

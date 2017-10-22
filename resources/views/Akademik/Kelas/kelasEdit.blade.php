@@ -1,27 +1,49 @@
 @extends('Akademik.masterAkademik')
 
-@section('judul','Edit Data Ruangan')
+@section('judul','Edit Data Kelas')
 
 @section('content')
 	<div class="container-fluid">
 		<div class="col s12 m6 l4">
 			<div class="card z-depth-2">
 				<div class="card-content">
-					<span class="card-title text-center"><strong class="cyan-text">Edit Data Ruang</strong></span>
+					<span class="card-title text-center"><strong class="cyan-text">Edit Data Kelas</strong></span>
 					<div class="container">
 						<div class="row">
-							{{ Form::open(array('action' => ['Akademik\Ruang\RuangController@update',encrypt($edit->id)],'method' => 'post','class' => 'col s12')) }}
-								{{ form::hidden('_method','PATCH') }}
+							{{ Form::open(array('action' => ['Akademik\Kelas\KelasController@update',encrypt($edit->id)],'method' => 'post','class' => 'col s12')) }}
+							{{ Form::hidden('_method','PATCH') }}
 								<div class="row">
-									<div class="col s12 input-field">
-										{{ Form::text('ruang',$edit->nama_ruang,['id' => 'ruang','data-length' => '10']) }}
-										<label for="ruang">Nama Ruangan</label>
+									<div class="col s12 m6 input-field">
+										{{ Form::text('kode_kelas',$edit->kode_kelas,['id' => 'kode_kelas','data-length' => '8']) }}
+										<label for="kode_kelas">Kode Kelas</label>
+									</div>
+									<div class="col s12 m6 input-field">
+										{{ Form::text('nama_kelas',$edit->nama_kelas,['id' => 'kelas','data-length' => '50']) }}
+										<label for="kelas">Nama Kelas</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col s12 m6 input-field">
+										<select name="kode_jurusan">
+											@foreach($datas as $data)
+												@if($edit->kode_jurusan == $data->kode_jurusan)
+													<option value="{{ $data->kode_jurusan }}" selected>{{ $data->nama_jurusan }}</option>
+												@else
+													<option value="{{ $data->kode_jurusan }}">{{ $data->nama_jurusan }}</option>
+												@endif
+											@endforeach
+										</select>
+									</div>
+									<div class="col s12 m6 input-field">
+										{{ Form::text('tahun',$edit->tahun,['id' => 'datepicker','data-length' => 10]) }}
+										<label for="datepicker">Tahun</label>
 									</div>
 								</div>
 								<div class="col s12 text-center">
 									<button type="submit" class="btn waves-light waves-effect blue"><i class="material-icons right">send</i>Simpan</button>
 								</div>
 							{{ Form::close() }}
+
 						</div>
 						@if(session()->has('status'))
 							<script type="text/javascript">

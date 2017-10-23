@@ -117,6 +117,17 @@
           </li>
         </ul>
       </li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header waves-effect waves-cyan">Kelas<i class="material-icons">arrow_drop_down</i></a>
+            <ul class="collapsible-body no-padding">
+              <li><a href="/Akademik/Kelas">Kelas<i class="material-icons tiny">list</i></a></li>
+              <li><a href="/Akademik/Kelas/create">Kelas<i class="material-icons tiny">add</i></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 

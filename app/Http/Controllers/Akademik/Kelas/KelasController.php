@@ -134,8 +134,10 @@ class KelasController extends Controller
         return redirect('Akademik/Kelas');
     }
 
-    public function search()
+    public function search(Request $request)
     {
-
+        $cari = $request->input('cari');
+        $datas = Kelas::where('nama_kelas','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+        return view('Akademik.Kelas.kelasIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 }

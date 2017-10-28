@@ -7,7 +7,7 @@
 		<div class="col s12 m6 l4">
 			<div class="card z-depth-2">
 				<div class="card-content">
-					<span class="card-title text-center"><strong class="cyan-text">Daftar mahasiswa</strong></span>
+					<span class="card-title text-center"><strong class="cyan-text">Daftar Fakultas</strong></span>
 					<div class="row">
 						<div class="col s6 m4 right">
 							<div class="input-field col s12 m12">
@@ -18,10 +18,11 @@
 							</div>	
 						</div>
 					</div>
-					<div class="content">
+					<div class="container">
 						<table class="table centered responsive-table bordered striped highlight">
 							<thead>
 								<tr class="blue white-text">
+									<th class="text-center">No</th>
 									<th class="text-center">@sortablelink('kode_fak','Kode Fakultas')</th>
 									<th class="text-center">@sortablelink('nama_fak','Nama Fakultas')</th>
 									<th class="text-center">Action</th>
@@ -30,6 +31,7 @@
 							<tbody>
 								@foreach($datas as $data)
 									<tr>
+										<td>{{ ++$no }}</td>
 										<td>{{ $data->kode_fak }}</td>
 										<td>{{ $data->nama_fak }}</td>
 										<td class="text-center"> 

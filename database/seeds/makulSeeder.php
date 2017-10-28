@@ -17,7 +17,7 @@ class makulSeeder extends Seeder
         for ($i=0; $i < $limit ; $i++) { 
         
             DB::table('mata_kuliah')->insert([
-            	'kode_mk' => $faker->unique()->numberBetween($min=100, $max=20000),
+            	'kode_mk' => $faker->unique()->numerify('M###'),
                 'makul' => $faker->word,
                 'sks' => $faker->numberBetween($min=2,$max=4),
             ]);

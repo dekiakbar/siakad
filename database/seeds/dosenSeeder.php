@@ -15,7 +15,7 @@ class dosenSeeder extends Seeder
         $limit = 10;
         for ($i=0; $i < $limit ; $i++) { 
             DB::table('dosen')->insert([
-                	'nip' => $faker->unique()->numberBetween($min=1,$max=1000),
+                	'nip' => $faker->unique()->numerify('D###'),
                     'nama_dosen' => $faker->name,
                     'jeniskelamin' => "Laki-Laki",
                     'alamat' => $faker->address,

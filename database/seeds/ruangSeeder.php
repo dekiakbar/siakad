@@ -14,9 +14,10 @@ class ruangSeeder extends Seeder
         $faker = Faker\Factory::create('id_ID');
         $limit = 20;
 
-        for ($i=0; $i <  $limit; $i++) { 
+        for ($i=0; $i < $limit; $i++) { 
         	DB::table('ruang')->insert([
-        		'nama_ruang' => $faker->unique()->word
+                'kode_ruang' => $faker->unique()->numerify('R###'),
+        		'nama_ruang' => $faker->word
         	]);
         }
     }

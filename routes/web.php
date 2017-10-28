@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Routing Jurusan
 	Route::Resource('Akademik/Jurusan','Akademik\Jurusan\JurusanController');
-	Route::post('Akademik/Jurusan/jurusanIndex',['uses' => 'Akademik\Jurusan\JurusanController@store','as' => 'Jurusan.store']);
+	Route::post('Akademik/Jurusan/jurusanInsert',['uses' => 'Akademik\Jurusan\JurusanController@store','as' => 'Jurusan.store']);
 	Route::post('Akademik/Jurusan',['uses' => 'Akademik\Jurusan\JurusanController@search','as' => 'Jurusan.search']);
 
 	// Routing Ruang

@@ -22,6 +22,7 @@
 							<thead>
 								<tr class="blue white-text">
 									<th class="text-center">No</th>
+									<th class="text-center">@sortablelink('kode_ruang','Kode Ruang')</th>
 									<th class="text-center">@sortablelink('nama_ruang','Ruang')</th>
 									<th class="text-center">Action</th>
 								</tr>
@@ -30,6 +31,7 @@
 								@foreach($datas as $data)
 									<tr>
 										<td>{{ ++$no }}</td>
+										<td>{{ $data->kode_ruang }}</td>
 										<td>{{ $data->nama_ruang }}</td>
 										<td class="text-center"> 
 											{!!Form::open(['method' => 'DELETE','route' => ['Ruang.destroy', encrypt($data->id)]])!!}
@@ -41,18 +43,18 @@
 								@endforeach
 							</tbody>
 						</table>
-					<div class="col s12 m12 text-center">
-						{!! $datas->appends(\Request::except('page'))->render('vendor.pagination.customPagination') !!}
+						<div class="col s12 m12 text-center">
+							{!! $datas->appends(\Request::except('page'))->render('vendor.pagination.customPagination') !!}
+						</div>
+						@if(session()->has('status'))
+							<script type="text/javascript">
+					      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+								const Message = '{{ session('pesan') }}';
+								const $Content = Icon + Message ;
+								Materialize.toast( $Content, 4000,'rounded cyan' );
+				      		</script>
+						@endif
 					</div>
-					@if(session()->has('status'))
-						<script type="text/javascript">
-				      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
-							const Message = '{{ session('pesan') }}';
-							const $Content = Icon + Message ;
-							Materialize.toast( $Content, 4000,'rounded cyan' );
-			      		</script>
-					@endif
-				</div>
 				</div>
 			</div>
 		</div>

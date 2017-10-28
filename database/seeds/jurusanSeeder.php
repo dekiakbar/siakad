@@ -19,7 +19,7 @@ class jurusanSeeder extends Seeder
         for ($i=0; $i < $limit ; $i++) { 
             foreach ($fak as $fakultas) {
                 DB::table('jurusan')->insert([
-                    'kode_jurusan' => $faker->unique()->numberBetween($min=100,$max=20000),
+                    'kode_jurusan' => $faker->unique()->numerify('J###'),
                     'nama_jurusan' => $faker->word,
                     'id_fakultas' => $faker->randomElement(array($fakultas)),
                     'jenjang' => $faker->randomElement($array = array('D1','D3','S1','S2','S3')),

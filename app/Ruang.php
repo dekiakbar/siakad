@@ -10,8 +10,8 @@ class Ruang extends Model
 {
 	use Sortable;
 
-    protected $fillable = ['nama_ruang'];
+    protected $fillable = ['kode_ruang','nama_ruang'];
     protected $table = 'ruang';
 
-    public $sortable = ['nama_ruang'];
+    public $sortable = ['kode_ruang','nama_ruang'];
 }

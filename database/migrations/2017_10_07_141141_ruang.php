@@ -15,7 +15,8 @@ class Ruang extends Migration
     {
         Schema::create('ruang', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_ruang')->unique()->length(20);
+            $table->string('kode_ruang')->unique()->length(50);
+            $table->string('nama_ruang')->length(50);
             $table->timestamps();
         });
     }

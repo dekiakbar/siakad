@@ -26,8 +26,9 @@ class RuangRequest extends FormRequest
     public function rules()
     {
         return [
-            'ruang' => 'required|min:2|max:20'.
-                Rule::unique('ruang')->ignore($this->id)
+            'kode_ruang' => 'required|min:2|max:8'.
+                Rule::unique('ruang')->ignore($this->id),
+            'ruang' => 'required|min:2|max:20'
         ];
     }
 
@@ -35,7 +36,10 @@ class RuangRequest extends FormRequest
         return [
             'ruang.required' => 'Form ruang tidak boleh kosong',
             'ruang.min' => 'Form ruang minimal berisi 2 karakter',
-            'ruang.max' => 'Form ruang maksimal berisi 20 karakter'
+            'ruang.max' => 'Form ruang maksimal berisi 50 karakter',
+            'kode_ruang.required' => 'Form kode ruang tidak boleh kosong',
+            'kode_ruang.min' => 'Form kode ruang minimal berisi 2 karakter',
+            'kode_ruang.max' => 'Form kode ruang maksimal berisi 8 karakter'
         ];
     }
 }

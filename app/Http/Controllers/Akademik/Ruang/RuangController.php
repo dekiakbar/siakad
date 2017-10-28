@@ -40,7 +40,8 @@ class RuangController extends Controller
     public function store(RuangRequest $request)
     {
         $insert = new Ruang([
-            'nama_ruang' => $request->get('ruang')
+            'nama_ruang' => $request->get('ruang'),
+            'kode_ruang' => $request->get('kode_ruang')
         ]);
 
         if($insert->save()){
@@ -91,6 +92,7 @@ class RuangController extends Controller
         $dec = decrypt($id);
         $update = Ruang::find($dec);
         $update->nama_ruang = $request->get('ruang');
+        $update->kode_ruang = $request->get('kode_ruang');
         
         if($update->save()){
             session()->flash('status','done_all');

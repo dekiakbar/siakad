@@ -17,7 +17,7 @@ class fakultasSeeder extends Seeder
 
         for ($i=0; $i < $limit; $i++) { 
             DB::table('fakultas')->insert([
-                'kode_fak' => $faker->unique()->numberBetween($min=1,$max=20),
+                'kode_fak' => $faker->unique()->numerify('F###'),
                 'nama_fak' => $faker->word,
             ]);
         }

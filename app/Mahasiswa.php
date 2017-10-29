@@ -14,7 +14,7 @@ class Mahasiswa extends Model
     public $sortable = ['nim','nama','alamat','jenis_kelamin','tanggal'];
 
     public function jurusan(){
-    	return $this->hasOne('App\Jurusan');
+    	return $this->hasOne('App\Jurusan','kode_jurusan');
     }
 
     public function krs(){

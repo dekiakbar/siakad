@@ -17,7 +17,7 @@ class Jurusan extends Model
 
     public function mahasiswa()
     {
-    	return $this->belongsTo('App\Mahasiswa');
+    	return $this->belongsTo('App\Mahasiswa','id_jurusan');
     }
 
     public function fakultas()

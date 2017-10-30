@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
 	//Routing Jadwal
 	Route::Resource('Akademik/Jadwal','Akademik\Jadwal\JadwalController');
 	Route::post('Akademik/Jadwal/jadwalInsert',['uses' => 'Akademik\Jadwal\JadwalController@store','as' => 'Jadwal.store']);
-	// Route::post('Akademik/Jadwal',['uses' => 'Akademik\Jadwal\JadwalController@search','as' => 'Jadwal.search']);
+	Route::post('Akademik/Jadwal',['uses' => 'Akademik\Jadwal\JadwalController@search','as' => 'Jadwal.search']);
 
 	// Routing Akademik
 	Route::get('Akademik','Akademik\AkademikController@index');

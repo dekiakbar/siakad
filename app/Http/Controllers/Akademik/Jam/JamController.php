@@ -16,7 +16,7 @@ class JamController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = Jam::paginate(10);
+        $datas = Jam::sortable()->paginate(10);
 
         return view('Akademik.Jam.jamIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10); 
     }
@@ -115,6 +115,25 @@ class JamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dec = decrypt($id);
+        $hapus = Jam::find($dec);
+
+        if ($hapus->delete()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil dihapus');
+        } else {
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal dihapus');
+        }
+
+        return redirect('Akademik/Jam');
+    }
+
+    public function search(Request $request)
+    {
+        $cari = $request->input('cari');
+        $datas = Jam::where('kode_jam','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+
+        return view('Akademik.Jam.jamIndex',compact('datas'))->with('no',($request->input('page',1)-1)*10);
     }
 }

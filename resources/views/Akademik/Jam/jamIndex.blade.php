@@ -37,14 +37,14 @@
 										<td>{{ $data->waktu_mulai }}</td>
 										<td>{{ $data->waktu_selesai }}</td>			
 										<td>
-											{{-- {{Form::Open(['method' => 'DELETE','route' => ['Krs.destroy',encrypt($data->id_krs)]])}}
-												<a href="{{action('Akademik\Krs\KrsController@edit', encrypt($data->id_krs))}}" class="btn-floating btn-sm waves-light waves-effect blue">
+											{{Form::Open(['method' => 'DELETE','route' => ['Jam.destroy',encrypt($data->id)]])}}
+												<a href="{{action('Akademik\Jam\JamController@edit', encrypt($data->id))}}" class="btn-floating btn-sm waves-light waves-effect blue">
 													<i class="material-icons">mode_edit</i>
 												</a>
 												<button type="submit" class="btn btn-floating waves-effect waves-light red">
 													<i class="material-icons">delete</i>
 												</button>
-											{{ Form::close()}} --}}
+											{{ Form::close()}}
 										</td>
 									</tr>
 									@endforeach

@@ -39,7 +39,21 @@ class JamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insert = new Jam([
+            'kode_jam' => $request->input('kode_jam'),
+            'waktu_mulai' => $request->input('waktu_mulai'),
+            'waktu_selesai' => $request->input('waktu_selesai')
+        ]);
+
+        if ($insert->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
+        } else {
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
+        }
+
+        return redirect('Akademik/Jam/create');
     }
 
     /**
@@ -61,7 +75,10 @@ class JamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dec = decrypt($id);
+        $edit = Jam::find($dec);
+
+        return view('Akademik.Jam.jamEdit',compact('edit','dec'));
     }
 
     /**
@@ -73,7 +90,21 @@ class JamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dec = decrypt($id);
+        $update = Jam::Find($dec);
+        $update->kode_jam = $request->input('kode_jam');
+        $update->waktu_mulai = $request->input('waktu_mulai');
+        $update->waktu_selesai = $request->input('waktu_selesai');
+
+        if ($update->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil dirubah');
+        } else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal dirubah');
+        }
+
+        return redirect('/Akademik/Jam');
     }
 
     /**

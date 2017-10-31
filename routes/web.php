@@ -63,6 +63,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('Akademik/Jadwal/jadwalInsert',['uses' => 'Akademik\Jadwal\JadwalController@store','as' => 'Jadwal.store']);
 	Route::post('Akademik/Jadwal',['uses' => 'Akademik\Jadwal\JadwalController@search','as' => 'Jadwal.search']);
 
+	// Routing Jam
+	Route::Resource('Akademik/Jam','Akademik\Jam\JamController');
+	Route::post('Akademik/Jam/jamInsert',['uses' => 'Akademik\Jam\JamController@store','as' => 'Jam.store']);
+	Route::post('Akademik/Jam',['uses' => 'Akademik\Jam\JamController@search','as' => 'Jam.search']);
+
 	// Routing Akademik
 	Route::get('Akademik','Akademik\AkademikController@index');
 });

@@ -18,26 +18,26 @@
 								</div>
 								<div class="input-field col s12 m6">
 									<select name="waktu_mulai">
-										<option value="">08:00</option>
-										<option value="">08:45</option>
-										<option value="">09:30</option>
-										<option value="">10:15</option>
-										<option value="">11:00</option>
-										<option value="">11:45</option>
-										<option value="">12:15</option>
-										<option value="">13:00</option>
-										<option value="">13:45</option>
-										<option value="">14:30</option>
-										<option value="">15:15</option>
-										<option value="">16:00</option>
-										<option value="">16:45</option>
-										<option value="">17:30</option>
-										<option value="">18:15</option>
-										<option value="">19:00</option>
-										<option value="">19:45</option>
-										<option value="">20:30</option>
-										<option value="">21:15</option>
-										<option value="">22:00</option>
+										<option value="08:00">08:00</option>
+										<option value="08:45">08:45</option>
+										<option value="09:30">09:30</option>
+										<option value="10:15">10:15</option>
+										<option value="11:00">11:00</option>
+										<option value="11:45">11:45</option>
+										<option value="12:45">12:15</option>
+										<option value="13:00">13:00</option>
+										<option value="13:45">13:45</option>
+										<option value="14:30">14:30</option>
+										<option value="15:15">15:15</option>
+										<option value="16:00">16:00</option>
+										<option value="16:45">16:45</option>
+										<option value="17:30">17:30</option>
+										<option value="18:15">18:15</option>
+										<option value="19:00">19:00</option>
+										<option value="19:45">19:45</option>
+										<option value="20:30">20:30</option>
+										<option value="21:15">21:15</option>
+										<option value="22:00">22:00</option>
 									</select>	
 									<label>Waktu Mulai :</label>					
 								</div>
@@ -45,26 +45,26 @@
 							<div class="row">
 								<div class="input-field col s12 m6">
 									<select name="waktu_selesai">
-										<option value="">08:00</option>
-										<option value="">08:45</option>
-										<option value="">09:30</option>
-										<option value="">10:15</option>
-										<option value="">11:00</option>
-										<option value="">11:45</option>
-										<option value="">12:15</option>
-										<option value="">13:00</option>
-										<option value="">13:45</option>
-										<option value="">14:30</option>
-										<option value="">15:15</option>
-										<option value="">16:00</option>
-										<option value="">16:45</option>
-										<option value="">17:30</option>
-										<option value="">18:15</option>
-										<option value="">19:00</option>
-										<option value="">19:45</option>
-										<option value="">20:30</option>
-										<option value="">21:15</option>
-										<option value="">22:00</option>
+										<option value="08:00">08:00</option>
+										<option value="08:45">08:45</option>
+										<option value="09:30">09:30</option>
+										<option value="10:15">10:15</option>
+										<option value="11:00">11:00</option>
+										<option value="11:45">11:45</option>
+										<option value="12:45">12:15</option>
+										<option value="13:00">13:00</option>
+										<option value="13:45">13:45</option>
+										<option value="14:30">14:30</option>
+										<option value="15:15">15:15</option>
+										<option value="16:00">16:00</option>
+										<option value="16:45">16:45</option>
+										<option value="17:30">17:30</option>
+										<option value="18:15">18:15</option>
+										<option value="19:00">19:00</option>
+										<option value="19:45">19:45</option>
+										<option value="20:30">20:30</option>
+										<option value="21:15">21:15</option>
+										<option value="22:00">22:00</option>
 									</select>
 									<label>Waktu Selesai :</label>
 								</div>			

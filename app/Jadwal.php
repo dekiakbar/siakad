@@ -8,25 +8,26 @@ use Kyslik\ColumnSortable\Sortable;
 class Jadwal extends Model
 {
 	use Sortable;
+   
    protected $fillable = ['kode_jadwal','nip','kode_jurusan','kode_ruang','kode_kelas'];
    protected $table='jadwal';
 
    public $sortable =['kode_jadwal','nip','kode_jurusan','kode_ruang','kode_kelas'];
 
    public function dosen(){
-   		return $this->hasMany('App\Dosen');
+		return $this->hasMany('App\Dosen');
    }
 
    public function jurusan(){
-   		return $this->hasMany('App\Jurusan');
+   	return $this->hasMany('App\Jurusan');
    }
 
    public function ruang(){
-   		return $this->hasMany('App\Ruang');
+   	return $this->hasMany('App\Ruang');
    }
 
    public function kelas(){
-   		return $this->hasMany('App\Kelas');
+   	return $this->hasMany('App\Kelas');
    }
 
    public function makul(){
@@ -40,4 +41,5 @@ class Jadwal extends Model
    public function jam(){
       return $this->hasMany('App\Jam');
    }
+
 }

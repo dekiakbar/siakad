@@ -10,7 +10,7 @@
 					<span class="card-title text-center"><strong class="cyan-text">Edit Data Dosen</strong></span>
 					<br>
 					<div class="container-fluid">
-						{{Form::open(array('method' => 'post', 'class' => 'col s12','action' => ['Akademik\Dosen\DosenController@update',encrypt($data->id)]))}}
+						{{ Form::open(array('method' => 'post', 'class' => 'col s12','action' => ['Akademik\Dosen\DosenController@update',encrypt($data->id)]))}}
 							{{Form::hidden('_method','PATCH')}}
 								<div class="row">
 									<div class="input-field col s12 m6">

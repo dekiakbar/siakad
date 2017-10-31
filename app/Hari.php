@@ -11,6 +11,7 @@ class Hari extends Model
 
     protected $fillable = ['kode_hari','nama_hari'];
     protected $table = 'hari';
+    
     public $sortable = ['kode_hari','nama_hari'];
 
     public function jadwal(){

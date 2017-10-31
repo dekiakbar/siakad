@@ -78,7 +78,8 @@ class DosenController extends Controller
     public function edit($id)
     {   
         $dec = decrypt($id);
-        $data = Dosen::Find($dec);
+        $data = Dosen::find($dec);
+
         return view('Akademik.Dosen.dosenEdit',compact('data','dec'));
     }
 

@@ -1,6 +1,6 @@
 @extends('Akademik.masterAkademik')
 
-@section('judul','Jadwal Krs')
+@section('judul','Edit Jadwal')
 
 @section('content')
 	<div class="container-fluid">
@@ -9,68 +9,118 @@
 				<div class="card-content">
 					<span class="card-title text-center"><strong class="cyan-text">Edit Data Jadwal</strong></span>
 					<br>
-					<div class="content">
-						{{ Form::open(array('action' => ['Akademik\Jadwal\JadwalController@update',encrypt($krs->id)],'class' => 'col s12', 'method' => 'post')) }}
+					<div class="container-fluid">
+						{{ Form::open(array('action' =>['Akademik\Jadwal\JadwalController@update',encrypt($data->id)],'class' => 'col s12', 'method' => 'post')) }}
 							{{ Form::hidden('_method','PATCH') }}
 							<div class="row">
 								<div class="input-field col s12 m6">
-									<select name="nim">
-										@foreach($mhs as $mhs)
-											@if($krs->nim == $mhs->nim)
-												<option value="{{ $mhs->nim }}" selected>{{ $mhs->nama }} ({{ $mhs->nim }})</option>
-											@else
-												<option value="{{ $mhs->nim }}">{{ $mhs->nama }} ({{ $mhs->nim }})</option>
-											@endif
-										@endforeach
-									</select>	
-									<label>Nama :</label>
+									{{ Form::text('kode_jadwal',$data->kode_jadwal,['id' => 'kode_jadwal','data-length' => '8']) }}
+									<label for="kode_jadwal">Kode Jadwal</label>
 								</div>
 								<div class="input-field col s12 m6">
-									<select name="nip">
-										@foreach($dosen as $dosen)
-											@if($krs->nip == $dosen->nip)
-												<option value="{{ $dosen->nip }}" selected>{{ $dosen->nama_dosen }} ({{ $dosen->nip }})</option>
+									<select name="kode_jurusan">
+										@foreach($jrsn as $jrsn)
+											@if($data->kode_jurusan == $jrsn->kode_jurusan)
+												<option value="{{ $jrsn->kode_jurusan }}" selected>{{ $jrsn->nama_jurusan }} ({{ $jrsn->kode_jurusan }})</option>
 											@else
-												<option value="{{ $dosen->nip }}">{{ $dosen->nama_dosen }} ({{ $dosen->nip }})</option>
+												<option value="{{ $jrsn->kode_jurusan }}">{{ $jrsn->nama_jurusan }} ({{ $jrsn->kode_jurusan }})</option>
 											@endif
 										@endforeach
 									</select>
-									<label>Nama Dosen :</label>		
+									<label>Jurusan :</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12 m6">
+									<select name="nip">
+										@foreach($dsn as $dsn)
+											@if($data->nip == $dsn->nip)
+												<option value="{{ $dsn->nip }}" selected>{{ $dsn->nama_dosen }} ({{ $dsn->nip }})</option>
+											@else
+												<option value="{{ $dsn->nip }}">{{ $dsn->nama_dosen }} ({{ $dsn->nip }})</option>
+											@endif
+										@endforeach
+									</select>	
+									<label>Nama Dosen :</label>					
+								</div>
+								<div class="input-field col s12 m6">
 									<select name="kode_mk">
-										@foreach($makul as $makul)
-											@if($krs->kode_mk == $makul->kode_mk)
+										@foreach($mk as $makul)
+											@if($data->kode_mk == $makul->kode_mk)
 												<option value="{{ $makul->kode_mk }}" selected>{{ $makul->makul }} ({{ $makul->kode_mk }})</option>
 											@else
 												<option value="{{ $makul->kode_mk }}">{{ $makul->makul }} ({{ $makul->kode_mk }})</option>
 											@endif
 										@endforeach
 									</select>
-									<label>Mata Kuliah :</label>	
+									<label>Mata Kuliah :</label>
 								</div>
-								<div class="col s12 m6 input-field">
-									{{ Form::text('uts',$krs->uts, array('id' => 'uts', 'data-length' => '3')) }}
-									<label for="uts">Masuka Nilai UTS</label>
-								</div>			
 							</div>
 							<div class="row">
-								<div class="col s12 m6 input-field">
-									{{ Form::text('uas',$krs->uas, array('id' => 'uas', 'data-length' => '3')) }}
-									<label for="uas">Masuka Nilai UAS</label>
+								<div class="input-field col s12 m6">
+									<select name="kode_ruang">
+										@foreach($ruang as $r)
+											@if($data->kode_ruang == $r->kode_ruang)
+												<option value="{{ $r->kode_ruang }}" selected>{{ $r->nama_ruang }} ({{ $r->kode_ruang }})</option>
+											@else
+												<option value="{{ $r->kode_ruang }}">{{ $r->nama_ruang }} ({{ $r->kode_ruang }})</option>
+											@endif
+										@endforeach
+									</select>
+									<label>Ruang :</label>
+								</div>				
+								<div class="input-field col s12 m6">
+									<select name="kode_kelas">
+										@foreach($kls as $kelas)
+											@if($data->kode_kelas == $kelas->kode_kelas)
+												<option value="{{ $kelas->kode_kelas }}" selected>{{ $kelas->nama_kelas }} ({{ $kelas->kode_kelas }})</option>
+											@else
+												<option value="{{ $kelas->kode_kelas }}">{{ $kelas->nama_kelas }} ({{ $kelas->kode_kelas }})</option>
+											@endif
+										@endforeach
+									</select>
+									<label>Nama Kelas :</label>
 								</div>
-								<div class="col s12 m6 input-field">
-									{{ Form::text('absen',$krs->absen, array('id' => 'absen', 'data-length' => '3')) }}
-									<label for="absen">Masuka Nilai Absen</label>
+							</div>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<select name="kode_hari">
+										@foreach($hr as $hr)
+											@if($data->kode_hari == $hr->kode_hari)
+												<option value="{{ $hr->kode_hari }}" selected> {{ $hr->nama_hari }} </option>
+											@else
+												<option value="{{ $hr->kode_hari }}"> {{ $hr->nama_hari }} </option>
+											@endif
+										@endforeach
+									</select>
+									<label>Hari :</label>
+								</div>
+								<div class="input-field col s12 m6">
+									<select name="kode_jam">
+										@foreach($jam as $jam)
+											@if($data->kode_jam == $jam->kode_jam)
+												<option value="{{ $jam->kode_jam }}" selected>{{ $jam->waktu_mulai }} - {{ $jam->waktu_selesai }}</option>
+											@else
+												<option value="{{ $jam->kode_jam }}">{{ $jam->waktu_mulai }} - {{ $jam->waktu_selesai }}</option>
+											@endif
+										@endforeach
+									</select>
+									<label>Jam :</label>
 								</div>
 							</div>
 							<div class="col s12 text-center">
 								<button class="btn waves-effect waves-light blue"><i class="material-icons right">send</i>Simpan</button>
 							</div>
 						{{ Form::close() }}
-						
+
+						@if(session()->has('status'))
+							<script type="text/javascript">
+					      		const Icon = '<i class="material-icons print">{{ session('status') }}</i>';
+								const Message = '{{ session('pesan') }}';
+								const $Content = Icon + Message ;
+								Materialize.toast( $Content, 4000,'rounded cyan' );
+				      		</script>
+						@endif
 						@if($errors->any())
 							@foreach($errors->all() as $error)
 								<script type="text/javascript">

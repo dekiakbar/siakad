@@ -11,7 +11,7 @@
 						<div class="row">
 							<div class="col s6 m4 right">
 								<div class="input-field col s12 m12">
-									{{ Form::open(['route' => 'Krs.search','method' => 'post']) }}
+									{{ Form::open(['route' => 'Jadwal.search','method' => 'post']) }}
 											{{ Form::text('cari',null,['id' => 'cari','class' => 'col s12']) }}
 											<label for="cari">Cari</label>
 									{{ Form::close() }}	

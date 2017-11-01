@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Jadwal;
+use App\Http\Requests\JadwalRequest;
 
 class JadwalController extends Controller
 {
@@ -44,7 +45,7 @@ class JadwalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JadwalRequest $request)
     {
         $insert = new Jadwal([
             'kode_jadwal' => $request->input('kode_jadwal'),
@@ -87,7 +88,18 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dec = decrypt($id);
+        $data = Jadwal::find($dec);
+        $dsn = \App\Dosen::select('nip','nama_dosen')->get();
+        $jrsn = \App\Jurusan::select('kode_jurusan','nama_jurusan')->get();
+        $ruang = \App\Ruang::select('kode_ruang','nama_ruang')->get();
+        $kls = \App\Kelas::select('kode_kelas','nama_kelas')->get();
+        $mk = \App\Matakuliah::select('kode_mk','makul')->get();
+        $hr = \App\Hari::select('kode_hari','nama_hari')->get();
+        $jam = \App\Jam::select('kode_jam','waktu_mulai','waktu_selesai')->get();
+
+        return view('Akademik.Jadwal.jadwalEdit',compact('data','dsn','jrsn','ruang','kls','mk','hr','jam'));
+
     }
 
     /**
@@ -97,9 +109,27 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JadwalRequest $request, $id)
     {
-        //
+        $dec = decrypt($id);
+        $update = Jadwal::find($dec);
+        $update->kode_jadwal = $request->input('kode_jadwal');
+        $update->nip = $request->input('nip');
+        $update->kode_jurusan = $request->input('kode_jurusan');
+        $update->kode_ruang = $request->input('kode_ruang');
+        $update->kode_kelas = $request->input('kode_kelas');
+        $update->kode_hari = $request->input('kode_hari');
+        $update->kode_jam = $request->input('kode_jam');
+
+        if ($update->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil diubah');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal diubah');
+        }
+
+        return redirect('Akademik/Jadwal');
     }
 
     /**
@@ -110,10 +140,24 @@ class JadwalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dec = decrypt($id);
+        $hapus = Jadwal::find($dec);
+
+        if ($hapus->delete()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil dihapus');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal dihapus');
+        }
+
+        return redirect('Akademik/Jadwal');
     }
 
-    public function search(){
-        
+    public function search(Request $request){
+        $cari = $request->input('cari');
+        $jadwals = Jadwal::where('kode_jadwal','LIKE','%'.$cari.'%')->sortable()->paginate(10);
+
+        return view('Akademik.Jadwal.jadwalIndex',compact('jadwals'))->with('no',($request->input('page',1)-1)*10);
     }
 }

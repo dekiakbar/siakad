@@ -68,6 +68,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('Akademik/Jam/jamInsert',['uses' => 'Akademik\Jam\JamController@store','as' => 'Jam.store']);
 	Route::post('Akademik/Jam',['uses' => 'Akademik\Jam\JamController@search','as' => 'Jam.search']);
 
+	// Routing Hari
+	Route::resource('Akademik/Hari','Akademik\Hari\HariController');
+	Route::post('Akademik/Hari/hariInsert',['uses' => 'Akademik\Hari\HariController@store','as' => 'Hari.store']);
+	Route::post('Akademik/Hari',['uses' => 'Akademik\Hari\HariController@search','as' => 'Hari.search']);
+
 	// Routing Akademik
 	Route::get('Akademik','Akademik\AkademikController@index');
 });

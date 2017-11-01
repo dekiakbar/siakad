@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Jam;
+use App\Http\Requests\JamRequest;
 
 class JamController extends Controller
 {
@@ -37,7 +38,7 @@ class JamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JamRequest $request)
     {
         $insert = new Jam([
             'kode_jam' => $request->input('kode_jam'),
@@ -88,7 +89,7 @@ class JamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JamRequest $request, $id)
     {
         $dec = decrypt($id);
         $update = Jam::Find($dec);

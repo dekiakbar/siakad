@@ -39,11 +39,11 @@
             <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
           </div>
       </li>
-      <li><a href="#!">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li>
+      {{-- <li><a href="#!">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li> --}}
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Data Dosen<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Data Dosen<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
               <li><a href="/Akademik/Dosen">Dosen<i class="material-icons tiny">list</i></a></li>
               <li><a href="/Akademik/Dosen/create">Dosen<i class="material-icons tiny">add</i></a></li>            
@@ -54,7 +54,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Mahasiswa<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Mahasiswa<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
                 <li><a href="/Akademik/Mahasiswa">Mahasiswa<i class="material-icons tiny">list</i></a></li>
                 <li><a href="/Akademik/Mahasiswa/create">Mahasiswa<i class="material-icons tiny">add</i></a></li>
@@ -65,7 +65,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Mata Kuliah<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Mata Kuliah<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
               <li><a href="/Akademik/Makul">Mata Kuliah<i class="material-icons tiny">list</i></a></li>
               <li><a href="/Akademik/Makul/create">Mata Kuliah<i class="material-icons tiny">add</i></a></li>
@@ -76,7 +76,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Jurusan<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Jurusan<i class="material-icons cyan-text">arrow_right</i></a>
               <ul class="collapsible-body no-padding">
                 <li><a href="/Akademik/Jurusan">Jurusan<i class="material-icons tiny">list</i></a></li>
                 <li><a href="/Akademik/Jurusan/create">Jurusan<i class="material-icons tiny">add</i></a></li>
@@ -87,7 +87,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Krs<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Krs<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
               <li><a href="/Akademik/Krs">Krs<i class="material-icons tiny">list</i></a></li>
               <li><a href="/Akademik/Krs/create">Krs<i class="material-icons tiny">add</i></a></li>
@@ -98,7 +98,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Fakultas<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Fakultas<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
               <li><a href="/Akademik/Fakultas">Fakultas<i class="material-icons tiny">list</i></a></li>
               <li><a href="/Akademik/Fakultas/create">Fakultas<i class="material-icons tiny">add</i></a></li>
@@ -109,7 +109,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Ruang<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Ruang<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
               <li><a href="/Akademik/Ruang">Ruang<i class="material-icons tiny">list</i></a></li>
               <li><a href="/Akademik/Ruang/create">Ruang<i class="material-icons tiny">add</i></a></li>
@@ -120,10 +120,31 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-cyan">Kelas<i class="material-icons">arrow_drop_down</i></a>
+            <a class="collapsible-header waves-effect waves-cyan">Kelas<i class="material-icons cyan-text">arrow_right</i></a>
             <ul class="collapsible-body no-padding">
               <li><a href="/Akademik/Kelas">Kelas<i class="material-icons tiny">list</i></a></li>
               <li><a href="/Akademik/Kelas/create">Kelas<i class="material-icons tiny">add</i></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header waves-effect waves-cyan">Jam<i class="material-icons cyan-text">arrow_right</i></a>
+            <ul class="collapsible-body no-padding">
+              <li><a href="/Akademik/Jam">Jam<i class="material-icons tiny">list</i></a></li>
+              <li><a href="/Akademik/Jam/create">Jam<i class="material-icons tiny">add</i></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li><li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header waves-effect waves-cyan">Hari<i class="material-icons cyan-text">arrow_right</i></a>
+            <ul class="collapsible-body no-padding">
+              <li><a href="/Akademik/Hari">Hari<i class="material-icons tiny">list</i></a></li>
+              <li><a href="/Akademik/Hari/create">Hari<i class="material-icons tiny">add</i></a></li>
             </ul>
           </li>
         </ul>
@@ -134,12 +155,13 @@
     </ul>
   </div>
 
-  {{-- isi --}}
   <div id="content">
     <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only">
       <i class="material-icons">menu</i>
     </a>
   </div>
+
+  {{-- isi --}}
   <div class="container-fluid">
     @yield('content')  
   </div>

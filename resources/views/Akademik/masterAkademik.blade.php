@@ -20,7 +20,7 @@
     <div class="nav-wrapper">
       <a href="/Akademik" class="brand-logo"><i class="material-icons">school</i> Akademik</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Akademik</a></li>
+        <li><a href="/Akademik">Akademik</a></li>
         <li><a href="#">Forum</a></li>
         <li><a href="#">Web</a></li>
         <li><a href="#"><i class="material-icons">exit_to_app</i></a></li>
@@ -31,12 +31,12 @@
   {{-- side bar --}}
   <div id="menu">
     <ul id="slide-out" class="side-nav fixed z-depth-5">
-      <li>
+      <li class="no-padding">
           <div class="userView">
             <img class="background blue">
             <a href="#"><img class="circle white use_avatar" src="{{url('storage/avatar.png')}}"></a>
-            <a href="#"><span class="white-text name">{{Auth::user()->name}}</span></a>
-            <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
+            <a href="#"><span class="white-text name email">{{Auth::user()->name}}</span></a>
+            {{-- <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a> --}}
           </div>
       </li>
       {{-- <li><a href="#!">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li> --}}
@@ -160,7 +160,6 @@
       <i class="material-icons">menu</i>
     </a>
   </div>
-
   {{-- isi --}}
   <div class="container-fluid">
     @yield('content')  

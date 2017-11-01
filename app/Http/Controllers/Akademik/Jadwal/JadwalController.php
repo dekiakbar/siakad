@@ -32,7 +32,10 @@ class JadwalController extends Controller
         $ruang = \App\Ruang::select('kode_ruang','nama_ruang')->get();
         $kls = \App\Kelas::select('kode_kelas','nama_kelas')->get();
         $mk = \App\Matakuliah::select('kode_mk','makul')->get();
-        return view('Akademik.Jadwal.jadwalInsert',compact('dsn','jrsn','ruang','kls','mk'));
+        $hr = \App\Hari::select('kode_hari','nama_hari')->get();
+        $jam = \App\Jam::select('kode_jam','waktu_mulai','waktu_selesai')->get();
+
+        return view('Akademik.Jadwal.jadwalInsert',compact('dsn','jrsn','ruang','kls','mk','hr','jam'));
     }
 
     /**
@@ -43,7 +46,26 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insert = new Jadwal([
+            'kode_jadwal' => $request->input('kode_jadwal'),
+            'nip' => $request->input('nip'),
+            'kode_jurusan' => $request->input('kode_jurusan'),
+            'kode_kelas' => $request->input('kode_kelas'),
+            'kode_ruang' => $request->input('kode_ruang'),
+            'kode_mk' => $request->input('kode_mk'),
+            'kode_hari' => $request->input('kode_hari'),
+            'kode_jam' => $request->input('kode_jam')
+        ]);
+
+        if ($insert->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Data berhasil disimpan');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Data gagal disimpan');
+        }
+
+        return redirect('Akademik/Jadwal/create');
     }
 
     /**

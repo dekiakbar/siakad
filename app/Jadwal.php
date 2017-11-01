@@ -9,10 +9,10 @@ class Jadwal extends Model
 {
 	use Sortable;
    
-   protected $fillable = ['kode_jadwal','nip','kode_jurusan','kode_ruang','kode_kelas'];
+   protected $fillable = ['kode_jadwal','nip','kode_jurusan','kode_ruang','kode_kelas','kode_mk','kode_hari','kode_jam'];
    protected $table='jadwal';
 
-   public $sortable =['kode_jadwal','nip','kode_jurusan','kode_ruang','kode_kelas'];
+   public $sortable =['kode_jadwal','nip','kode_jurusan','kode_ruang','kode_kelas','kode_mk','kode_hari','kode_jam'];
 
    public function dosen(){
 		return $this->hasMany('App\Dosen');

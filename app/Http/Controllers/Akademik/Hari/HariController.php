@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Hari;
+use App\Http\Requests\HariRequest;
 
 class HariController extends Controller
 {
@@ -36,7 +37,7 @@ class HariController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HariRequest $request)
     {
         $insert = new Hari([
             'kode_hari' => $request->input('kode_hari'),
@@ -86,7 +87,7 @@ class HariController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HariRequest $request, $id)
     {
         $dec = decrypt($id);
         $update = Hari::find($dec);

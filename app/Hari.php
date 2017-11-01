@@ -15,6 +15,6 @@ class Hari extends Model
     public $sortable = ['kode_hari','nama_hari'];
 
     public function jadwal(){
-    	return $this->belongsTo('App\Jadwal');
+    	return $this->belongsToMany('App\Jadwal');
     }
 }

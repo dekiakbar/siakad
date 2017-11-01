@@ -14,4 +14,8 @@ class Ruang extends Model
     protected $table = 'ruang';
 
     public $sortable = ['kode_ruang','nama_ruang'];
+
+    public function jadwal(){
+    	return $this->belongsToMany('App\Jadwal','id');
+    }
 }

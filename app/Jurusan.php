@@ -29,4 +29,8 @@ class Jurusan extends Model
     {
         return $this->belongsTo('App\Kelas');
     }
+
+    public function jadwal(){
+        return $this->belongsToMany('App\Jadwal','id');
+    }
 }

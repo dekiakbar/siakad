@@ -37,14 +37,14 @@
 									<tr>
 										<td>{{ ++$no }}</td>
 										<td>{{ $jadwal->kode_jadwal }}</td>
-										<td>{{ $jadwal->nip}}</td>
-										<td>{{ $jadwal->kode_ruang }}</td>
-										<td>{{ $jadwal->kode_jurusan }}</td>
+										<td>{{ $jadwal->nama_dosen}}</td>
+										<td>{{ $jadwal->nama_ruang }}</td>
+										<td>{{ $jadwal->nama_jurusan }}</td>
 										<td>{{ $jadwal->kode_kelas }}</td>
-										<td>{{ $jadwal->kode_mk }}</td>			
+										<td>{{ $jadwal->makul }}</td>			
 										<td>
-											{{Form::Open(['method' => 'DELETE','route' => ['Jadwal.destroy',encrypt($jadwal->id)]])}}
-												<a href="{{action('Akademik\Jadwal\JadwalController@edit', encrypt($jadwal->id))}}" class="btn-floating btn-sm waves-light waves-effect blue">
+											{{Form::Open(['method' => 'DELETE','route' => ['Jadwal.destroy',encrypt($jadwal->jadwal_id)]])}}
+												<a href="{{action('Akademik\Jadwal\JadwalController@edit', encrypt($jadwal->jadwal_id))}}" class="btn-floating btn-sm waves-light waves-effect blue">
 													<i class="material-icons">mode_edit</i>
 												</a>
 												<button type="submit" class="btn btn-floating waves-effect waves-light red">

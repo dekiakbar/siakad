@@ -19,4 +19,8 @@ class Kelas extends Model
     {
     	return $this->hasOne('App\Jurusan','id');
     }
+
+    public function jadwal(){
+    	return $this->belongsToMany('App\Jadwal','id');
+    }
 }

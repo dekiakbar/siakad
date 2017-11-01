@@ -17,7 +17,16 @@ class JadwalController extends Controller
      */
     public function index(Request $request)
     {
-        $jadwals = Jadwal::sortable()->paginate(10);
+        $jadwals = Jadwal::join('dosen','dosen.nip','=','jadwal.nip')
+                        ->join('jurusan','jurusan.kode_jurusan','=','jadwal.kode_jurusan')
+                        ->join('ruang','ruang.kode_ruang','=','jadwal.kode_ruang')
+                        ->join('kelas','kelas.kode_kelas','=','jadwal.kode_kelas')
+                        ->join('mata_kuliah','mata_kuliah.kode_mk','=','jadwal.kode_mk')
+                        ->join('hari','hari.kode_hari','=','jadwal.kode_hari')
+                        ->join('jam','jam.kode_jam','=','jadwal.kode_jam')
+                        ->select('*','jadwal.id as jadwal_id')
+                        ->sortable()
+                        ->paginate(10);
         return view('Akademik.Jadwal.jadwalIndex',compact('jadwals'))->with('no',($request->input('page',1)-1)*10);
     }
 

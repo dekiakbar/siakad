@@ -18,4 +18,8 @@ class Matakuliah extends Model
     public function krs(){
     	return $this->belongsToMany('App\Krs','id');
     }
+
+    public function jadwal(){
+    	return $this->belongsToMany('App\Jadwal','id');
+    }
 }

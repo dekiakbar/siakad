@@ -40,7 +40,7 @@
 										<td>{{ $jadwal->nama_dosen}}</td>
 										<td>{{ $jadwal->nama_ruang }}</td>
 										<td>{{ $jadwal->nama_jurusan }}</td>
-										<td>{{ $jadwal->kode_kelas }}</td>
+										<td>{{ $jadwal->nama_kelas }}</td>
 										<td>{{ $jadwal->makul }}</td>			
 										<td>
 											{{Form::Open(['method' => 'DELETE','route' => ['Jadwal.destroy',encrypt($jadwal->jadwal_id)]])}}

@@ -35,8 +35,8 @@
           <div class="userView">
             <img class="background blue">
             <a href="#"><img class="circle white use_avatar" src="{{url('storage/avatar.png')}}"></a>
-            <a href="#"><span class="white-text name email">{{Auth::user()->name}}</span></a>
-            {{-- <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a> --}}
+            <a href="#"><span class="white-text name">{{Auth::user()->name}}</span></a>
+            <a href="#"><span class="white-text email">{{Auth::user()->email}}</span></a>
           </div>
       </li>
       {{-- <li><a href="#!">Logout <i class="material-icons cyan-text">exit_to_app</i></a></li> --}}
@@ -80,6 +80,17 @@
               <ul class="collapsible-body no-padding">
                 <li><a href="/Akademik/Jurusan">Jurusan<i class="material-icons tiny">list</i></a></li>
                 <li><a href="/Akademik/Jurusan/create">Jurusan<i class="material-icons tiny">add</i></a></li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+       <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header waves-effect waves-cyan">Jadwal<i class="material-icons cyan-text">arrow_right</i></a>
+              <ul class="collapsible-body no-padding">
+                <li><a href="/Akademik/Jadwal">Jadwal<i class="material-icons tiny">list</i></a></li>
+                <li><a href="/Akademik/Jadwal/create">Jadwal<i class="material-icons tiny">add</i></a></li>
               </ul>
           </li>
         </ul>

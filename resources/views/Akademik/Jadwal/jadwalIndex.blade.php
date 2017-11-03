@@ -37,7 +37,7 @@
 									<tr>
 										<td>{{ ++$no }}</td>
 										<td>{{ $jadwal->kode_jadwal }}</td>
-										<td><a href="{{ action('Akademik\Jadwal\JadwalController@show',$jadwal->jadwal_id) }}">{{ $jadwal->nama_kelas }}</a></td>
+										<td><a href="{{ action('Akademik\Jadwal\JadwalController@show',$jadwal->kelas_id) }}">{{ $jadwal->nama_kelas }}</a></td>
 										<td>{{ $jadwal->nama_dosen }}</td>
 										<td>{{ $jadwal->nama_ruang }}</td>
 										<td>{{ $jadwal->nama_jurusan }}</td>

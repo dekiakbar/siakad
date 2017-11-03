@@ -30,6 +30,12 @@
                                         <th class="text-center">{{ $jadwal->makul }}</th>
                                         <th class="text-center">{{ $jadwal->nama_dosen }}</th>
                                         <th class="text-center">{{ $jadwal->nama_ruang }}</th>
+
+                                        {{--  <th class="text-center">1</th>
+                                        <th class="text-center">{{ $jadwals->kode_jam }}</th>
+                                        <th class="text-center">{{ $jadwals->kode_mk }}</th>
+                                        <th class="text-center">{{ $jadwals->nip }}</th>
+                                        <th class="text-center">{{ $jadwals->kode_ruang }}</th> --}}
                                     </tr>
                                 @endforeach
                         </table>
@@ -42,14 +48,14 @@
 				    </a>
 				    <ul>
 				    	{{-- <li>
-                            {{Form::Open(['method' => 'DELETE','route' => ['Jadwal.destroy',$data->jadwal_id]])}}
+                            {{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
                                 <button type="submit" class="btn btn-floating red">
                                     <i class="material-icons">delete</i>
                                 </button>
                             {{ Form::close()}}
 				    	</li>
 				    	<li>
-                            <a href="{{ action('Akademik\Jadwal\JadwalController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
+                            <a href="{{ action('Akademik\Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
                                 <i class="material-icons">edit</i>
                             </a>
                         </li>

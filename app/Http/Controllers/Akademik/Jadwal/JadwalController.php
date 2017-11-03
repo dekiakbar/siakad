@@ -24,7 +24,7 @@ class JadwalController extends Controller
                         ->join('mata_kuliah','mata_kuliah.kode_mk','=','jadwal.kode_mk')
                         ->join('hari','hari.kode_hari','=','jadwal.kode_hari')
                         ->join('jam','jam.kode_jam','=','jadwal.kode_jam')
-                        ->select('*','jadwal.id as jadwal_id')
+                        ->select('*','jadwal.id as jadwal_id','kelas.id as kelas_id')
                         ->sortable()
                         ->paginate(10);
         return view('Akademik.Jadwal.jadwalIndex',compact('jadwals'))->with('no',($request->input('page',1)-1)*10);
@@ -95,8 +95,8 @@ class JadwalController extends Controller
                         ->join('mata_kuliah','mata_kuliah.kode_mk','=','jadwal.kode_mk')
                         ->join('hari','hari.kode_hari','=','jadwal.kode_hari')
                         ->join('jam','jam.kode_jam','=','jadwal.kode_jam')
-                        ->select('*','kelas.id as kelas_id')
-                        ->where('kelas.nama_kelas','LIKE','%'.$sort->nama_kelas.'%')
+                        ->select('*','jadwal.id as jadwal_id','kelas.id as kelas_id')
+                        ->where('kelas.nama_kelas','LIKE','%'.($sort->nama_kelas).'%')
                         ->orderBy('jam.waktu_mulai','Asc')
                         ->get();
         

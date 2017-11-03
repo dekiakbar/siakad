@@ -15,6 +15,6 @@ class Jam extends Model
     public $sortable = ['kode_jam','waktu_mulai','waktu_selesai'];
 
     public function jadwal(){
-    	return $this->belongsToMany('App\Jadwal');
+    	return $this->belongsToMany('App\Jadwal','id');
     }
 }

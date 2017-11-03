@@ -24,10 +24,10 @@
 									<tr class="white-text blue">
 										<th class="text-center">No</th>
 										<th class="text-center">@sortablelink('kode_jadwal','Kode Jadwal')</th>
+										<th class="text-center">@sortablelink('kode_kelas','Kelas')</th>
 										<th class="text-center">@sortablelink('nip','Nama Dosen')</th>
 										<th class="text-center">@sortablelink('kode_ruang','Ruang')</th>
 										<th class="text-center">@sortablelink('kode_jurusan','Jurusan')</th>
-										<th class="text-center">@sortablelink('kode_kelas','Kelas')</th>
 										<th class="text-center">@sortablelink('kode_mk','Mata Kuliah')</th>
 										<th class="text-center">Aksi</th>
 									</tr>
@@ -37,10 +37,10 @@
 									<tr>
 										<td>{{ ++$no }}</td>
 										<td>{{ $jadwal->kode_jadwal }}</td>
-										<td>{{ $jadwal->nama_dosen}}</td>
+										<td><a href="{{ action('Akademik\Jadwal\JadwalController@show',$jadwal->jadwal_id) }}">{{ $jadwal->nama_kelas }}</a></td>
+										<td>{{ $jadwal->nama_dosen }}</td>
 										<td>{{ $jadwal->nama_ruang }}</td>
 										<td>{{ $jadwal->nama_jurusan }}</td>
-										<td>{{ $jadwal->nama_kelas }}</td>
 										<td>{{ $jadwal->makul }}</td>			
 										<td>
 											{{Form::Open(['method' => 'DELETE','route' => ['Jadwal.destroy',encrypt($jadwal->jadwal_id)]])}}

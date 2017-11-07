@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(krsSeeder::class);
         $this->call(ruangSeeder::class);
         $this->call(kelasSeeder::class);
-        $this->call(Hariseeder::class);
-        $this->call(Jamseeder::class);
+        $this->call(hariSeeder::class);
+        $this->call(jamSeeder::class);
+        $this->call(jadwalSeeder::class);
     }
 }

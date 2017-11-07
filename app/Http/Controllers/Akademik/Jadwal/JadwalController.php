@@ -131,7 +131,7 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(JadwalRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $dec = decrypt($id);
         $update = Jadwal::find($dec);

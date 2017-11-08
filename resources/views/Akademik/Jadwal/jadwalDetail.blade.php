@@ -64,7 +64,7 @@
                         </li>
                         <li>
                             <a href="{{ action('Akademik\Jadwal\JadwalController@pdf',encrypt($keterangan->kelas_id)) }}" class="btn-floating yellow" title="Lihat File">
-                                <i class="material-icons">document</i>
+                                <i class="material-icons">insert_drive_file</i>
                             </a>
                         </li>  
 				    	<li>

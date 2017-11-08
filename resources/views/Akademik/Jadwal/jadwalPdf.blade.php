@@ -2,17 +2,14 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Jadwal</title>
-    <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/manualAkademik.css')}}">
-    {!! MaterializeCSS::include_full() !!}
+    <link rel="stylesheet" href="{{ ltrim(elixir('css/app.css'), '/') }}" />
+    {{-- <link rel="stylesheet" href="{{ ltrim(asset('materialize-css/css/materialize.min.css'),'/') }}" /> --}}
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="row">
-          {{--   <div class="col s12 m12">
+            <div class="col s12 m12">
                 <div class="chip">
                     Kelas : {{ $keterangan->nama_kelas }}
                 </div>
@@ -22,7 +19,7 @@
                 <div class="chip">
                     Tahun : {{ date('Y',strtotime($keterangan->tahun)) }}
                 </div>
-            </div> --}}
+            </div>
         </div>
         <div class="row">
             <table class="table centered responsive-table bordered highlight">
@@ -50,6 +47,5 @@
             </table>
         </div>
 	</div>
-	<script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
 </body>
 </html>

@@ -210,7 +210,7 @@ class JadwalController extends Controller
                         ->where('kelas.nama_kelas',$sort->nama_kelas)
                         ->orderBy('jam.waktu_mulai','Asc')
                         ->get();
-        view()->share('jadwals',$jadwals);
+        view()->share(['jadwals'=>$jadwals,'keterangan'=>$keterangan]);
 
         if ($request->has('download')) {
             $pdf = PDF::loadview('Akademik/Jadwal/jadwalPdf');

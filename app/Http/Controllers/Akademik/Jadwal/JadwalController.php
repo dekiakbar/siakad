@@ -86,8 +86,14 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        $dec = $id;
+        $dec = decrypt($id);
         $sort = \App\Kelas::find($dec);
+        $keterangan = Jadwal::join('jurusan','jurusan.kode_jurusan','=','jadwal.kode_jurusan')
+                            ->join('kelas','kelas.kode_kelas','=','jadwal.kode_kelas')
+                            ->select('jurusan.nama_jurusan','kelas.tahun','kelas.nama_kelas','jadwal.id as jadwal_id')
+                            ->where('kelas.id',$sort->id)
+                            ->first();
+
         $jadwals = Jadwal::join('dosen','dosen.nip','=','jadwal.nip')
                         ->join('jurusan','jurusan.kode_jurusan','=','jadwal.kode_jurusan')
                         ->join('ruang','ruang.kode_ruang','=','jadwal.kode_ruang')
@@ -96,11 +102,11 @@ class JadwalController extends Controller
                         ->join('hari','hari.kode_hari','=','jadwal.kode_hari')
                         ->join('jam','jam.kode_jam','=','jadwal.kode_jam')
                         ->select('*','jadwal.id as jadwal_id','kelas.id as kelas_id')
-                        ->where('kelas.nama_kelas','LIKE','%'.($sort->nama_kelas).'%')
+                        ->where('kelas.nama_kelas',$sort->nama_kelas)
                         ->orderBy('jam.waktu_mulai','Asc')
                         ->get();
-        
-        return view('Akademik.Jadwal.jadwalDetail',compact('jadwals')); 
+
+        return view('Akademik.Jadwal.jadwalDetail',compact('jadwals','keterangan')); 
     }
 
     /**

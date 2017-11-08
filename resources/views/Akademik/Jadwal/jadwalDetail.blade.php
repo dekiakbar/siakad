@@ -1,16 +1,30 @@
 @extends('Akademik.masterAkademik')
-@section('judul','Detail Mahasiswa')
+@section('judul','Detail Jadwal')
 
 @section('content')
 		<div class="card">
     		<div class="card-header">
-    		    <div class="row">
+    		    <div class="row" style="margin-bottom: 0;">
     		  	   <div class="col s12">
-    		  		  <h4 class="text-center">Detail Mahasiswa</h4>
+    		  		  <h4 class="text-center cyan-text">Detail Jadwal</h4>
     		        </div>
     		    </div>
     		</div>
     		<div class="card-content">
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <div class="chip">
+                                Kelas : {{ $keterangan->nama_kelas }}
+                            </div>
+                            <div class="chip">
+                                Jurusan : {{ $keterangan->nama_jurusan }}
+                            </div>
+                            <div class="chip">
+                                Tahun : {{ $keterangan->tahun }}
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="row">
                         <table class="table centered responsive-table bordered highlight">
                             <thead>
@@ -23,19 +37,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($jadwals as $jadwal)
+                                @foreach($jadwals as $no => $jadwal)
                                     <tr>
-                                        <th class="text-center">1</th>
+                                        <th class="text-center">{{ $no+1 }}</th>
                                         <th class="text-center">{{ $jadwal->waktu_mulai }}-{{ $jadwal->waktu_selesai }}</th>
                                         <th class="text-center">{{ $jadwal->makul }}</th>
                                         <th class="text-center">{{ $jadwal->nama_dosen }}</th>
                                         <th class="text-center">{{ $jadwal->nama_ruang }}</th>
-
-                                        {{--  <th class="text-center">1</th>
-                                        <th class="text-center">{{ $jadwals->kode_jam }}</th>
-                                        <th class="text-center">{{ $jadwals->kode_mk }}</th>
-                                        <th class="text-center">{{ $jadwals->nip }}</th>
-                                        <th class="text-center">{{ $jadwals->kode_ruang }}</th> --}}
                                     </tr>
                                 @endforeach
                         </table>
@@ -58,12 +66,12 @@
                             <a href="{{ action('Akademik\Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
                                 <i class="material-icons">edit</i>
                             </a>
-                        </li>
+                        </li> --}}
 				    	<li>
                             <a class="btn-floating green" onclick="goBack()" title="Kembali">
                                 <i class="material-icons">keyboard_backspace</i>
                             </a>
-                        </li> --}}
+                        </li>
 				    </ul>
 			  	</div>
     		</div>

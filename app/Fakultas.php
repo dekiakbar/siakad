@@ -18,4 +18,5 @@ class Fakultas extends Model
     {
     	return $this->belongsTo('App\Jurusan');
     }
+
 }

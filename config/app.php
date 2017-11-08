@@ -167,6 +167,8 @@ return [
         Skydiver\LaravelMaterializeCSS\MaterializeCSSServiceProvider::class,
         Felixkiss\UniqueWithValidator\ServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -232,7 +234,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'MaterializeCSS' => Skydiver\LaravelMaterializeCSS\MaterializeCSS::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

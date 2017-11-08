@@ -19,7 +19,7 @@
 								</div>
 								<div class="row">
 									<div class="input-field col s12 m12">
-										{{ Form::text('makul',null, array('id' => 'makul','data-length' => '35'))}}
+										{{ Form::text('makul',null, array('id' => 'makul','data-length' => '50'))}}
 										<label for="makul">Nama Mata Kuliah</label>
 									</div>
 								</div>

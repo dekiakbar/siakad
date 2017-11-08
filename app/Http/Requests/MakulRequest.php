@@ -28,7 +28,7 @@ class MakulRequest extends FormRequest
         return [
             'kode_mk' => 'required|min:3|max:8'.
                 Rule::unique('mata_kuliah')->ignore($this->id),
-            'makul' =>  'required|min:3|max:35',
+            'makul' =>  'required|min:3|max:50',
             'sks' => 'required|min:1|max:2|regex:/[0-9]/'
         ];
     }
@@ -42,7 +42,7 @@ class MakulRequest extends FormRequest
             'kode_mk.max' => 'Form kode mata kuliah maksimal berisi 8 karakter',
             'makul.required' => 'Form nama mata kuliah tidak boleh kosong',
             'makul.min' => 'Form nama mata kuliah harus berisi minimal 3 karakter',
-            'makul.max' => 'Form nama mata kuliah maksimal berisi 20 karakter',
+            'makul.max' => 'Form nama mata kuliah maksimal berisi 50 karakter',
             'sks.required' => 'Form jumlah SKS tidak boleh kosong',
             'sks.min' => 'Form jumlah SKS minimal berisi 1 karakter',
             'sks.max' => 'Form jumlah SKS maksimal berisi 2 karakter',

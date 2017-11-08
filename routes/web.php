@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::Resource('Akademik/Jadwal','Akademik\Jadwal\JadwalController');
 	Route::post('Akademik/Jadwal/jadwalInsert',['uses' => 'Akademik\Jadwal\JadwalController@store','as' => 'Jadwal.store']);
 	Route::post('Akademik/Jadwal',['uses' => 'Akademik\Jadwal\JadwalController@search','as' => 'Jadwal.search']);
+	Route::get('Akademik/Jadwal/{Jadwal}/pdf',['uses' => 'Akademik\Jadwal\JadwalController@pdf','as' => 'Jadwal.pdf']);
 
 	// Routing Jam
 	Route::Resource('Akademik/Jam','Akademik\Jam\JamController');

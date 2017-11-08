@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Jadwal;
 use App\Http\Requests\JadwalRequest;
+use PDF;
 
 class JadwalController extends Controller
 {
@@ -90,7 +91,7 @@ class JadwalController extends Controller
         $sort = \App\Kelas::find($dec);
         $keterangan = Jadwal::join('jurusan','jurusan.kode_jurusan','=','jadwal.kode_jurusan')
                             ->join('kelas','kelas.kode_kelas','=','jadwal.kode_kelas')
-                            ->select('jurusan.nama_jurusan','kelas.tahun','kelas.nama_kelas','jadwal.id as jadwal_id')
+                            ->select('jurusan.nama_jurusan','kelas.tahun','kelas.nama_kelas','jadwal.id as jadwal_id','kelas.id as kelas_id')
                             ->where('kelas.id',$sort->id)
                             ->first();
 
@@ -187,5 +188,36 @@ class JadwalController extends Controller
         $jadwals = Jadwal::where('kode_jadwal','LIKE','%'.$cari.'%')->sortable()->paginate(10);
 
         return view('Akademik.Jadwal.jadwalIndex',compact('jadwals'))->with('no',($request->input('page',1)-1)*10);
+    }
+
+    public function pdf(Request $request,$id){
+        $dec = decrypt($id);
+        $sort = \App\Kelas::find($dec);
+        $keterangan = Jadwal::join('jurusan','jurusan.kode_jurusan','=','jadwal.kode_jurusan')
+                            ->join('kelas','kelas.kode_kelas','=','jadwal.kode_kelas')
+                            ->select('jurusan.nama_jurusan','kelas.tahun','kelas.nama_kelas','jadwal.id as jadwal_id')
+                            ->where('kelas.id',$sort->id)
+                            ->first();
+
+        $jadwals = Jadwal::join('dosen','dosen.nip','=','jadwal.nip')
+                        ->join('jurusan','jurusan.kode_jurusan','=','jadwal.kode_jurusan')
+                        ->join('ruang','ruang.kode_ruang','=','jadwal.kode_ruang')
+                        ->join('kelas','kelas.kode_kelas','=','jadwal.kode_kelas')
+                        ->join('mata_kuliah','mata_kuliah.kode_mk','=','jadwal.kode_mk')
+                        ->join('hari','hari.kode_hari','=','jadwal.kode_hari')
+                        ->join('jam','jam.kode_jam','=','jadwal.kode_jam')
+                        ->select('*','jadwal.id as jadwal_id','kelas.id as kelas_id')
+                        ->where('kelas.nama_kelas',$sort->nama_kelas)
+                        ->orderBy('jam.waktu_mulai','Asc')
+                        ->get();
+        view()->share('jadwals',$jadwals);
+
+        if ($request->has('download')) {
+            $pdf = PDF::loadview('Akademik/Jadwal/jadwalPdf');
+            return $pdf->download('jadwalPdf.pdf');
+        }else{
+            $pdf= PDF::loadview('Akademik/Jadwal/jadwalPdf');
+            return $pdf->stream('jadwalPdf.pdf');
+        }
     }
 }

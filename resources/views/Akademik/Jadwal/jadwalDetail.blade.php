@@ -20,7 +20,7 @@
                                 Jurusan : {{ $keterangan->nama_jurusan }}
                             </div>
                             <div class="chip">
-                                Tahun : {{ $keterangan->tahun }}
+                                Tahun : {{ date('Y',strtotime($keterangan->tahun)) }}
                             </div>
                         </div>
 
@@ -30,7 +30,8 @@
                             <thead>
                                 <tr class="white-text blue">
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Jam</th>
+                                    <th class="text-center">Hari</th>
+                                    <th class="text-center">Waktu</th>
                                     <th class="text-center">Mata Kuliah</th>
                                     <th class="text-center">Dosen</th>
                                     <th class="text-center">Ruang</th>
@@ -40,6 +41,7 @@
                                 @foreach($jadwals as $no => $jadwal)
                                     <tr>
                                         <th class="text-center">{{ $no+1 }}</th>
+                                        <th class="text-center">{{ $jadwal->nama_hari }}</th>
                                         <th class="text-center">{{ $jadwal->waktu_mulai }}-{{ $jadwal->waktu_selesai }}</th>
                                         <th class="text-center">{{ $jadwal->makul }}</th>
                                         <th class="text-center">{{ $jadwal->nama_dosen }}</th>
@@ -55,18 +57,16 @@
 				    	<i class="material-icons">menu</i>
 				    </a>
 				    <ul>
-				    	{{-- <li>
-                            {{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
-                                <button type="submit" class="btn btn-floating red">
-                                    <i class="material-icons">delete</i>
-                                </button>
-                            {{ Form::close()}}
-				    	</li>
 				    	<li>
-                            <a href="{{ action('Akademik\Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
-                                <i class="material-icons">edit</i>
+                            <a href="{{ route('Jadwal.pdf',[encrypt($keterangan->kelas_id),'download'=>'pdf']) }}" class="btn-floating cyan" title="Download File">
+                                <i class="material-icons">cloud_download</i>
                             </a>
-                        </li> --}}
+                        </li>
+                        <li>
+                            <a href="{{ action('Akademik\Jadwal\JadwalController@pdf',encrypt($keterangan->kelas_id)) }}" class="btn-floating yellow" title="Lihat File">
+                                <i class="material-icons">document</i>
+                            </a>
+                        </li>  
 				    	<li>
                             <a class="btn-floating green" onclick="goBack()" title="Kembali">
                                 <i class="material-icons">keyboard_backspace</i>

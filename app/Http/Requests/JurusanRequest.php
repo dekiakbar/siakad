@@ -28,7 +28,7 @@ class JurusanRequest extends FormRequest
         return [
             'kode_jurusan' =>'required|min:1|max:8'.
                 Rule::unique('jurusan')->ignore($this->id),
-            'nama_jurusan' => 'required|min:3|max:30|regex:/[a-zA-Z]/',
+            'nama_jurusan' => 'required|min:3|max:50|regex:/[a-zA-Z]/',
             'jenjang' => 'required|min:1|max:2'
         ];
     }

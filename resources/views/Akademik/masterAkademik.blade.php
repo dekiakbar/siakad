@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>@yield('judul')</title>
@@ -23,6 +23,7 @@
         <li><a href="/Akademik">Akademik</a></li>
         <li><a href="#">Forum</a></li>
         <li><a href="#">Web</a></li>
+        <li><a href="#">Perpus</a></li>
         <li><a href="#"><i class="material-icons">exit_to_app</i></a></li>
       </ul>
     </div>

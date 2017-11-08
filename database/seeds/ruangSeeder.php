@@ -17,7 +17,7 @@ class ruangSeeder extends Seeder
         for ($i=0; $i < $limit; $i++) { 
         	DB::table('ruang')->insert([
                 'kode_ruang' => $faker->unique()->numerify('R###'),
-        		'nama_ruang' => $faker->word
+        		'nama_ruang' => $faker->randomElement(array($faker->numerify('A##'),$faker->numerify('B##'),$faker->numerify('C##')))
         	]);
         }
     }

@@ -16,7 +16,7 @@ class MataKuliah extends Migration
         Schema::create('mata_kuliah', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode_mk',8)->unique();
-            $table->string('makul',35);
+            $table->string('makul',50);
             $table->string('sks',2);
             $table->timestamps();
         });

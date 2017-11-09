@@ -96,10 +96,13 @@
 										<label for="alamat">Alamat :</label>
 									</div>
 									<div class="col s12 m6 input-field">
-										<select name="id_jurusan" class="blue-text" style="display: inline-block;">
-											<option value="" selected="true">Pilih Jurusan</option>
+										<select name="id_jurusan" class="blue-text">
 											@foreach($jurusan as $jurusan)
-											<option value="{!! $jurusan->id !!}">{!! $jurusan->nama_jurusan !!}</option>
+												@if($data->id_jurusan == $jurusan->id)
+													<option value="{!! $jurusan->id !!}" selected>{!! $jurusan->nama_jurusan !!}</option>
+												@else
+													<option value="{!! $jurusan->id !!}">{!! $jurusan->nama_jurusan !!}</option>
+												@endif
 											@endforeach
 										</select>
 										

@@ -39,7 +39,7 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(MahasiswaRequest $request)
-    {     
+    {   
         $simpan = new Mahasiswa([
             'nim' => $request->get('nim'),
             'nama' => $request->get('nama'),
@@ -62,7 +62,7 @@ class MahasiswaController extends Controller
         }
 
         $namaFoto =time().'.'.$request->foto->getClientOriginalExtension();
-        $request->foto->move(public_path('imageMahasiswa'),$namaFoto);
+        $request->foto->move(public_path('image/mahasiswa'),$namaFoto);
         
         return redirect('/Akademik/Mahasiswa/create');
     }
@@ -106,6 +106,12 @@ class MahasiswaController extends Controller
     {   
         $dec = decrypt($id);
         $update = Mahasiswa::find($dec);
+        
+        if ($request->file('foto')) {
+            $foto = public_path("/image/mahasiswa/{$update->link}");
+            unlink($foto);
+        }
+
         $update->nim = $request->get('nim');
         $update->nama = $request->get('nama');
         $update->alamat = $request->get('alamat');
@@ -118,7 +124,7 @@ class MahasiswaController extends Controller
         $update->id_jurusan = $request->get('id_jurusan');
         
         $namaFoto =time().'.'.$request->foto->getClientOriginalExtension();
-        $request->foto->move(public_path('imageMahasiswa'),$namaFoto);
+        $request->foto->move(public_path('image/mahasiswa'),$namaFoto);
 
         if ($update->save()) {
             session()->flash('status', 'done_all');
@@ -141,6 +147,8 @@ class MahasiswaController extends Controller
     {   
         $dec = decrypt($id);
         $hapus = Mahasiswa::findOrFail($dec);
+        $foto = public_path("/image/mahasiswa/{$hapus->link}");
+        unlink($foto);
         if ($hapus->delete()) {
             session()->flash('status', 'done_all');
             session()->flash('pesan',' Data mahasiswa berhasil dihapus');

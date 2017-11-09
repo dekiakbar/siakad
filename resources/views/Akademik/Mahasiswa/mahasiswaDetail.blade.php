@@ -18,7 +18,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3 col-lg-3 " align="center"> 
-                            <img src="/imageMahasiswa/{{ $data->link }}" class="img-thumbnail img-responsive"> 
+                            <img src="/image/mahasiswa/{{ $data->link }}" class="img-thumbnail img-responsive"> 
                         </div>
                         <div class=" col-md-9 col-lg-9 "> 
                             <table class="table table-user-information">
@@ -72,14 +72,14 @@
 				    </a>
 				    <ul>
 				    	<li>
-                            {{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',$data->id]])}}
+                            {{Form::Open(['method' => 'DELETE','route' => ['Mahasiswa.destroy',encrypt($data->id)]])}}
                                 <button type="submit" class="btn btn-floating red">
                                     <i class="material-icons">delete</i>
                                 </button>
                             {{ Form::close()}}
 				    	</li>
 				    	<li>
-                            <a href="{{ action('Akademik\Mahasiswa\MahasiswaController@edit',$data->id) }}" class="btn-floating cyan" title="Edit Data">
+                            <a href="{{ action('Akademik\Mahasiswa\MahasiswaController@edit',encrypt($data->id)) }}" class="btn-floating cyan" title="Edit Data">
                                 <i class="material-icons">edit</i>
                             </a>
                         </li>

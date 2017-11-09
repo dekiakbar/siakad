@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Jadwal</title>
     <link rel="stylesheet" href="{{ ltrim(elixir('css/app.css'), '/') }}" />
-    {{-- <link rel="stylesheet" href="{{ ltrim(asset('materialize-css/css/materialize.min.css'),'/') }}" /> --}}
 </head>
 <body>
 	<div class="container-fluid">

@@ -7,7 +7,7 @@
     <title>@yield('judul')</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/manualAkademik.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/akademik/manualAkademik.css')}}">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {!! MaterializeCSS::include_full() !!}
@@ -179,6 +179,6 @@
     
 </div>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/akademik/manual.js') }}"></script>
 </body>
 </html>

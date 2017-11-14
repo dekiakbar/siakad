@@ -10,8 +10,10 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "admin-lte": "^2.4.2",
         "axios": "^0.16.2",
         "bootstrap-sass": "^3.3.7",
+        "chart.js": "^2.7.1",
         "cross-env": "^5.0.5",
         "jquery": "^3.1.1",
         "laravel-elixir-materialize-css": "^1.0.3",
@@ -21,7 +23,16 @@
     },
     "dependencies": {
         "bootstrap": "^4.0.0-alpha.4",
+        "bootstrap-timepicker": "^0.5.2",
+        "ckeditor": "^4.7.3",
+        "datatables.net": "^1.10.16",
+        "datatables.net-bs": "^1.10.16",
+        "font-awesome": "^4.7.0",
         "gulp": "^3.9.1",
+        "inputmask": "^3.3.10",
+        "ion-rangeslider": "^2.2.0",
+        "ionicons": "^3.0.0",
+        "ios-icons": "^2.0.1",
         "node-sass": "^4.5.3",
         "vuejs-datepicker": "^0.9.11",
         "webpack": "^3.5.5"

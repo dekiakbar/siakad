@@ -45,9 +45,10 @@ php artisan migrate
 ```
 php artisan migrate --seed
 ```
-## Built With (Require)
+## Made With 
 
 * [Laravel 5.5](https://laravel.com/docs/5.5/installation) - The web framework used.
 * [PHP 7.0](http://php.net/downloads.php) - The PHP version must >= PHP 7.0.
 * [Composer](https://getcomposer.org/download/) - Composer For update this project.
-* [Mysql 5.7.19](https://www.mysql.com) - Database server. 
+* [Mysql 5.7.19](https://www.mysql.com) - Database server.
+* [NPM v8.9.1](https://www.npmjs.com/) - Node Package Manager.

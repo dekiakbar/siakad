@@ -41,7 +41,10 @@ cp .env.example .env
 ```
 php artisan migrate
 ```
-
+7.or this command to generate database with dummy data :
+```
+php artisan migrate --seed
+```
 ## Built With (Require)
 
 * [Laravel 5.5](https://laravel.com/docs/5.5/installation) - The web framework used.

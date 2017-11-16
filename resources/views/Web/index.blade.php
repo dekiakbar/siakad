@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <section class="banner">
 	<div class="cover-slider__wrap">
 		<ul class="cover-slider">
-			<li class="cover-slider__slide">
+			<li class="cover-slider__slide" style="background-image: url('../../image/images/banner1.jpg')">
 				<span class="hide">Alt Tag</span>
 			</li>
 			<li class="cover-slider__slide">

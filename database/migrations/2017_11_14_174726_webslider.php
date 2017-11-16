@@ -15,6 +15,7 @@ class Webslider extends Migration
     {
         Schema::create('webslider', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('deskripsi_slider')->length(50);
             $table->string('link_slider')->length(50);
             $table->timestamps();
         });

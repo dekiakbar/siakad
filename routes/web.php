@@ -77,6 +77,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Routing Akademik
 	Route::get('Akademik','Akademik\AkademikController@index');
+
+	// Routing Admin Web
+	Route::resource('Web','W\SliderController');
 });
 
 Auth::routes();

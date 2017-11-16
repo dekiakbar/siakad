@@ -1,13 +1,14 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## Academy Information System
-<p>
-	This project I was made with Laravel, while I learn how laravel work, feel free to download and contact me if there is issue(s) on this project.
+# Academy Information System
+>This project I was made with Laravel, while I learn how laravel work, feel free to download and contact me if there is issue(s) on this project.
+
+<p align="center">
+	<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+	<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
 ## Contact Me
-
-Wanna contact me for the issues, please inbox me.
 
 * [StackOverflow](https://stackoverflow.com/users/7978371/deki-akbar)
 * [Facebook](https://web.facebook.com/itsdekiakbar)

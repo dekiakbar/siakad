@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('Akademik','Akademik\AkademikController@index');
 
 	// Routing Admin Web
-	Route::resource('Web','W\SliderController');
+	Route::resource('Web','W\ProfController');
 });
 
 Auth::routes();

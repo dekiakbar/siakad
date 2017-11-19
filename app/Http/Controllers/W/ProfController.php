@@ -5,6 +5,8 @@ namespace App\Http\Controllers\W;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Webprofile;
+
 class ProfController extends Controller
 {
     /**
@@ -34,8 +36,43 @@ class ProfController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $fotoAbout = $request->file('foto_about');
+        $namaFotoAbout = md5($fotoAbout->getClientOriginalName().time()).".".$fotoAbout->getClientOriginalExtension();
+        $fotoAbout->move('/image/web',$namaFotoAbout);
+
+        $slide1 = $request->file('slider[0]');
+        $namaSlider1 = md5($slide1->getClientOriginalName().time()).".".$slide1->getClientOriginalExtension();
+        $slide1->move('/image/web',$namaSlider1);
+
+        $slide2 = $request->file('slider[1]');
+        $namaSlider2 = md5($slide2->getClientOriginalName().time()).".".$slide2->getClientOriginalExtension();
+        $slide2->move('/image/web',$namaSlider2);
+
+        $slide3 = $request->file('slider[2]');
+        $namaSlider3 = md5($slide3->getClientOriginalName().time()).".".$slide3->getClientOriginalExtension();
+        $slide3->move('/image/web',$namaSlider3);
+
+        $data = new Webprofile([
+            'nama_kampus' => $request->input('nama_kampus'),
+            'judul_about' => $request->input('judul_about'),
+            'isi_about' => $request->input('isi_about'),
+            'foto_about' => $namaFotoAbout,
+            'alamat_kampus' => $request->input('alamat_kampus'),
+            'telepon_kampus' => $request->input('telepon_kampus'),
+            'fax_kampus' => $request->input('fax_kampus'),
+            'email_kampus' => $request->input('email_kampus'),
+            'fb_kampus' => $request->input('fb_kampus'),
+            'twitter_kampus' => $request->input('twitter_kampus'),
+            'linkedin_kampus' => $request->input('linkedin_kampus'),
+            'google_kampus' => $request->input('google_kampus'),
+            'koordinat' => $request->input('koordinat'),
+            'foto_slider1' => $namaSlider1,
+            'foto_slider2' => $namaSlider2,
+            'foto_slider3' => $namaSlider3,
+        ]);
+
+        return redirect('/Web/create');
     }
 
     /**

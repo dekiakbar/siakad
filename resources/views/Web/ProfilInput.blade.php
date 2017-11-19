@@ -84,7 +84,7 @@
 									<div class="file-field input-field col s12 m6">
 								    	<div class="btn">
 								    		<span>File</span>
-								    		{{ Form::file('slider') }}
+								    		{{ Form::file('slider[]',['multiple']) }}
 								    	</div>
 								    	<div class="file-path-wrapper">
 								    		<input class="file-path validate" type="text" placeholder="Foto Slider">

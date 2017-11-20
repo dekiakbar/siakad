@@ -59,13 +59,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <section class="banner">
 	<div class="cover-slider__wrap">
 		<ul class="cover-slider">
-			<li class="cover-slider__slide" style="background-image: url({{'storage/'.$data->foto_slider1 }})">
+			<li class="cover-slider__slide" style="background-image: url({{'storage/web/'.$data->foto_slider1 }})">
 				<span class="hide">Alt Tag</span>
 			</li>
-			<li class="cover-slider__slide" style="background-image: url({{'storage/'.$data->foto_slider2 }})">
+			<li class="cover-slider__slide" style="background-image: url({{'storage/web/'.$data->foto_slider2 }})">
 				<span class="hide">Alt Tag</span>
 			</li>
-			<li class="cover-slider__slide" style="background-image: url({{'storage/'.$data->foto_slider3 }})">
+			<li class="cover-slider__slide" style="background-image: url({{'storage/web/'.$data->foto_slider3 }})">
 				<span class="hide">Alt Tag</span>
 			</li>
 		</ul>
@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container-fluid">
 		<div class="row">	
 			<div class="col-lg-6 about-info1 slideanim">
-				<img src="{{ asset('storage/'.$data->foto_about) }}" alt="about" class="img-responsive">
+				<img src="{{ asset('storage/web/'.$data->foto_about) }}" alt="about" class="img-responsive">
 			</div>
 			<div class="col-lg-6 about-info2 slideanim">
 				<div class="about-details">

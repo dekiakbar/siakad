@@ -40,24 +40,21 @@ class ProfController extends Controller
     {   
         $fotoAbout = $request->file('foto_about');
         $namaFotoAbout = md5($fotoAbout->getClientOriginalName().time()).".".$fotoAbout->getClientOriginalExtension();
-        $fotoAbout->storeAs('web',$namaFotoAbout);
+        $fotoAbout->storeAs('public/web',$namaFotoAbout);
 
         $sliders = $request->file('slider');
 
         $slide1 = $sliders[0];
         $namaSlider1 = md5($slide1->getClientOriginalName().time()).".".$slide1->getClientOriginalExtension();
-        // $slide1->move('/image/web',$namaSlider1);
-        $slide1->storeAs('web',$namaSlider1);
+        $slide1->storeAs('public/web',$namaSlider1);
 
         $slide2 = $sliders[1];
         $namaSlider2 = md5($slide2->getClientOriginalName().time()).".".$slide2->getClientOriginalExtension();
-        // $slide2->move('/image/web',$namaSlider2);
-        $slide2->storeAs('web',$namaSlider2);
+        $slide2->storeAs('public/web',$namaSlider2);
 
         $slide3 = $sliders[2];
         $namaSlider3 = md5($slide3->getClientOriginalName().time()).".".$slide3->getClientOriginalExtension();
-        // $slide3->move('/image/web',$namaSlider3);
-        $slide3->storeAs('web',$namaSlider3);
+        $slide3->storeAs('public/web',$namaSlider3);
 
         $data = new Webprofile([
             'nama_kampus' => $request->input('nama_kampus'),

@@ -17,7 +17,7 @@ class Webprofile extends Migration
             $table->increments('id');
             $table->string('nama_kampus')->length(50);
             $table->string('judul_about')->length(30);
-            $table->string('isi_about')->length(200);
+            $table->string('isi_about')->length(500);
             $table->string('foto_about')->length(100);
             $table->string('alamat_kampus')->length(100);
             $table->string('telepon_kampus')->length(20);

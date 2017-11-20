@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Webprofile;
+use App\Webgalery;
 
 class ProfController extends Controller
 {
@@ -27,7 +28,12 @@ class ProfController extends Controller
      */
     public function create()
     {
-        return view('Web.ProfilInput');
+        return view('Web.ProfilInsert');
+    }
+
+    public function createGallery()
+    {
+        return view('Web.GalleryInsert');
     }
 
     /**
@@ -72,12 +78,23 @@ class ProfController extends Controller
             'koordinat' => $request->input('koordinat'),
             'foto_slider1' => $namaSlider1,
             'foto_slider2' => $namaSlider2,
-            'foto_slider3' => $namaSlider3,
+            'foto_slider3' => $namaSlider3
         ]);
 
-        $data->save();
+        if ( $data->save()) {
+            session()->flash('status','done_all');
+            session()->flash('pesan','Profil Web berhasil diperbaharui');
+        }else{
+            session()->flash('status','clear');
+            session()->flash('pesan','Profil Web gagal diperbaharui');
+        }
 
         return redirect('/Web/create');
+    }
+
+    public function storeGallery(Request $request)
+    {
+
     }
 
     /**

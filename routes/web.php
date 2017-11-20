@@ -79,7 +79,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('Akademik','Akademik\AkademikController@index');
 
 	// Routing Admin Web
-	Route::resource('Web','W\ProfController');
+	// Route::resource('Web','W\ProfController');
+	Route::view('createGallery','Web\GalleryInsert');
+	Route::post('Web',['uses' => 'W\ProfController@storeGallery', 'as' => 'Gallery.store']);
 });
 
 Auth::routes();

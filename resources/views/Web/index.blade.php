@@ -297,15 +297,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-lg-5 col-md-5">
 				<div class="contact-info">
 					<h4>Connect With Us :-</h4>
-					<p><strong>Phone :</strong>{{ $data->telepon_kampus }}</p>
-					<p><strong>Fax :</strong>{{ $data->fax_kampus }}</p>
-					<p><strong>Email :</strong> <a href="mailto:name@example.com">{{ $data->email_kampus }}</a></p>
+					<p><strong>Phone :</strong> {{ $data->telepon_kampus }}</p>
+					<p><strong>Fax :</strong> {{ $data->fax_kampus }}</p>
+					<p><strong>Email :</strong><a href="mailto:{{ $data->email_kampus }}"> {{ $data->email_kampus }}</a></p>
 					<p class="addr"><strong>Address :</strong>{{ $data->alamat_kampus }}</p>
 					<ul class="social-icons2">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="{{ $data->fb_kampus }}"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="{{ $data->twitter_kampus }}"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="{{ $data->linkedin_kampus }}"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="{{ $data->google_kampus }}"><i class="fa fa-google-plus"></i></a></li>
 					</ul>
 				</div>
 			</div>

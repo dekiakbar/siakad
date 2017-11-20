@@ -249,15 +249,7 @@ ul.nav.navbar-nav.navbar-right {
     right: 0;
   }
 }
-/*.cover-slider__slide:nth-child(1) {
-  background-image: url("../../image/images/banner1.jpg");
-}*/
-.cover-slider__slide:nth-child(2) {
-  background-image: url("../../image/images/banner2.jpg");
-}
-.cover-slider__slide:nth-child(3) {
-  background-image: url("../../image/images/banner3.jpg");
-}
+
 .hide {
   position: absolute;
   left: -9999px;

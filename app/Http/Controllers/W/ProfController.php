@@ -16,7 +16,8 @@ class ProfController extends Controller
      */
     public function index()
     {
-        //
+        $data = Webprofile::first();
+        return view('Web.index',compact('data'));
     }
 
     /**
@@ -39,19 +40,24 @@ class ProfController extends Controller
     {   
         $fotoAbout = $request->file('foto_about');
         $namaFotoAbout = md5($fotoAbout->getClientOriginalName().time()).".".$fotoAbout->getClientOriginalExtension();
-        $fotoAbout->move('/image/web',$namaFotoAbout);
+        $fotoAbout->storeAs('web',$namaFotoAbout);
 
-        $slide1 = $request->file('slider[0]');
+        $sliders = $request->file('slider');
+
+        $slide1 = $sliders[0];
         $namaSlider1 = md5($slide1->getClientOriginalName().time()).".".$slide1->getClientOriginalExtension();
-        $slide1->move('/image/web',$namaSlider1);
+        // $slide1->move('/image/web',$namaSlider1);
+        $slide1->storeAs('web',$namaSlider1);
 
-        $slide2 = $request->file('slider[1]');
+        $slide2 = $sliders[1];
         $namaSlider2 = md5($slide2->getClientOriginalName().time()).".".$slide2->getClientOriginalExtension();
-        $slide2->move('/image/web',$namaSlider2);
+        // $slide2->move('/image/web',$namaSlider2);
+        $slide2->storeAs('web',$namaSlider2);
 
-        $slide3 = $request->file('slider[2]');
+        $slide3 = $sliders[2];
         $namaSlider3 = md5($slide3->getClientOriginalName().time()).".".$slide3->getClientOriginalExtension();
-        $slide3->move('/image/web',$namaSlider3);
+        // $slide3->move('/image/web',$namaSlider3);
+        $slide3->storeAs('web',$namaSlider3);
 
         $data = new Webprofile([
             'nama_kampus' => $request->input('nama_kampus'),
@@ -71,6 +77,8 @@ class ProfController extends Controller
             'foto_slider2' => $namaSlider2,
             'foto_slider3' => $namaSlider3,
         ]);
+
+        $data->save();
 
         return redirect('/Web/create');
     }

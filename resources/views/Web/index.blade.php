@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Academy An Education Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
+<title>{{ $data->nama_kampus }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Academy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html"><h1>Academy</h1></a>
+					<a class="navbar-brand" href="index.html"><h1>{{ $data->nama_kampus }}</h1></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -59,13 +59,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <section class="banner">
 	<div class="cover-slider__wrap">
 		<ul class="cover-slider">
-			<li class="cover-slider__slide" style="background-image: url('../../image/images/banner1.jpg')">
+			<li class="cover-slider__slide" style="background-image: url({{'storage/'.$data->foto_slider1 }})">
 				<span class="hide">Alt Tag</span>
 			</li>
-			<li class="cover-slider__slide">
+			<li class="cover-slider__slide" style="background-image: url({{'storage/'.$data->foto_slider2 }})">
 				<span class="hide">Alt Tag</span>
 			</li>
-			<li class="cover-slider__slide">
+			<li class="cover-slider__slide" style="background-image: url({{'storage/'.$data->foto_slider3 }})">
 				<span class="hide">Alt Tag</span>
 			</li>
 		</ul>
@@ -77,12 +77,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container-fluid">
 		<div class="row">	
 			<div class="col-lg-6 about-info1 slideanim">
-				<img src="{{ asset('image/images/about-img.jpg') }}" alt="about" class="img-responsive">
+				<img src="{{ asset('storage/'.$data->foto_about) }}" alt="about" class="img-responsive">
 			</div>
 			<div class="col-lg-6 about-info2 slideanim">
 				<div class="about-details">
-					<h2>About Us</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+					<h2>{{ $data->judul_about }}</h2>
+					<p>{{ $data->isi_about }}</p>
 				</div>	
 			</div>
 		</div>
@@ -297,9 +297,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-lg-5 col-md-5">
 				<div class="contact-info">
 					<h4>Connect With Us :-</h4>
-					<p><strong>Phone :</strong> 123.456.7890</p>
-					<p><strong>Email :</strong> <a href="mailto:name@example.com">name@example.com</a></p>
-					<p class="addr"><strong>Address :</strong> 3481 Melrose Place,Beverly Hills, Chicago 90210.</p>
+					<p><strong>Phone :</strong>{{ $data->telepon_kampus }}</p>
+					<p><strong>Fax :</strong>{{ $data->fax_kampus }}</p>
+					<p><strong>Email :</strong> <a href="mailto:name@example.com">{{ $data->email_kampus }}</a></p>
+					<p class="addr"><strong>Address :</strong>{{ $data->alamat_kampus }}</p>
 					<ul class="social-icons2">
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>

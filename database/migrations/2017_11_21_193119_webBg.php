@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Webgalery extends Migration
+class WebBg extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Webgalery extends Migration
      */
     public function up()
     {
-        Schema::create('webgalery', function (Blueprint $table) {
+        Schema::create('webg', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto_galery')->length(100);
+            $table->string('foto_background')->length(100);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class Webgalery extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('webgalery');
+        Schema::dropIfExists('webg');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Webprofile;
 use App\Webgalery;
+use App\Webbackground;
 
 class ProfController extends Controller
 {
@@ -94,7 +95,37 @@ class ProfController extends Controller
 
     public function storeGallery(Request $request)
     {
+        $foto_background1 = $request->file('foto_background1');
+        $nama_fbg1 = md5($foto_background1->getClientOriginalName().time()).".".$foto_background1->getClientOriginalExtension();
+        $foto_background1->storeAs('public/web',$nama_fbg1);
 
+        $foto_background2 = $request->file('foto_background2');
+        $nama_fbg2 = md5($foto_background2->getClientOriginalName().time()).".".$foto_background2->getClientOriginalExtension();
+        $foto_background2->storeAs('public/web',$nama_fbg2);
+
+        $foto_background3 = $request->file('foto_background3');
+        $nama_fbg3 = md5($foto_background3->getClientOriginalName().time()).".".$foto_background3->getClientOriginalExtension();
+        $foto_background3->storeAs('public/web',$nama_fbg3);
+        
+        $namabg = array($nama_fbg1,$nama_fbg2,$nama_fbg3);
+
+        foreach ($namabg as $nama) {
+            $simpanBg = new Webbackground([
+                'foto_background' => $nama
+            ]);
+            $simpanBg->save();
+        }
+
+        $gallery = $request->file('foto_galery');
+            foreach ($gallery as $galeri) { 
+                $namaFoto = md5($galeri->getClientOriginalName().time()).".".$galeri->getClientOriginalExtension();
+                $galeri->storeAs('public/web',$namaFoto);
+                $simpan = new Webgalery([
+                    'foto_galery' => $namaFoto
+                ]);
+                $simpan->save();
+            }
+        return redirect('/Web');
     }
 
     /**

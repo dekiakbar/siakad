@@ -19,7 +19,9 @@ class ProfController extends Controller
     public function index()
     {
         $data = Webprofile::first();
-        return view('Web.index',compact('data'));
+        $fotoBg = Webbackground::all();
+        $fotoGaleri = Webgalery::all(); 
+        return view('Web.index',compact('data','fotoBg','fotoGaleri'));
     }
 
     /**

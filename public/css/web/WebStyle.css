@@ -290,7 +290,7 @@ section.about-us img.img-responsive {
 section.our-services {
 	padding:100px 0;
 	/*-- W3layouts --*/
-	background:url(../../image/images/service.jpg);
+	/*background:url(../../image/images/service.jpg);*/
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -476,7 +476,7 @@ Darkbox
 /*-- /Gallery Section --*/
 /*-- Team --*/	 
 section.our-team {
-	background:url(../../image/images/team.jpg) no-repeat;
+	/*background:url(../../image/images/team.jpg) no-repeat;*/
     background-attachment: fixed;
     background-position: center;
     background-size:100% 100%;
@@ -621,7 +621,7 @@ section.map iframe.googlemaps {
 /*-- Contact --*/
 section.contact-us {
 	padding:100px 0;
-	background:url(../../image/images/contact.jpg);
+	/*background:url(../../image/images/contact.jpg);*/
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

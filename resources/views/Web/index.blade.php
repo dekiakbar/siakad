@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </section>
 <!-- /About Section -->
 <!-- Service Section -->
-<section class="our-services slideanim" id="service">
+<section class="our-services slideanim" id="service" style="background:url({{ 'storage/web/'.$fotoBg[0]->foto_background }});">
 	<h3 class="text-center slideanim">Our Amazing Services</h3>
 	<p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	<div class="container">
@@ -182,23 +182,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<h3 class="text-center slideanim">Our Gallery</h3>
 	<p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	<div class="container">
-		<img src="{{ asset('image/images/work1.jpg') }}" data-darkbox="images/work1-1.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{{ asset('image/images/work2.jpg') }}" data-darkbox="images/work2-2.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work3.jpg') }}" data-darkbox="images/work3-3.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work4.jpg') }}" data-darkbox="images/work4-4.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work5.jpg') }}" data-darkbox="images/work5-5.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work6.jpg') }}" data-darkbox="images/work6-6.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work7.jpg') }}" data-darkbox="images/work7-7.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work8.jpg') }}" data-darkbox="images/work8-8.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work9.jpg') }}" data-darkbox="images/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work10.jpg') }}" data-darkbox="images/work10-10.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work11.jpg') }}" data-darkbox="images/work11-11.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-		<img src="{{ asset('image/images/work12.jpg') }}" data-darkbox="images/work12-12.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+		@foreach($fotoGaleri as $foto)
+			<img src="{{ asset('storage/web/'.$foto->foto_galery) }}" data-darkbox="images/work1-1.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+		@endforeach
 	</div>
 </section>	
 <!-- /Gallery section -->
 <!-- Team -->
-<section class="our-team" id="team">
+<section class="our-team" id="team" style="background:url({{ 'storage/web/'.$fotoBg[1]->foto_background }}) no-repeat;">
 	<h3 class="text-center slideanim">Best Of The Best, Our Faculty</h3>
 	<p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	<div class="container">
@@ -289,7 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </section>
 <!-- /Google Map -->
 <!-- Contact -->
-<section class="contact-us slideanim" id="contact">
+<section class="contact-us slideanim" id="contact" style="background:url({{ 'storage/web/'.$fotoBg[2]->foto_background }});">
 	<h3 class="text-center slideanim">Contact Us</h3>
 	<p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	<div class="container">		

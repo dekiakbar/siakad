@@ -90,16 +90,99 @@
 	        	</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-6 col-md-8">
-	        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	        	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	        	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	        	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	        	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	        	<div id="album">
+				  	<div class="ui piled compact segment">
+				  		<div class="floating ui red label">9</div>
+				    	<div class="ui card">
+				    		<div class="blurring dimmable image">
+								<div class="ui inverted dimmer">
+									<div class="content">
+										<div class="center">
+							            	<div class="ui red button view">VIEW</div>
+					   			    	</div>
+									</div>
+							   	</div>
+								<img src="http://mrg.bz/IxQIgC">
+							</div>
+							<div class="content">
+								<div id="rate" class="ui star rating right floated" data-rating="3"></div>
+								<div class="header">Animals</div>
+								<div class="meta">
+							    	<span class="date"><i class="calendar icon"></i>Created 7/27/2014</span>
+							    	<span class="right floated date"><i class="history icon"></i> Modified 8/4/2014</span>
+								</div>
+							  	<div class="description">
+							  		Different animals from around the world
+							  	</div>
+							</div>
+							<div  class="extra content" >
+								<div class="ui right labeled button" data-content="Like it!" data-variation="tiny">
+							    	<div class="ui red icon tiny button">
+							      		<i class="thumbs outline up large icon"></i>
+							    	</div>
+							    	<a class="ui basic red left pointing label">365</a>
+							  	</div>
+							  	<div class="ui left labeled right floated button" data-content="Share it!" data-variation="tiny">
+							    	<a class="ui basic red right pointing label">183</a>
+								    <div class="ui red icon tiny button">
+								      <i class="external share large icon"></i>
+								    </div>
+							  	</div>
+							</div>
+				    	</div>
+				  	</div>
+				</div>
+	        </div>
+	        <div class="col-xs-4 col-sm-3 col-md-2">
+	        	<div class="ui card">
+	        		<div class="content">
+		        		<ul class="nav bs-sidenav">
+							<li class="dropdown">
+							  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdowns</a>
+							  <ul class="dropdown-menu">
+							    <li><a href="#dropdowns-example">Example</a></li>
+							    <li><a href="#dropdowns-alignment">Alignment options</a></li>
+							    <li><a href="#dropdowns-headers">Headers</a></li>
+							    <li><a href="#dropdowns-disabled">Disabled menu items</a></li>
+							  </ul>
+							</li>
+							<li>
+							  <a href="#btn-groups">Button groups</a>
+							  <ul class="nav">
+							    <li><a href="#btn-groups-single">Basic example</a></li>
+							    <li><a href="#btn-groups-toolbar">Button toolbar</a></li>
+							    <li><a href="#btn-groups-sizing">Sizing</a></li>
+							    <li><a href="#btn-groups-nested">Nesting</a></li>
+							    <li><a href="#btn-groups-vertical">Vertical variation</a></li>
+							    <li><a href="#btn-groups-justified">Justified link variation</a></li>
+							  </ul>
+							</li>    
+			            </ul>
+	        		</div>
+	        	</div>
 	        </div>
 		</div>
 	</div>
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+	  		$('.ui.card .image').dimmer({on: 'hover'});
+			$('.ui.rating').rating({maxRating: 5});
+			$('.ui.button').popup();
+
+			$('.button.view').on('click', (function() {			
+				$('#album').fadeOut('slow', function () {
+					$('#album_items').fadeIn('slow');
+				});
+			}));
+
+			$('.button.back').on('click', (function() {
+				$('#album_items').fadeOut('slow', function () {
+					$('#album').fadeIn('slow');
+				});
+			}));
+		});
+	</script>
 </body>
 </html>

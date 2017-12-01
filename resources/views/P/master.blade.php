@@ -94,9 +94,9 @@
 				<div class="ui cards">
 				  	<div class="card">
 				    	<div class="content">
-				      		<i class="right floated mail icon teal" style="font-size: 30px;"></i>
+				      		<i class="right floated zoom icon teal" style="font-size: 30px;"></i>
 				      		<div class="header">
-				        		Send to user email
+				        		Send to user email wkwwkwkkwkkwwkwk
 				      		</div>
 				      		<div class="meta">
 				        		<code>User email</code>
@@ -106,12 +106,14 @@
 				      		</div>
 				    	</div>
 				    	<div class="extra content">
-				      		<div>
-				        		<i class="users icon"></i> Staff, Students
-				      		</div>
-				      		<div>
-				        		<i class="user icon"></i> Kaylee Fryee
-				      		</div>
+				      		<span class="left floated like">
+						      <a href=""><i class="like icon"></i></a>
+						      Like
+						    </span>
+						    <span class="right floated star">
+						      <a href=""><i class="download icon"></i></a>
+						      Download
+						    </span>
 				    	</div>
 				    <!-- <div class="ui bottom attached button">
 				        <i class="edit icon"></i>
@@ -121,105 +123,9 @@
 
 				  	<div class="card">
 				    	<div class="content">
-				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
-					      	<div class="header">
-					        	Send to HR folder
-					      	</div>
-					      	<div class="meta">
-					        	<code>\\hr\scanned\</code>
-					      	</div>
-					      	<div class="description">
-				        		Scan directly to HR
-				      		</div>
-				    	</div>
-				    	<div class="extra content">
-				      		<div>
-				        		<i class="users icon"></i> All users
-				      		</div>
-				    	</div>
-					    <!-- <div class="ui bottom attached button">
-					        <i class="edit icon"></i>
-					        Edit
-					      </div> -->
-				  	</div>
-
-				  	<div class="card">
-				    	<div class="content">
-				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
-					      	<div class="header">
-					        	Send to HR folder
-					      	</div>
-					      	<div class="meta">
-					        	<code>\\hr\scanned\</code>
-					      	</div>
-					      	<div class="description">
-				        		Scan directly to HR
-				      		</div>
-				    	</div>
-				    	<div class="extra content">
-				      		<div>
-				        		<i class="users icon"></i> All users
-				      		</div>
-				    	</div>
-					    <!-- <div class="ui bottom attached button">
-					        <i class="edit icon"></i>
-					        Edit
-					      </div> -->
-				  	</div>
-
-				  	<div class="card">
-				    	<div class="content">
-				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
-					      	<div class="header">
-					        	Send to HR folder
-					      	</div>
-					      	<div class="meta">
-					        	<code>\\hr\scanned\</code>
-					      	</div>
-					      	<div class="description">
-				        		Scan directly to HR
-				      		</div>
-				    	</div>
-				    	<div class="extra content">
-				      		<div>
-				        		<i class="users icon"></i> All users
-				      		</div>
-				    	</div>
-					    <!-- <div class="ui bottom attached button">
-					        <i class="edit icon"></i>
-					        Edit
-					      </div> -->
-				  	</div>
-
-				  	<div class="card">
-				    	<div class="content">
-				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
-					      	<div class="header">
-					        	Send to HR folder
-					      	</div>
-					      	<div class="meta">
-					        	<code>\\hr\scanned\</code>
-					      	</div>
-					      	<div class="description">
-				        		Scan directly to HR
-				      		</div>
-				    	</div>
-				    	<div class="extra content">
-				      		<div>
-				        		<i class="users icon"></i> All users
-				      		</div>
-				    	</div>
-					    <!-- <div class="ui bottom attached button">
-					        <i class="edit icon"></i>
-					        Edit
-					      </div> -->
-				  	</div>
-
-				  	<div class="card">
-				    	<div class="content">
 				      		<i class="right floated mail icon teal" style="font-size: 30px;"></i>
-				      		<div class="header">
-				        		Email to Account #888
+				      		<div class="header" style="white-space: nowrap;text-overflow: ellipsis; overflow: hidden;">
+				        		Email to Account #888 wokwowkwokwokwowkowkwokwowkwok
 				      		</div>
 				      		<div class="meta">
 				        		<code>888@papercut.com</code>

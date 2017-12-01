@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     // return view('Web.index');
-    return view('P.master');
+    return view('P.index');
 });
 
 // Route untuk hak akses SuperAdmin

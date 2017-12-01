@@ -1,0 +1,17 @@
+/*.ui.cards>.card {
+  cursor: pointer;
+}*/
+
+.ui.cards>.card:hover {
+  background-color: #efefef;
+}
+
+.ui.cards > .create-action.card:hover {
+  background-color: #fff;
+}
+
+.ui.cards > .card > .content > .header, .meta, .description {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

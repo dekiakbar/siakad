@@ -7,6 +7,7 @@
     <title>@yield('judul')</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/perpus/perpus.css') }}">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
@@ -61,7 +62,7 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-4 col-sm-3 col-md-2">
+			<div class="col-xs-12 col-sm-4 col-md-3">
 	        	<div class="ui card">
 	        		<div class="content">
 		        		<ul class="nav bs-sidenav">
@@ -89,100 +90,159 @@
 	        		</div>
 	        	</div>
 	        </div>
-	        <div class="col-xs-6 col-sm-6 col-md-8">
-	        	<div id="album">
-				  	<div class="ui piled compact segment">
-				  		<div class="floating ui red label">9</div>
-				    	<div class="ui card">
-				    		<div class="blurring dimmable image">
-								<div class="ui inverted dimmer">
-									<div class="content">
-										<div class="center">
-							            	<div class="ui red button view">VIEW</div>
-					   			    	</div>
-									</div>
-							   	</div>
-								<img src="http://mrg.bz/IxQIgC">
-							</div>
-							<div class="content">
-								<div id="rate" class="ui star rating right floated" data-rating="3"></div>
-								<div class="header">Animals</div>
-								<div class="meta">
-							    	<span class="date"><i class="calendar icon"></i>Created 7/27/2014</span>
-							    	<span class="right floated date"><i class="history icon"></i> Modified 8/4/2014</span>
-								</div>
-							  	<div class="description">
-							  		Different animals from around the world
-							  	</div>
-							</div>
-							<div  class="extra content" >
-								<div class="ui right labeled button" data-content="Like it!" data-variation="tiny">
-							    	<div class="ui red icon tiny button">
-							      		<i class="thumbs outline up large icon"></i>
-							    	</div>
-							    	<a class="ui basic red left pointing label">365</a>
-							  	</div>
-							  	<div class="ui left labeled right floated button" data-content="Share it!" data-variation="tiny">
-							    	<a class="ui basic red right pointing label">183</a>
-								    <div class="ui red icon tiny button">
-								      <i class="external share large icon"></i>
-								    </div>
-							  	</div>
-							</div>
+	        <div class="col-xs-12 col-sm-8 col-md-9">
+				<div class="ui cards">
+				  	<div class="card">
+				    	<div class="content">
+				      		<i class="right floated mail icon teal" style="font-size: 30px;"></i>
+				      		<div class="header">
+				        		Send to user email
+				      		</div>
+				      		<div class="meta">
+				        		<code>User email</code>
+				      		</div>
+				      		<div class="description">
+				        		A description about send to user email.
+				      		</div>
 				    	</div>
+				    	<div class="extra content">
+				      		<div>
+				        		<i class="users icon"></i> Staff, Students
+				      		</div>
+				      		<div>
+				        		<i class="user icon"></i> Kaylee Fryee
+				      		</div>
+				    	</div>
+				    <!-- <div class="ui bottom attached button">
+				        <i class="edit icon"></i>
+				        Edit
+				      </div> -->
+					</div>
+
+				  	<div class="card">
+				    	<div class="content">
+				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
+					      	<div class="header">
+					        	Send to HR folder
+					      	</div>
+					      	<div class="meta">
+					        	<code>\\hr\scanned\</code>
+					      	</div>
+					      	<div class="description">
+				        		Scan directly to HR
+				      		</div>
+				    	</div>
+				    	<div class="extra content">
+				      		<div>
+				        		<i class="users icon"></i> All users
+				      		</div>
+				    	</div>
+					    <!-- <div class="ui bottom attached button">
+					        <i class="edit icon"></i>
+					        Edit
+					      </div> -->
 				  	</div>
+
+				  	<div class="card">
+				    	<div class="content">
+				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
+					      	<div class="header">
+					        	Send to HR folder
+					      	</div>
+					      	<div class="meta">
+					        	<code>\\hr\scanned\</code>
+					      	</div>
+					      	<div class="description">
+				        		Scan directly to HR
+				      		</div>
+				    	</div>
+				    	<div class="extra content">
+				      		<div>
+				        		<i class="users icon"></i> All users
+				      		</div>
+				    	</div>
+					    <!-- <div class="ui bottom attached button">
+					        <i class="edit icon"></i>
+					        Edit
+					      </div> -->
+				  	</div>
+
+				  	<div class="card">
+				    	<div class="content">
+				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
+					      	<div class="header">
+					        	Send to HR folder
+					      	</div>
+					      	<div class="meta">
+					        	<code>\\hr\scanned\</code>
+					      	</div>
+					      	<div class="description">
+				        		Scan directly to HR
+				      		</div>
+				    	</div>
+				    	<div class="extra content">
+				      		<div>
+				        		<i class="users icon"></i> All users
+				      		</div>
+				    	</div>
+					    <!-- <div class="ui bottom attached button">
+					        <i class="edit icon"></i>
+					        Edit
+					      </div> -->
+				  	</div>
+
+				  	<div class="card">
+				    	<div class="content">
+				      		<i class="right floated folder icon teal" style="font-size: 30px;"></i>
+					      	<div class="header">
+					        	Send to HR folder
+					      	</div>
+					      	<div class="meta">
+					        	<code>\\hr\scanned\</code>
+					      	</div>
+					      	<div class="description">
+				        		Scan directly to HR
+				      		</div>
+				    	</div>
+				    	<div class="extra content">
+				      		<div>
+				        		<i class="users icon"></i> All users
+				      		</div>
+				    	</div>
+					    <!-- <div class="ui bottom attached button">
+					        <i class="edit icon"></i>
+					        Edit
+					      </div> -->
+				  	</div>
+
+				  	<div class="card">
+				    	<div class="content">
+				      		<i class="right floated mail icon teal" style="font-size: 30px;"></i>
+				      		<div class="header">
+				        		Email to Account #888
+				      		</div>
+				      		<div class="meta">
+				        		<code>888@papercut.com</code>
+				      		</div>
+				      		<div class="description">
+				        		Only to the Serenity crew
+				      		</div>
+				    	</div>
+				    	<div class="extra content">
+				      		<div style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%;">
+				        		<i class="user icon"></i> Malcolm Reynolds, River Tam, Kaylee Fryee, Inara Serra, Shepherd Book, Jaybe Cobb
+				      		</div>
+				    	</div>
+					    <!-- <div class="ui bottom attached button">
+					        <i class="edit icon"></i>
+					        Edit
+					      </div> -->
+				 	</div>
 				</div>
-	        </div>
-	        <div class="col-xs-4 col-sm-3 col-md-2">
-	        	<div class="ui card">
-	        		<div class="content">
-		        		<ul class="nav bs-sidenav">
-							<li class="dropdown">
-							  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdowns</a>
-							  <ul class="dropdown-menu">
-							    <li><a href="#dropdowns-example">Example</a></li>
-							    <li><a href="#dropdowns-alignment">Alignment options</a></li>
-							    <li><a href="#dropdowns-headers">Headers</a></li>
-							    <li><a href="#dropdowns-disabled">Disabled menu items</a></li>
-							  </ul>
-							</li>
-							<li>
-							  <a href="#btn-groups">Button groups</a>
-							  <ul class="nav">
-							    <li><a href="#btn-groups-single">Basic example</a></li>
-							    <li><a href="#btn-groups-toolbar">Button toolbar</a></li>
-							    <li><a href="#btn-groups-sizing">Sizing</a></li>
-							    <li><a href="#btn-groups-nested">Nesting</a></li>
-							    <li><a href="#btn-groups-vertical">Vertical variation</a></li>
-							    <li><a href="#btn-groups-justified">Justified link variation</a></li>
-							  </ul>
-							</li>    
-			            </ul>
-	        		</div>
-	        	</div>
 	        </div>
 		</div>
 	</div>
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
-	<script type="text/javascript">
-		$( document ).ready(function() {
-	  		$('.ui.card .image').dimmer({on: 'hover'});
-			$('.ui.rating').rating({maxRating: 5});
-			$('.ui.button').popup();
-
-			$('.button.view').on('click', (function() {			
-				$('#album').fadeOut('slow', function () {
-					$('#album_items').fadeIn('slow');
-				});
-			}));
-
-			$('.button.back').on('click', (function() {
-				$('#album_items').fadeOut('slow', function () {
-					$('#album').fadeIn('slow');
-				});
-			}));
-		});
-	</script>
 </body>
 </html>

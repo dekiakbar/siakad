@@ -65,9 +65,39 @@
 				    	</div>
 					</div>
 
-					<div class="ui longer modal detail">
-						
-					</div>
+					<div class="ui longer modal detail" style="top: 765px; display: block !important;">
+					    <div class="header">
+					      Profile Picture
+					    </div>
+					    <div class="scrolling image content">
+					    	<div class="ui medium image">
+					        	<img src="Modal%20|%20Semantic%20UI_files/image.png">
+					      	</div>
+					      	<div class="description">
+					        	<div class="ui header">Modal Header</div>
+					        	<p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>
+					        	<img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+						        <div class="ui divider"></div>
+						        <img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+						        <div class="ui divider"></div>
+						        <img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+						        <div class="ui divider"></div>
+						        <img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+						        <div class="ui divider"></div>
+						        <img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+						        <div class="ui divider"></div>
+						        <img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+						        <div class="ui divider"></div>
+						        <img class="ui wireframe image" src="Modal%20|%20Semantic%20UI_files/paragraph.png">
+					      	</div>
+					    </div>
+					    <div class="actions">
+					      	<div class="ui primary approve button">
+					        	Proceed
+					        	<i class="right chevron icon"></i>
+					      	</div>
+					    </div>
+				  	</div>
 
 				  	<div class="card">
 				    	<div class="content">

@@ -65,6 +65,10 @@
 		@yield('isi')
 	</div>
 
+	<footer>
+  		<span class="center">E-library 2017. All Rights Reserved</span>
+	</footer>
+
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/perpus/perpus.js') }}"></script>

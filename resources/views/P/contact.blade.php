@@ -27,9 +27,11 @@
 		  	</div>
 		  	<div class="field">
 		    	<label>Message</label>
-		    	<textarea></textarea>
+		    	<textarea rows="3"></textarea>
 		  	</div>
-		  	<button class="ui inverted blue button">Send</button>
+		  	<div class="field">
+		  		<button class="ui inverted blue button">Send</button>
+		  	</div>
 		</form>
 	</div>
 @endsection

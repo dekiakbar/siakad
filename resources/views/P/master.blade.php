@@ -65,9 +65,9 @@
 		@yield('isi')
 	</div>
 
-	<footer>
+	{{-- <footer>
   		<span class="center">E-library 2017. All Rights Reserved</span>
-	</footer>
+	</footer> --}}
 
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>

@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     // return view('Web.index');
-    return view('P.A.kategoriInsert');
+    return view('P.A.Insert');
 });
 
 // Route untuk hak akses SuperAdmin
@@ -84,10 +84,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('Web/GalleryInsert',['uses' => 'W\ProfController@storeGallery', 'as' => 'Gallery.store']);
 });
 
-	Route::get('P/Insert','P\PerpusController@Insert');
-	Route::post('P/Insert','P\PerpusController@tambahKat')->name('tambah.kategori');
+	Route::get('P/kategori','P\PerpusController@indexKat');
+	Route::get('P/kategori/Insert','P\PerpusController@Insert');
+	Route::post('P/kategori','P\PerpusController@tambahKat')->name('tambah.kategori');
 	Route::get('P/{id}/editKat','P\PerpusController@editKat');
 	Route::patch('P/kategori/{id}','P\PerpusController@updateKat');
+	Route::delete('P/kategori/{id}','P\PerpusController@hapusKat')->name('hapus.kategori');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

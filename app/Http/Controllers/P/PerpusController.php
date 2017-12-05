@@ -9,6 +9,11 @@ use App\p_kategori;
 
 class PerpusController extends Controller
 {
+	public function indexKat(Request $request){
+		$datas = p_kategori::paginate(10);
+		return view('P.A.indexKat',compact('datas'))->with('no',($request->input('page',1)-1)*10);
+	}
+
     public function Insert(){
     	return view ('P.A.Insert');
     }
@@ -26,27 +31,46 @@ class PerpusController extends Controller
     		session()->flash('pesan','Kategori gagal disimpan');
     	}
 
-    	return redirect('P/Insert');
+    	return redirect('P/kategori/Insert');
     }
 
     public function editKat($id){
 
-    	$data = p_kategori::find($id);
+    	$des = decrypt($id);
+    	$data = p_kategori::find($des);
     	return view('P.A.editKat',compact('data'));
     }
 
     public function updateKat(Request $request, $id){
-    	$update = p_kategori::find($id);
+
+    	$des = decrypt($id);
+    	$update = p_kategori::find($des);
     	$update->nama_kategori = $request->input('nama_kategori');
 
     	if ($update->save()) {
     		session()->flash('status','done_all');
-    		session()->flash('pesan','Kategori berhasil disimpan');
+    		session()->flash('pesan','Kategori berhasil diubah');
     	}else {
     		session()->flash('status','clear');
-    		session()->flash('pesan','Kategori gagal disimpan');
+    		session()->flash('pesan','Kategori gagal diubah');
     	}
 
-    	return redirect('P/Insert');
+    	return redirect('P/kategori');
+    }
+
+    public function hapusKat($id){
+    	
+    	$des = decrypt($id);
+    	$hapus = p_kategori::find($des);
+
+    	if ($hapus->delete()) {
+    		session()->flash('status','done_all');
+    		session()->flash('pesan','Kategori berhasil diubah');
+    	}else {
+    		session()->flash('status','clear');
+    		session()->flash('pesan','Kategori gagal diubah');
+    	}
+
+    	return redirect('P/kategori');
     }
 }

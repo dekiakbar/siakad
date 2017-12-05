@@ -63,7 +63,7 @@
 												<option value="Sabtu">Sabtu</option>
 												<option value="Minggu">Minggu</option>
 											</select>	
-											<label>Nama Hari :</label>					
+											<label>Nama Subkategori :</label>					
 										</div>
 									</div>
 									<div class="col s12 text-center">

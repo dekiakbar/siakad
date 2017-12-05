@@ -84,5 +84,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('Web/GalleryInsert',['uses' => 'W\ProfController@storeGallery', 'as' => 'Gallery.store']);
 });
 
+	Route::get('P/Insert','P\PerpusController@Insert');
+	Route::post('P/Insert','P\PerpusController@tambahKat')->name('tambah.kategori');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

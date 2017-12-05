@@ -86,6 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('P/Insert','P\PerpusController@Insert');
 	Route::post('P/Insert','P\PerpusController@tambahKat')->name('tambah.kategori');
+	Route::get('P/{id}/editKat','P\PerpusController@editKat');
+	Route::patch('P/kategori/{id}','P\PerpusController@updateKat');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
